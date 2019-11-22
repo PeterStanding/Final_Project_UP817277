@@ -49,11 +49,12 @@ public class homePage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ks1Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        javax.swing.JButton ks1GameButton = new javax.swing.JButton();
+        ks1GameButton = new javax.swing.JButton();
         easyDiff = new javax.swing.JToggleButton();
         mediumDiff = new javax.swing.JToggleButton();
         hardDiff = new javax.swing.JToggleButton();
         opChooser = new javax.swing.JComboBox<>();
+        ks1RevisionButton = new javax.swing.JButton();
         ks2Panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         profilePanel = new javax.swing.JPanel();
@@ -223,6 +224,14 @@ public class homePage extends javax.swing.JFrame {
 
         opChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Addition", "Subtraction", "Multiply", "Divide" }));
 
+        ks1RevisionButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        ks1RevisionButton.setText("Revision");
+        ks1RevisionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ks1RevisionButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ks1PanelLayout = new javax.swing.GroupLayout(ks1Panel);
         ks1Panel.setLayout(ks1PanelLayout);
         ks1PanelLayout.setHorizontalGroup(
@@ -230,9 +239,11 @@ public class homePage extends javax.swing.JFrame {
             .addGroup(ks1PanelLayout.createSequentialGroup()
                 .addGap(465, 465, 465)
                 .addComponent(jLabel2)
-                .addContainerGap(472, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks1PanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(ks1RevisionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks1PanelLayout.createSequentialGroup()
                         .addComponent(ks1GameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,8 +271,10 @@ public class homePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(hardDiff)
                 .addGap(18, 18, 18)
-                .addComponent(ks1GameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addGroup(ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ks1GameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ks1RevisionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLayeredPane2.add(ks1Panel);
@@ -320,7 +333,7 @@ public class homePage extends javax.swing.JFrame {
         sumScore.setText("sum score");
 
         avaChoice.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        avaChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Flowers", "Sun", "Star" }));
+        avaChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Flowers", "Sun", "Star", "Pencil" }));
 
         changeButton.setText("Change");
         changeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -473,58 +486,12 @@ public class homePage extends javax.swing.JFrame {
            icon = new ImageIcon("avatars/sun.png"); 
         } else if (currPic.equals("star")){
            icon = new ImageIcon("avatars/star.png"); 
+        } else if (currPic.equals("pencil")){
+           icon = new ImageIcon("avatars/pencil.png");
         }
         profAvatar.setIcon(icon);
                
     }//GEN-LAST:event_profileLabelMouseClicked
-
-    private void ks1GameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1GameButtonActionPerformed
-        if (easyDiff.isSelected()){
-            diff = "easy";
-            numQ = 12;
-        } 
-        if (mediumDiff.isSelected()){
-            diff = "medium";
-            numQ = 16;
-        }
-        if (hardDiff.isSelected()){
-            diff = "hard";
-            numQ = 20;
-        }
-        
-        String opSelected = (String)opChooser.getSelectedItem();
-        
-        if (opSelected.equals("Addition")){
-            operation = "+";
-        }
-        if (opSelected.equals("Subtraction")){
-            operation = "-";
-        }
-        if (opSelected.equals("Multiply")){
-            operation = "*";
-        }
-        if (opSelected.equals("Divide")){
-            operation = "/";
-        }
-               
-        //Generates the Canavs on a JFrame
-        gameOne.main(operation,numQ,diff);
-    }//GEN-LAST:event_ks1GameButtonActionPerformed
-
-    private void easyDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyDiffActionPerformed
-        mediumDiff.setSelected(false);
-        hardDiff.setSelected(false);
-    }//GEN-LAST:event_easyDiffActionPerformed
-
-    private void mediumDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumDiffActionPerformed
-        easyDiff.setSelected(false);
-        hardDiff.setSelected(false);
-    }//GEN-LAST:event_mediumDiffActionPerformed
-
-    private void hardDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardDiffActionPerformed
-        mediumDiff.setSelected(false);
-        easyDiff.setSelected(false);
-    }//GEN-LAST:event_hardDiffActionPerformed
 
     private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
@@ -546,7 +513,62 @@ public class homePage extends javax.swing.JFrame {
         if (av.equals("Star")){
             keyFunctions.writeFile("db/profile.txt","star",k);
         }
+        if (av.equals("Pencil")){
+            keyFunctions.writeFile("db/profile.txt","pencil",k);
+        }
     }//GEN-LAST:event_changeButtonActionPerformed
+
+    private void hardDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardDiffActionPerformed
+        mediumDiff.setSelected(false);
+        easyDiff.setSelected(false);
+    }//GEN-LAST:event_hardDiffActionPerformed
+
+    private void mediumDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumDiffActionPerformed
+        easyDiff.setSelected(false);
+        hardDiff.setSelected(false);
+    }//GEN-LAST:event_mediumDiffActionPerformed
+
+    private void easyDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyDiffActionPerformed
+        mediumDiff.setSelected(false);
+        hardDiff.setSelected(false);
+    }//GEN-LAST:event_easyDiffActionPerformed
+
+    private void ks1GameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1GameButtonActionPerformed
+        if (easyDiff.isSelected()){
+            diff = "easy";
+            numQ = 12;
+        }
+        if (mediumDiff.isSelected()){
+            diff = "medium";
+            numQ = 16;
+        }
+        if (hardDiff.isSelected()){
+            diff = "hard";
+            numQ = 20;
+        }
+
+        String opSelected = (String)opChooser.getSelectedItem();
+
+        if (opSelected.equals("Addition")){
+            operation = "+";
+        }
+        if (opSelected.equals("Subtraction")){
+            operation = "-";
+        }
+        if (opSelected.equals("Multiply")){
+            operation = "*";
+        }
+        if (opSelected.equals("Divide")){
+            operation = "/";
+        }
+
+        //Generates the Canavs on a JFrame
+        gameOne.main(operation,numQ,diff);
+    }//GEN-LAST:event_ks1GameButtonActionPerformed
+
+    private void ks1RevisionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1RevisionButtonActionPerformed
+        ks1Revision.main();
+    }//GEN-LAST:event_ks1RevisionButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -598,8 +620,10 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton ks1GameButton;
     private javax.swing.JLabel ks1Label;
     private javax.swing.JPanel ks1Panel;
+    private javax.swing.JButton ks1RevisionButton;
     private javax.swing.JLabel ks2Label;
     private javax.swing.JPanel ks2Panel;
     private javax.swing.JLabel logLabel;

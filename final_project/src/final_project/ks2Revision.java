@@ -5,12 +5,16 @@
  */
 package final_project;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author peter
  */
 public class ks2Revision extends javax.swing.JFrame {
-
+    private static ArrayList<Double> roundQuestions;
+    private static ArrayList<Double> roundAnswers;
+    private static ArrayList<String> rounding;
     /**
      * Creates new form KS1Revision
      */
@@ -46,6 +50,36 @@ public class ks2Revision extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        roundTest = new javax.swing.JPanel();
+        question2 = new javax.swing.JLabel();
+        question1 = new javax.swing.JLabel();
+        question3 = new javax.swing.JLabel();
+        question4 = new javax.swing.JLabel();
+        question5 = new javax.swing.JLabel();
+        question6 = new javax.swing.JLabel();
+        question7 = new javax.swing.JLabel();
+        question8 = new javax.swing.JLabel();
+        question9 = new javax.swing.JLabel();
+        question10 = new javax.swing.JLabel();
+        question11 = new javax.swing.JLabel();
+        question12 = new javax.swing.JLabel();
+        roundScore = new javax.swing.JLabel();
+        answer1 = new javax.swing.JTextField();
+        answer2 = new javax.swing.JTextField();
+        answer4 = new javax.swing.JTextField();
+        answer5 = new javax.swing.JTextField();
+        answer6 = new javax.swing.JTextField();
+        answer7 = new javax.swing.JTextField();
+        answer8 = new javax.swing.JTextField();
+        answer9 = new javax.swing.JTextField();
+        answer10 = new javax.swing.JTextField();
+        answer11 = new javax.swing.JTextField();
+        answer12 = new javax.swing.JTextField();
+        quizStart = new javax.swing.JButton();
+        checkScore = new javax.swing.JButton();
+        answer3 = new javax.swing.JTextField();
         algPanel = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -223,7 +257,7 @@ public class ks2Revision extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -232,21 +266,238 @@ public class ks2Revision extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 32)); // NOI18N
         jLabel2.setText("How To Round Decimal Numbers");
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("When we are rounding Decimal Numbers, the only number that we need to pay attention to is the number directly after the decimal point.\n\nSimilar to regular rounding, if the number is above or equal to 5 we round up. Otherwise we round down.");
+        jTextArea2.setWrapStyleWord(true);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        roundTest.setBackground(new java.awt.Color(204, 204, 255));
+
+        question2.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question2.setText("Question 2");
+
+        question1.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question1.setText("Question 1");
+
+        question3.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question3.setText("Question 3");
+
+        question4.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question4.setText("Question 4");
+
+        question5.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question5.setText("Question 5");
+
+        question6.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question6.setText("Question 6");
+
+        question7.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question7.setText("Question 7");
+
+        question8.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question8.setText("Question 8");
+
+        question9.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question9.setText("Question 9");
+
+        question10.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question10.setText("Question 10");
+
+        question11.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question11.setText("Question 11");
+
+        question12.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        question12.setText("Question 12");
+
+        roundScore.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        roundScore.setText("Score: 0/12");
+
+        answer1.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        answer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answer1ActionPerformed(evt);
+            }
+        });
+
+        answer2.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer4.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer5.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer6.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer7.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer8.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer9.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer10.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer11.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        answer12.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        quizStart.setText("Start quiz");
+        quizStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quizStartActionPerformed(evt);
+            }
+        });
+
+        checkScore.setText("Check Score");
+        checkScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkScoreActionPerformed(evt);
+            }
+        });
+
+        answer3.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+
+        javax.swing.GroupLayout roundTestLayout = new javax.swing.GroupLayout(roundTest);
+        roundTest.setLayout(roundTestLayout);
+        roundTestLayout.setHorizontalGroup(
+            roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundTestLayout.createSequentialGroup()
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roundTestLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(question1)
+                            .addComponent(question12)
+                            .addComponent(question2)
+                            .addComponent(question3)
+                            .addComponent(question4)
+                            .addComponent(question5)
+                            .addComponent(question6)
+                            .addComponent(question7)
+                            .addComponent(question8)
+                            .addComponent(question9)
+                            .addComponent(question10)
+                            .addComponent(question11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundTestLayout.createSequentialGroup()
+                        .addContainerGap(16, Short.MAX_VALUE)
+                        .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(quizStart, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkScore, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(roundScore)
+                    .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(answer12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addComponent(answer11, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer9, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer8, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer7, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer6, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(answer10, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(answer3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
+        roundTestLayout.setVerticalGroup(
+            roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundTestLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question1)
+                    .addComponent(answer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question2)
+                    .addComponent(answer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(roundTestLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(question3))
+                    .addGroup(roundTestLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(answer3)))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question4)
+                    .addComponent(answer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question5)
+                    .addComponent(answer5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question6)
+                    .addComponent(answer6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question7)
+                    .addComponent(answer7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question8)
+                    .addComponent(answer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question9)
+                    .addComponent(answer9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question10)
+                    .addComponent(answer10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question11)
+                    .addComponent(answer11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question12)
+                    .addComponent(answer12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(roundTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roundTestLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(roundScore)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundTestLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(quizStart, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkScore, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
+                .addGap(104, 104, 104)
                 .addComponent(jLabel2)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(roundTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(roundTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout roundPanelLayout = new javax.swing.GroupLayout(roundPanel);
@@ -256,7 +507,8 @@ public class ks2Revision extends javax.swing.JFrame {
             .addGroup(roundPanelLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         roundPanelLayout.setVerticalGroup(
             roundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,7 +548,7 @@ public class ks2Revision extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
+                .addContainerGap(482, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(58, 58, 58))
         );
@@ -315,7 +567,8 @@ public class ks2Revision extends javax.swing.JFrame {
             .addGroup(algPanelLayout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         algPanelLayout.setVerticalGroup(
             algPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,6 +833,106 @@ public class ks2Revision extends javax.swing.JFrame {
         fractionPanel.show();
     }//GEN-LAST:event_fractionLabelMouseClicked
 
+    private void answer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_answer1ActionPerformed
+
+    private void quizStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizStartActionPerformed
+        roundQuestions = new ArrayList<Double>();
+        roundAnswers = new ArrayList<Double>();
+        rounding = new ArrayList<String>();
+        
+        roundQuestions = ks2Functions.rounding();
+        for (int k=0; k<roundQuestions.size();k++){
+            double numAdd = Math.round(roundQuestions.get(k));
+            
+            String str = Double.toString(roundQuestions.get(k));
+            rounding.add(str);
+            roundAnswers.add(numAdd);
+        }
+        question1.setText(rounding.get(0));
+        question2.setText(rounding.get(1));
+        question3.setText(rounding.get(2));
+        question4.setText(rounding.get(3));
+        question5.setText(rounding.get(4));
+        question6.setText(rounding.get(5));
+        question7.setText(rounding.get(6));
+        question8.setText(rounding.get(7));
+        question9.setText(rounding.get(8));
+        question10.setText(rounding.get(9));
+        question11.setText(rounding.get(10));
+        question12.setText(rounding.get(11));
+    }//GEN-LAST:event_quizStartActionPerformed
+
+    private void checkScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkScoreActionPerformed
+        int score = 0;
+        String ans = "";
+        String str = "";
+        ans = answer1.getText();
+        str = Double.toString(roundAnswers.get(0));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer2.getText();
+        str = Double.toString(roundAnswers.get(1));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer3.getText();
+        str = Double.toString(roundAnswers.get(2));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer4.getText();
+        str = Double.toString(roundAnswers.get(3));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer5.getText();
+        str = Double.toString(roundAnswers.get(4));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer6.getText();
+        str = Double.toString(roundAnswers.get(5));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer7.getText();
+        str = Double.toString(roundAnswers.get(6));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer8.getText();
+        str = Double.toString(roundAnswers.get(7));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer9.getText();
+        str = Double.toString(roundAnswers.get(8));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer10.getText();
+        str = Double.toString(roundAnswers.get(9));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer11.getText();
+        str = Double.toString(roundAnswers.get(10));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        ans = answer12.getText();
+        str = Double.toString(roundAnswers.get(11));
+        if (ans.equals(str)){
+            score = score+1;
+        }
+        
+        String scoreString = Integer.toString(score);
+        roundScore.setText("Score: "+scoreString+"/12");
+    }//GEN-LAST:event_checkScoreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -607,7 +960,6 @@ public class ks2Revision extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -619,7 +971,20 @@ public class ks2Revision extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel algPanel;
     private javax.swing.JLabel algebraLabel;
+    private javax.swing.JTextField answer1;
+    private javax.swing.JTextField answer10;
+    private javax.swing.JTextField answer11;
+    private javax.swing.JTextField answer12;
+    private javax.swing.JTextField answer2;
+    private javax.swing.JTextField answer3;
+    private javax.swing.JTextField answer4;
+    private javax.swing.JTextField answer5;
+    private javax.swing.JTextField answer6;
+    private javax.swing.JTextField answer7;
+    private javax.swing.JTextField answer8;
+    private javax.swing.JTextField answer9;
     private javax.swing.JLabel backLabel;
+    private javax.swing.JButton checkScore;
     private javax.swing.JLabel fractionLabel;
     private javax.swing.JPanel fractionPanel;
     private javax.swing.JLabel jLabel1;
@@ -647,12 +1012,29 @@ public class ks2Revision extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JPanel percPanel;
     private javax.swing.JLabel percentageLabel;
+    private javax.swing.JLabel question1;
+    private javax.swing.JLabel question10;
+    private javax.swing.JLabel question11;
+    private javax.swing.JLabel question12;
+    private javax.swing.JLabel question2;
+    private javax.swing.JLabel question3;
+    private javax.swing.JLabel question4;
+    private javax.swing.JLabel question5;
+    private javax.swing.JLabel question6;
+    private javax.swing.JLabel question7;
+    private javax.swing.JLabel question8;
+    private javax.swing.JLabel question9;
+    private javax.swing.JButton quizStart;
     private javax.swing.JLabel ratioLabel;
     private javax.swing.JPanel ratioPanel;
     private javax.swing.JPanel roundPanel;
+    private javax.swing.JLabel roundScore;
+    private javax.swing.JPanel roundTest;
     private javax.swing.JLabel roundingLabel;
     private javax.swing.JPanel titlePanel;
     // End of variables declaration//GEN-END:variables

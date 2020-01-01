@@ -49,7 +49,7 @@ public class homePage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ks1Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        ks1GameButton = new javax.swing.JButton();
+        javax.swing.JButton ks1GameButton = new javax.swing.JButton();
         easyDiff = new javax.swing.JToggleButton();
         mediumDiff = new javax.swing.JToggleButton();
         hardDiff = new javax.swing.JToggleButton();
@@ -57,6 +57,12 @@ public class homePage extends javax.swing.JFrame {
         ks1RevisionButton = new javax.swing.JButton();
         ks2Panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        rev2Button = new javax.swing.JButton();
+        KS2Game = new javax.swing.JButton();
+        easyKS2 = new javax.swing.JToggleButton();
+        mediumKS2 = new javax.swing.JToggleButton();
+        hardKS2 = new javax.swing.JToggleButton();
+        skillChooser = new javax.swing.JComboBox<>();
         profilePanel = new javax.swing.JPanel();
         profileTitle = new javax.swing.JLabel();
         rocketScore = new javax.swing.JLabel();
@@ -176,7 +182,7 @@ public class homePage extends javax.swing.JFrame {
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addGap(362, 362, 362)
                 .addComponent(jLabel1)
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(492, Short.MAX_VALUE))
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,21 +290,90 @@ public class homePage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setText("KS2 Panel");
 
+        rev2Button.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        rev2Button.setText("Revision");
+        rev2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rev2ButtonActionPerformed(evt);
+            }
+        });
+
+        KS2Game.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        KS2Game.setText("Game");
+        KS2Game.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KS2GameActionPerformed(evt);
+            }
+        });
+
+        easyKS2.setText("Easy");
+        easyKS2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                easyKS2ActionPerformed(evt);
+            }
+        });
+
+        mediumKS2.setText("Medium");
+        mediumKS2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediumKS2ActionPerformed(evt);
+            }
+        });
+
+        hardKS2.setText("Hard");
+        hardKS2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hardKS2ActionPerformed(evt);
+            }
+        });
+
+        skillChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Addition", "Subtraction", "Multiplication", "Division", "Rounding", "Algebra", "Percentages", "Ratio", "Fraction" }));
+
         javax.swing.GroupLayout ks2PanelLayout = new javax.swing.GroupLayout(ks2Panel);
         ks2Panel.setLayout(ks2PanelLayout);
         ks2PanelLayout.setHorizontalGroup(
             ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ks2PanelLayout.createSequentialGroup()
-                .addGap(401, 401, 401)
-                .addComponent(jLabel3)
-                .addContainerGap(536, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks2PanelLayout.createSequentialGroup()
+                .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ks2PanelLayout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(rev2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(KS2Game, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ks2PanelLayout.createSequentialGroup()
+                        .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ks2PanelLayout.createSequentialGroup()
+                                .addGap(598, 598, 598)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks2PanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(skillChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)))
+                        .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(hardKS2)
+                            .addComponent(mediumKS2)
+                            .addComponent(easyKS2))))
+                .addGap(277, 277, 277))
         );
         ks2PanelLayout.setVerticalGroup(
             ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ks2PanelLayout.createSequentialGroup()
-                .addGap(276, 276, 276)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel3)
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(easyKS2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mediumKS2)
+                    .addComponent(skillChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hardKS2)
+                .addGap(38, 38, 38)
+                .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rev2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(KS2Game, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(249, 249, 249))
         );
 
         jLayeredPane2.add(ks2Panel);
@@ -378,7 +453,7 @@ public class homePage extends javax.swing.JFrame {
                     .addGroup(profilePanelLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(changeButton)))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         profilePanelLayout.setVerticalGroup(
             profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -570,6 +645,42 @@ public class homePage extends javax.swing.JFrame {
         ks1Revision.main();
     }//GEN-LAST:event_ks1RevisionButtonActionPerformed
 
+    private void rev2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rev2ButtonActionPerformed
+        ks2Revision.main();
+    }//GEN-LAST:event_rev2ButtonActionPerformed
+
+    private void KS2GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KS2GameActionPerformed
+        if (easyKS2.isSelected()){
+            diff = "easy";
+        }
+        if (mediumKS2.isSelected()){
+            diff = "medium";
+        }
+        if (hardKS2.isSelected()){
+            diff = "hard";
+        }
+        
+        String skillSelected = (String)skillChooser.getSelectedItem();
+
+        //Generates the Canavs on a JFrame
+        gameTwo.main(diff,skillSelected);
+    }//GEN-LAST:event_KS2GameActionPerformed
+
+    private void easyKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyKS2ActionPerformed
+        mediumKS2.setSelected(false);
+        hardKS2.setSelected(false);
+    }//GEN-LAST:event_easyKS2ActionPerformed
+
+    private void mediumKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumKS2ActionPerformed
+        easyKS2.setSelected(false);
+        hardKS2.setSelected(false);
+    }//GEN-LAST:event_mediumKS2ActionPerformed
+
+    private void hardKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardKS2ActionPerformed
+        mediumKS2.setSelected(false);
+        easyKS2.setSelected(false);
+    }//GEN-LAST:event_hardKS2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -606,10 +717,13 @@ public class homePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton KS2Game;
     private javax.swing.JComboBox<String> avaChoice;
     private javax.swing.JButton changeButton;
     private javax.swing.JToggleButton easyDiff;
+    private javax.swing.JToggleButton easyKS2;
     private javax.swing.JToggleButton hardDiff;
+    private javax.swing.JToggleButton hardKS2;
     private javax.swing.JLabel highRocket;
     private javax.swing.JLabel highSum;
     private javax.swing.JLabel homeLabel;
@@ -620,7 +734,6 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton ks1GameButton;
     private javax.swing.JLabel ks1Label;
     private javax.swing.JPanel ks1Panel;
     private javax.swing.JButton ks1RevisionButton;
@@ -628,6 +741,7 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JPanel ks2Panel;
     private javax.swing.JLabel logLabel;
     private javax.swing.JToggleButton mediumDiff;
+    private javax.swing.JToggleButton mediumKS2;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nameProfile;
     private javax.swing.JComboBox<String> opChooser;
@@ -635,9 +749,11 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel profileTitle;
+    private javax.swing.JButton rev2Button;
     private javax.swing.JLabel rocketScore;
     private javax.swing.JLabel schoolLabel;
     private javax.swing.JLabel schoolProfile;
+    private javax.swing.JComboBox<String> skillChooser;
     private javax.swing.JLabel sumScore;
     // End of variables declaration//GEN-END:variables
 }

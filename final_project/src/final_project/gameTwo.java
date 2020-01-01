@@ -29,27 +29,59 @@ import java.awt.event.*;
  */
 public class gameTwo extends Canvas {
     
-    public String diff;
+    private ArrayList<Integer> values;
+    private ArrayList<String> questions;
+    public String diff, skill;
     public Color red,green,blue;
     public int width, height;
     
-    public static void main(String difficulty){
+    public static void main(String difficulty, String sk){
         JFrame frame = new gameFrame();
-        Canvas canvas = new gameTwo(difficulty);
+        Canvas canvas = new gameTwo(difficulty,sk);
         canvas.setSize(1000,1000);
         frame.add(canvas);
         frame.pack();
         frame.setVisible(true);
     }
     
-    public gameTwo (String difficulty){
+    public gameTwo (String difficulty, String sk){
         diff = difficulty;
+        skill = sk;
         width = 1000;
         height = 1000;
+        values = new ArrayList<Integer>();
+        questions = new ArrayList<String>();
          //Colours
         red = new Color(255,0,0);
         blue = new Color(0,0,255);
         green = new Color(0,255,0);
+        if (skill.equals("Addition")){
+            questions = ks2Functions.generateQ(8,"+");
+        }
+        if (skill.equals("Subtraction")){
+            questions = ks2Functions.generateQ(8,"-");
+        }
+        if (skill.equals("Multiplication")){
+            questions = ks2Functions.generateQ(8,"*");
+        }
+        if (skill.equals("Division")){
+            questions = ks2Functions.generateQ(8,"/");
+        }
+        if (skill.equals("Rounding")){
+            questions = ks2Functions.generateQ(8,"^");
+        }
+        if (skill.equals("Algebra")){
+            questions = ks2Functions.generateQ(8,"Alg");
+        }
+        if (skill.equals("Percentages")){
+            questions = ks2Functions.generateQ(8,"%");
+        }
+        if (skill.equals("Ratio")){
+            questions = ks2Functions.generateQ(8,":");
+        }
+        if (skill.equals("Fraction")){
+            questions = ks2Functions.generateQ(8,"//");
+        }
     }
      
     public void paint(Graphics g){

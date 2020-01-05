@@ -34,13 +34,14 @@ public class gameTwo extends Canvas {
     private static ArrayList<String> questions;
     public static String diff, skill;
     public Color red,green,blue;
-    public static int width, height, buttonPressed, posLoc, active, qq;
+    public static int width, height, buttonPressed, posLoc, active, qq, score;
     public static JButton ans1,ans2,ans3,ans4;
     public static JLabel question;
     public static Boolean update;
+    public static JFrame frame;
     
     public static void main(String difficulty, String sk){
-        JFrame frame = new gameFrame();
+        frame = new gameFrame();
         Canvas canvas = new gameTwo(difficulty,sk);
         canvas.setSize(1000,1000);
         frame.add(canvas);
@@ -57,6 +58,7 @@ public class gameTwo extends Canvas {
         qq = 0;
         buttonPressed = 0;
         active = 0;
+        score = 0;
         update = false;
         values = new ArrayList<Integer>();
          //Colours
@@ -67,19 +69,19 @@ public class gameTwo extends Canvas {
         questions = new ArrayList<String>();
 
         if (skill.equals("Addition")){
-        questions = ks2Functions.generateQ(8,"+");
+        questions = ks2Functions.generateQ(10,"+");
         }
         if (skill.equals("Subtraction")){
-            questions = ks2Functions.generateQ(8,"-");
+            questions = ks2Functions.generateQ(10,"-");
         }
         if (skill.equals("Multiplication")){
-            questions = ks2Functions.generateQ(8,"*");
+            questions = ks2Functions.generateQ(10,"*");
         }
         if (skill.equals("Division")){
-            questions = ks2Functions.generateQ(8,"/");
+            questions = ks2Functions.generateQ(10,"/");
         }
         if (skill.equals("Rounding")){
-            questions = ks2Functions.generateQ(8,"^");
+            questions = ks2Functions.generateQ(10,"^");
         }/*
         if (skill.equals("Algebra")){
             questions = ks2Functions.generateQ(8,"Alg");
@@ -104,40 +106,50 @@ public class gameTwo extends Canvas {
     public void paint(Graphics g){
         drawBackground(g);
         drawRocket(g);
-        
+
         question.setText(questions.get(qq));
         if (positions.get(posLoc) == 1){
             ans1.setText(questions.get(qq+1));
-            ans2.setText("Wrong");
-            ans3.setText("Wrong");
-            ans4.setText("Wrong");
+
+            ans2.setText(questions.get(qq+1)+1);
+            ans3.setText(questions.get(qq));
+            ans4.setText(questions.get(qq+3));
         }
         if (positions.get(posLoc) == 2){
             ans2.setText(questions.get(qq+1));
-            ans1.setText("Wrong");
-            ans3.setText("Wrong");
-            ans4.setText("Wrong");
+            
+            ans1.setText(questions.get(qq+1)+1);
+            ans3.setText(questions.get(qq));
+            ans4.setText(questions.get(qq+3));
         }
         if (positions.get(posLoc) == 3){
             ans3.setText(questions.get(qq+1));
-            ans2.setText("Wrong");
-            ans1.setText("Wrong");
-            ans4.setText("Wrong");
+            
+            ans2.setText(questions.get(qq+1)+1);
+            ans1.setText(questions.get(qq));
+            ans4.setText(questions.get(qq+3));
         }
         if (positions.get(posLoc) == 4){
             ans4.setText(questions.get(qq+1));
-            ans2.setText("Wrong");
-            ans3.setText("Wrong");
-            ans1.setText("Wrong");
+            
+            ans2.setText(questions.get(qq+1)+1);
+            ans3.setText(questions.get(qq));
+            ans1.setText(questions.get(qq+3));
         }
         
         if (buttonPressed == positions.get(posLoc)){
             System.out.println("Correct");
             posLoc +=1;
             qq += 2;
+            score += 1;
+            System.out.print(score);
             if (posLoc == positions.size()||qq==questions.size()){
                 posLoc = 0;
                 qq = 0;
+            }
+            
+            if (score == 8){
+                frame.dispose();
             }
             repaint();
         } else {}
@@ -152,22 +164,7 @@ public class gameTwo extends Canvas {
         g.fillRect(0, 0, width, height);
     }
        
-    private static void clicked(){
-        while(update){
-            if (active == 1){
-                if (buttonPressed == positions.get(posLoc)){
-                    System.out.println("It Works");
-                    posLoc += 1;
-                } else {
-                    System.out.println("Wrong Button");
-                }
 
-                if (posLoc == 8){
-                    break;
-                }
-                active = 0;
-        }}
-    }
     
     private static class gameFrame extends JFrame{
         

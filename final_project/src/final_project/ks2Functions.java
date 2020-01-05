@@ -5,6 +5,7 @@
  */
 package final_project;
 import java.util.*;
+import java.lang.Math.*;
 /**
  *
  * @author Peter Standing - UP817277
@@ -23,6 +24,14 @@ public class ks2Functions extends keyFunctions{
         return roundQuestion;
     }
     
+    public static int randomRound(){
+        int max = 1000;
+        int min = 0;
+        int range = max-min+1;
+        
+        int randNum = (int)(Math.random()*range) + min;
+        return randNum;
+    }
     public static Double randomDecimal(){
         int max = 1000;
         int min = 0;
@@ -34,8 +43,7 @@ public class ks2Functions extends keyFunctions{
         
         return randDec;
         
-    }
-    
+    }    
     public static String randomFraction(){
         int denom = randomNumber();
         int numer = randomNumber();
@@ -50,7 +58,6 @@ public class ks2Functions extends keyFunctions{
         
         return fraction;
     }
-    
     public static int randomNumber(){
         int max = 10;
         int min = 0;
@@ -59,6 +66,16 @@ public class ks2Functions extends keyFunctions{
         int randNum = (int)(Math.random()*range) + min;
         
         return randNum;
+    }
+    public static int randomPosition(){
+        int max = 4;
+        int min = 1;
+        int range = max-min+1;
+        
+        int randNum = (int)(Math.random()*range) + min;
+        int pos = randNum;
+        
+        return pos;
     }
     
     public static ArrayList<String> generateQ(int num, String op){
@@ -81,14 +98,14 @@ public class ks2Functions extends keyFunctions{
         if (op.equals("^")||op.equals("Alg")||op.equals("%")||op.equals(":")||op.equals("//")){
             for (int i = 1; i <= num; i++){
                 String[] x = randomQuestions(op);
-
+                
                 bothList.add(x[0]);
                 bothList.add(x[1]);
         }}
         
         //System.out.print(questionList);
         //System.out.print(answerList);
-          
+        //System.out.print(bothList);
         return bothList;
                 
     }
@@ -100,11 +117,20 @@ public class ks2Functions extends keyFunctions{
         int part1 = randomNumber();
         int part2 = randomNumber();
         int ans = 0;
+        double roundAns = 0.0;
         
         if (op.equals("^")){
             //Round to Closest Whole Number
-            ans = part1 + part2;
+            roundAns = (randomDecimal());
+            double k = Math.round(roundAns);
+            
+            question = Double.toString(roundAns);
+            ansStr = Double.toString(k);
+            
+            //System.out.println(question);
+            //System.out.println(ansStr);
         }
+        /*
         else if (op.equals("Alg")){
             //Algebraic Formula - Find x
             ans = part1 - part2;
@@ -121,6 +147,7 @@ public class ks2Functions extends keyFunctions{
             //Fractions
             
         }
+*/
         
         String x[] = new String[2];
         x[0] = question;

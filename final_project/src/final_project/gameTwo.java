@@ -30,10 +30,14 @@ import java.awt.event.*;
 public class gameTwo extends Canvas {
     
     private ArrayList<Integer> values;
-    private ArrayList<String> questions;
-    public String diff, skill;
+    private static ArrayList<Integer> positions;
+    private static ArrayList<String> questions;
+    public static String diff, skill;
     public Color red,green,blue;
-    public int width, height;
+    public static int width, height, buttonPressed, posLoc, active, qq;
+    public static JButton ans1,ans2,ans3,ans4;
+    public static JLabel question;
+    public static Boolean update;
     
     public static void main(String difficulty, String sk){
         JFrame frame = new gameFrame();
@@ -49,14 +53,21 @@ public class gameTwo extends Canvas {
         skill = sk;
         width = 1000;
         height = 1000;
+        posLoc = 0;
+        qq = 0;
+        buttonPressed = 0;
+        active = 0;
+        update = false;
         values = new ArrayList<Integer>();
-        questions = new ArrayList<String>();
          //Colours
         red = new Color(255,0,0);
         blue = new Color(0,0,255);
         green = new Color(0,255,0);
+        positions = new ArrayList<Integer>();
+        questions = new ArrayList<String>();
+
         if (skill.equals("Addition")){
-            questions = ks2Functions.generateQ(8,"+");
+        questions = ks2Functions.generateQ(8,"+");
         }
         if (skill.equals("Subtraction")){
             questions = ks2Functions.generateQ(8,"-");
@@ -69,7 +80,7 @@ public class gameTwo extends Canvas {
         }
         if (skill.equals("Rounding")){
             questions = ks2Functions.generateQ(8,"^");
-        }
+        }/*
         if (skill.equals("Algebra")){
             questions = ks2Functions.generateQ(8,"Alg");
         }
@@ -81,12 +92,55 @@ public class gameTwo extends Canvas {
         }
         if (skill.equals("Fraction")){
             questions = ks2Functions.generateQ(8,"//");
+        }*/
+
+        for (int i = 0; i < 8; i++){
+            int pp = ks2Functions.randomPosition();
+            positions.add(pp);
         }
+        System.out.print(positions);               
     }
      
     public void paint(Graphics g){
         drawBackground(g);
-        drawRocket(g); 
+        drawRocket(g);
+        
+        question.setText(questions.get(qq));
+        if (positions.get(posLoc) == 1){
+            ans1.setText(questions.get(qq+1));
+            ans2.setText("Wrong");
+            ans3.setText("Wrong");
+            ans4.setText("Wrong");
+        }
+        if (positions.get(posLoc) == 2){
+            ans2.setText(questions.get(qq+1));
+            ans1.setText("Wrong");
+            ans3.setText("Wrong");
+            ans4.setText("Wrong");
+        }
+        if (positions.get(posLoc) == 3){
+            ans3.setText(questions.get(qq+1));
+            ans2.setText("Wrong");
+            ans1.setText("Wrong");
+            ans4.setText("Wrong");
+        }
+        if (positions.get(posLoc) == 4){
+            ans4.setText(questions.get(qq+1));
+            ans2.setText("Wrong");
+            ans3.setText("Wrong");
+            ans1.setText("Wrong");
+        }
+        
+        if (buttonPressed == positions.get(posLoc)){
+            System.out.println("Correct");
+            posLoc +=1;
+            qq += 2;
+            if (posLoc == positions.size()||qq==questions.size()){
+                posLoc = 0;
+                qq = 0;
+            }
+            repaint();
+        } else {}
     }
      
     private void drawRocket(Graphics g){
@@ -97,51 +151,70 @@ public class gameTwo extends Canvas {
         g.setColor(Color.CYAN);
         g.fillRect(0, 0, width, height);
     }
-        
+       
+    private static void clicked(){
+        while(update){
+            if (active == 1){
+                if (buttonPressed == positions.get(posLoc)){
+                    System.out.println("It Works");
+                    posLoc += 1;
+                } else {
+                    System.out.println("Wrong Button");
+                }
+
+                if (posLoc == 8){
+                    break;
+                }
+                active = 0;
+        }}
+    }
+    
     private static class gameFrame extends JFrame{
+        
         public gameFrame()
-        { 
+        {
             setLayout(new FlowLayout());
             setSize(1200,200);
             setResizable(false);
             setVisible(true);
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             
-            JButton ans1 = new JButton("Answer 1");
-            JButton ans2 = new JButton("Answer 2");
-            JButton ans3 = new JButton("Answer 3");
-            JButton ans4 = new JButton("Answer 4");
+            ans1 = new JButton("Answer 1");
+            ans2 = new JButton("Answer 2");
+            ans3 = new JButton("Answer 3");
+            ans4 = new JButton("Answer 4");
             JButton updateButton = new JButton("update");
-            JLabel question = new JLabel("Question",JLabel.CENTER);
+            question = new JLabel("Question",JLabel.CENTER);
             
             ans1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    question.setText("Answer 1");
+                    buttonPressed = 1;
+                    System.out.println("Button 1");
                 }
             });
             ans2.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    question.setText("Answer 2");
+                    buttonPressed = 2;
+                    System.out.println("Button 2");
                 }
             });
             ans3.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    question.setText("Answer 3");
+                    buttonPressed = 3;
+                    System.out.println("Button 3");
                 }
             });
             ans4.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    question.setText("Answer 4");
+                    buttonPressed = 4;
+                    System.out.println("Button 4");
                 }
             });
             updateButton.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    question.setText("It works");
+                    update = true;
                 }
             });
-
-            //ans1.setLocation(50,100);
-            //ans2.setLocation(50,400);
             
             JPanel panel = new JPanel();
             panel.setPreferredSize(new Dimension(450,1000));
@@ -164,9 +237,7 @@ public class gameTwo extends Canvas {
             panel.add(updateButton);
             panel.add(question);
             
-            
             this.getContentPane().add(panel);
-            
         } 
-    }
+    } 
 }

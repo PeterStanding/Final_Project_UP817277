@@ -78,6 +78,28 @@ public class ks2Functions extends keyFunctions{
         return pos;
     }
     
+    public static int HCF(int a, int b){
+        int x, i, hcf = 0;
+        
+        for(i = 1; i<=a || i<=b; i++){
+            if(a%i == 0 && b%i == 0){
+                hcf = i;
+        }}   
+        System.out.print(hcf);
+        return hcf;
+    }
+    public static int LCM(int a, int b){
+        int lowest = a * b / GCD(a,b);
+        System.out.print(lowest);
+        return lowest;
+    }
+    public static int GCD(int a, int b){
+        if (b == 0){
+            return a;
+        }
+        return GCD(b,a%b);
+    }
+    
     public static ArrayList<String> generateQ(int num, String op){
         //Calls the RandomQuestion from the KeyFunctions Class
         //Rounding      -> "^"
@@ -126,9 +148,6 @@ public class ks2Functions extends keyFunctions{
             
             question = Double.toString(roundAns);
             ansStr = Double.toString(k);
-            
-            //System.out.println(question);
-            //System.out.println(ansStr);
         }
         /*
         else if (op.equals("Alg")){
@@ -139,15 +158,22 @@ public class ks2Functions extends keyFunctions{
             //Precentages
             ans = part1 * part2;
         }
+        */
         else if (op.equals(":")){
             //Ratio
-            ans = part1 / part2;
+            int div = HCF(part1, part2);
+            int finalp1 = part1 % div;
+            int finalp2 = part2 % div;
+            
+            question = part1+":"+part2;
+            ansStr = finalp1+":"+finalp2;
         }
+        /*
         else if (op.equals("//")){
             //Fractions
             
         }
-*/
+        */
         
         String x[] = new String[2];
         x[0] = question;

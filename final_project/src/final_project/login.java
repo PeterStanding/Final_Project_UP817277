@@ -35,6 +35,8 @@ public class login extends javax.swing.JFrame {
     boolean nameCorr,passCorr,schoolCorr;
     ArrayList<String> passList;
     ArrayList<String> schoolList;
+    ArrayList<Double> test;
+    ArrayList<Double> test2;
     int i;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -202,7 +204,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_subButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        ks2Functions.HCF(12,16);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

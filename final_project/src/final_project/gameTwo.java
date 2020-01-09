@@ -82,7 +82,7 @@ public class gameTwo extends Canvas {
         }
         if (skill.equals("Rounding")){
             questions = ks2Functions.generateQ(10,"^");
-        }/*
+        }
         if (skill.equals("Algebra")){
             questions = ks2Functions.generateQ(8,"Alg");
         }
@@ -94,7 +94,7 @@ public class gameTwo extends Canvas {
         }
         if (skill.equals("Fraction")){
             questions = ks2Functions.generateQ(8,"//");
-        }*/
+        }
 
         for (int i = 0; i < 8; i++){
             int pp = ks2Functions.randomPosition();

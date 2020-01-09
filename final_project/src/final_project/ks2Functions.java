@@ -67,6 +67,15 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
+    public static int randomNumberAlg(){
+        int max = 10;
+        int min = 1;
+        int range = max-min+1;
+        
+        int randNum = (int)(Math.random()*range) + min;
+        
+        return randNum;
+    }
     public static int randomPosition(){
         int max = 4;
         int min = 1;
@@ -77,7 +86,7 @@ public class ks2Functions extends keyFunctions{
         
         return pos;
     }
-    
+        
     public static int HCF(int a, int b){
         int x, i, hcf = 0;
         
@@ -149,18 +158,56 @@ public class ks2Functions extends keyFunctions{
             question = Double.toString(roundAns);
             ansStr = Double.toString(k);
         }
-        /*
         else if (op.equals("Alg")){
-            //Algebraic Formula - Find x
-            ans = part1 - part2;
+            //Algebraic Formula - Find x/y
+            int coeff = randomNumberAlg();
+            int layout = randomNumber();
+            part1 = randomNumberAlg();
+            part2 = randomNumberAlg();
+            
+            if (layout < 3){
+                //?x = int
+                ans = part1 * coeff;
+                
+                question = coeff+"x = "+ ans;
+                ansStr = Integer.toString(part1);
+                
+            } else if (layout > 3 && layout <= 7){
+                //?x+num = int || ?x-num = int
+                if (layout == 4||layout == 5){
+                    ans = (part1 * coeff) + part2;
+                    
+                    question = coeff+"x + "+part2+" = "+ans;
+                    ansStr = Integer.toString(part1);
+                } else if (layout == 6||layout == 7){
+                    ans = (part1 * coeff) - part2;
+                    
+                    question = coeff+"x - "+part2+" = "+ans;
+                    ansStr = Integer.toString(part1);
+                }                
+            } else if (layout > 7 && layout <= 10){
+                //?x/num = int 
+                ans = (part1 * coeff)/part2;
+                
+                question = coeff+"x/"+part2+" = "+ ans;
+                ansStr = Integer.toString(part1);
+            } 
         }
         else if (op.equals("%")){
-            //Precentages
-            ans = part1 * part2;
+            //Precentages - Covert Fractiojn to Percentage
+            int div = HCF(part1, part2);
+            int finalp1 = part1 % div;
+            int finalp2 = part2 % div;
+            
+            int fract = finalp1/finalp2;
+            int perc = fract * 100;
+            
+            question = finalp1+"/"+finalp2;
+            ansStr = Integer.toString(perc);
+            
         }
-        */
         else if (op.equals(":")){
-            //Ratio
+            //Ratio - Simplifying
             int div = HCF(part1, part2);
             int finalp1 = part1 % div;
             int finalp2 = part2 % div;
@@ -168,12 +215,17 @@ public class ks2Functions extends keyFunctions{
             question = part1+":"+part2;
             ansStr = finalp1+":"+finalp2;
         }
-        /*
+
         else if (op.equals("//")){
-            //Fractions
+            //Fractions - Simplifying
+            int div = HCF(part1, part2);
+            int finalp1 = part1 % div;
+            int finalp2 = part2 % div;
+            
+            question = part1+"/"+part2;
+            ansStr = finalp1+"/"+finalp2;
             
         }
-        */
         
         String x[] = new String[2];
         x[0] = question;

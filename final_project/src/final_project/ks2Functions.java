@@ -140,7 +140,6 @@ public class ks2Functions extends keyFunctions{
         return bothList;
                 
     }
-  
     public static String[] randomQuestions(String op){
         String question = "";
         String ansStr = "";
@@ -194,7 +193,7 @@ public class ks2Functions extends keyFunctions{
             } 
         }
         else if (op.equals("%")){
-            //Precentages - Covert Fractiojn to Percentage
+            //Precentages - Covert Fraction to Percentage
             int div = HCF(part1, part2);
             int finalp1 = part1 % div;
             int finalp2 = part2 % div;
@@ -233,6 +232,5 @@ public class ks2Functions extends keyFunctions{
         
         return x;
     }
-
 }
  

@@ -33,7 +33,7 @@ public class gameTwo extends Canvas {
     private static ArrayList<Integer> positions;
     private static ArrayList<String> questions;
     public static String diff, skill;
-    public Color red,green,blue,gold,wood;
+    public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue;
     public static int width, height, buttonPressed, posLoc, active, qq, score, bg;
     public static int xRocket, yRocket;
     public static JButton ans1,ans2,ans3,ans4;
@@ -67,6 +67,9 @@ public class gameTwo extends Canvas {
         green = new Color(0,255,0);
         gold = new Color(184,169,59);
         wood = new Color(117,86,50);
+        skyBlue = new Color(111,185,227);
+        lightGray = new Color(227,227,227);
+        nightBlue = new Color(32,41,71);
 
         if (skill.equals("Addition")){
         questions = ks2Functions.generateQ(10,"+");
@@ -102,50 +105,45 @@ public class gameTwo extends Canvas {
         }
         
         //bg = ks2Functions.randomNumberAlg();
-        bg = 0;
+        bg = 4;
     }
      
     public void paint(Graphics g){
         //Selects the background based on and random number between 0 and 10
         if (bg <= 1){
             //Earth
-            Color bgColor = blue;
+            Color bgColor = nightBlue;
             drawEarth(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 1 && bg <= 3){
             //Mars
-            Color bgColor = blue;
-            drawMars(g);
-            drawRocket(g,xRocket,yRocket,Color.BLACK);
+            Color bgColor = Color.ORANGE;
+            drawMars(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 3 && bg <= 5){
             //Venus
             Color bgColor = blue;
-            drawVenus(g);
-            drawRocket(g,xRocket,yRocket,Color.BLACK);
+            drawVenus(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 5 && bg <= 7){
             //Pluto
             Color bgColor = blue;
-            drawPluto(g);
-            drawRocket(g,xRocket,yRocket,Color.BLACK);
+            drawPluto(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 7 && bg <= 9){
             //Neptune
             Color bgColor = blue;
-            drawNeptune(g);
-            drawRocket(g,xRocket,yRocket,Color.BLACK);
+            drawNeptune(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor);
             drawFuelGauge(g,score);
         } else if (bg == 10){
             //Golden City
             Color bgColor = gold;
-            drawGoldenCity(g);
-            drawRocket(g,xRocket,yRocket,Color.BLACK);
+            drawGoldenCity(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor);
             drawFuelGauge(g,score);
         }
@@ -201,7 +199,7 @@ public class gameTwo extends Canvas {
      
     private void drawRocket(Graphics g,int sX, int sY, Color clr){
         //Rocket Legs
-        g.setColor(Color.GRAY);
+        g.setColor(lightGray);
         g.fillOval(sX+180,sY+350,80,230);
         g.fillOval(sX+5,sY+350,80,230);
         
@@ -210,7 +208,7 @@ public class gameTwo extends Canvas {
         g.fillOval(sX+35,sY+450,90,180);
         
         //Rocket point
-        g.setColor(Color.GRAY);
+        g.setColor(lightGray);
         int xPoints[] = {sX+60,sX+130,sX+200};
         int yPoints[] = {sY+80,sY-70,sY+80};
         g.fillPolygon(xPoints,yPoints,3);
@@ -247,29 +245,72 @@ public class gameTwo extends Canvas {
                                     g.fillRect(739,910,60,65);
         }}}}}}}}        
     }
+    private void drawStar(Graphics g, int starX, int starY){
+        g.setColor(Color.WHITE);
+        int xPoints[] = {starX+60,starX+70,starX+80};
+        int yPoints[] = {starY+80,starY+70,starY+80};
+        int xPointsInv[] = {starX+60,starX+70,starX+80};
+        int yPointsInv[] = {starY+80,starY+90,starY+80};
+        g.fillPolygon(xPoints,yPoints,3);
+        g.fillPolygon(xPointsInv,yPointsInv,3);
+    }
+    private void drawMultiStar(Graphics g){  
+        int starX = 0;
+        int starY = 0;
+        for (int u = 0; u <= 15; u++){
+            for (int xx = 0; xx <=10; xx++){
+                drawStar(g,starX,starY);
+                starX += ks2Functions.randomNumber100();
+                if (starX >= 1000){
+                    starX = 0;
+                }
+            }
+            starY += ks2Functions.randomNumber100();
+            if (starY >= 1000){
+                starY = 0;
+            }  
+        }
+        
+    }
+    
     private void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
+        drawMultiStar(g);
+        g.setColor(Color.GRAY);
+        g.fillRect(0,350,30,700);
+        g.fillRect(30,500,125,400);
+        g.fillRect(155,600,125,400);
+        g.fillRect(755,525,300,700);
+        
+        g.fillRect(275,350,100,550);
+        g.fillRect(650,350,100,550);
+        g.fillRect(295,400,450,75);
     }
-    private void drawVenus(Graphics g){
-        g.setColor(Color.BLACK);
+    private void drawVenus(Graphics g,Color clr){
+        g.setColor(clr);
         g.fillRect(0, 0, width, height);
+        drawMultiStar(g);
     }
-    private void drawMars(Graphics g){
-        g.setColor(Color.BLACK);
+    private void drawMars(Graphics g, Color clr){
+        g.setColor(clr);
         g.fillRect(0, 0, width, height);
+        drawMultiStar(g);
     }
-    private void drawPluto(Graphics g){
-        g.setColor(Color.BLACK);
+    private void drawPluto(Graphics g, Color clr){
+        g.setColor(clr);
         g.fillRect(0, 0, width, height);
+        drawMultiStar(g);
     }
-    private void drawNeptune(Graphics g){
-        g.setColor(Color.BLACK);
+    private void drawNeptune(Graphics g, Color clr){
+        g.setColor(clr);
         g.fillRect(0, 0, width, height);
+        drawMultiStar(g);
     }
-    private void drawGoldenCity(Graphics g){
-        g.setColor(Color.BLACK);
+    private void drawGoldenCity(Graphics g, Color clr){
+        g.setColor(clr);
         g.fillRect(0, 0, width, height);
+        drawMultiStar(g);
     }
        
 

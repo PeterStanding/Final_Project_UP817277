@@ -86,6 +86,15 @@ public class ks2Functions extends keyFunctions{
         
         return pos;
     }
+    public static int randomNumber100(){
+        int max = 100;
+        int min = 0;
+        int range = max-min+1;
+        
+        int randNum = (int)(Math.random()*range) + min;
+        
+        return randNum;
+    }
         
     public static int HCF(int a, int b){
         int x, i, hcf = 0;

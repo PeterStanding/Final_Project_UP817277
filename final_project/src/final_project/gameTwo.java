@@ -34,7 +34,7 @@ public class gameTwo extends Canvas {
     private static ArrayList<String> questions;
     public static String diff, skill;
     public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
-    public Color darkOrange,orangeShade,martianGreen,goldBuild,silver;
+    public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
     public static int width, height, buttonPressed, posLoc, active, qq, score, bg;
     public static int xRocket, yRocket;
     public static JButton ans1,ans2,ans3,ans4;
@@ -67,7 +67,7 @@ public class gameTwo extends Canvas {
         blue = new Color(0,0,255);
         green = new Color(0,255,0);
         gold = new Color(184,169,59);
-        goldBuild = new Color(107,75,0);
+        goldBuild = new Color(128,89,0);
         wood = new Color(117,86,50);
         skyBlue = new Color(111,185,227);
         lightGray = new Color(227,227,227);
@@ -77,6 +77,7 @@ public class gameTwo extends Canvas {
         orangeShade= new Color(89,33,1);
         martianGreen = new Color(0,112,6);
         silver = new Color(153,153,153);
+        lightBlue = new Color(117,255,255);
 
         if (skill.equals("Addition")){
         questions = ks2Functions.generateQ(10,"+");
@@ -297,10 +298,9 @@ public class gameTwo extends Canvas {
     }
     private void drawMoon(Graphics g, Color bg){
         g.setColor(silver);
-        g.fillOval(100,10,100,100);
+        g.fillOval(700,10,100,100);
         g.setColor(bg);
-        g.fillOval(140,10,75,100);
-        //g.fillOval(100,50,50,50);
+        g.fillOval(740,10,75,100);
     }
     
     private void drawEarth(Graphics g,Color clr){
@@ -361,6 +361,23 @@ public class gameTwo extends Canvas {
         g.fillRect(0, 0, width, height);
         drawMoon(g,clr);
         g.setColor(goldBuild);
+        g.fillOval(-300,150,450,500);
+        g.fillOval(90,550,100,200);
+        g.setColor(clr);
+        g.fillOval(-250,150,355,500);
+        g.fillOval(90,560,80,180);
+        g.setColor(goldBuild);
+        g.fillRect(10,150,35,800);
+        g.fillRect(100,550,35,800);
+        g.fillRect(800,600,100,300);
+        g.fillRect(900,400,100,600);
+        int xPoints[] = {750,900,900};
+        int yPoints[] = {600,400,600};
+        g.fillPolygon(xPoints,yPoints,3);
+        
+        g.setColor(Color.yellow);
+        g.fillRect(850,600,50,50);
+       
     }
        
 

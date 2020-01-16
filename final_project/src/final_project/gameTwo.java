@@ -33,7 +33,8 @@ public class gameTwo extends Canvas {
     private static ArrayList<Integer> positions;
     private static ArrayList<String> questions;
     public static String diff, skill;
-    public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue;
+    public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
+    public Color darkOrange,orangeShade,martianGreen,goldBuild,silver;
     public static int width, height, buttonPressed, posLoc, active, qq, score, bg;
     public static int xRocket, yRocket;
     public static JButton ans1,ans2,ans3,ans4;
@@ -66,10 +67,16 @@ public class gameTwo extends Canvas {
         blue = new Color(0,0,255);
         green = new Color(0,255,0);
         gold = new Color(184,169,59);
+        goldBuild = new Color(107,75,0);
         wood = new Color(117,86,50);
         skyBlue = new Color(111,185,227);
         lightGray = new Color(227,227,227);
         nightBlue = new Color(32,41,71);
+        mars = new Color(156,78,5);
+        darkOrange = new Color(200,103,28);
+        orangeShade= new Color(89,33,1);
+        martianGreen = new Color(0,112,6);
+        silver = new Color(153,153,153);
 
         if (skill.equals("Addition")){
         questions = ks2Functions.generateQ(10,"+");
@@ -105,7 +112,7 @@ public class gameTwo extends Canvas {
         }
         
         //bg = ks2Functions.randomNumberAlg();
-        bg = 4;
+        bg = 10;
     }
      
     public void paint(Graphics g){
@@ -114,37 +121,37 @@ public class gameTwo extends Canvas {
             //Earth
             Color bgColor = nightBlue;
             drawEarth(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor);
+            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 1 && bg <= 3){
             //Mars
-            Color bgColor = Color.ORANGE;
+            Color bgColor = mars;
             drawMars(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor);
+            drawRocket(g,xRocket,yRocket,orangeShade,orangeShade);
             drawFuelGauge(g,score);
         } else if (bg > 3 && bg <= 5){
             //Venus
             Color bgColor = blue;
             drawVenus(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor);
+            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 5 && bg <= 7){
             //Pluto
             Color bgColor = blue;
             drawPluto(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor);
+            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 7 && bg <= 9){
             //Neptune
             Color bgColor = blue;
             drawNeptune(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor);
+            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         } else if (bg == 10){
             //Golden City
             Color bgColor = gold;
             drawGoldenCity(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor);
+            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         }
                 
@@ -197,7 +204,7 @@ public class gameTwo extends Canvas {
         } else {}
     }
      
-    private void drawRocket(Graphics g,int sX, int sY, Color clr){
+    private void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
         //Rocket Legs
         g.setColor(lightGray);
         g.fillOval(sX+180,sY+350,80,230);
@@ -205,6 +212,7 @@ public class gameTwo extends Canvas {
         
         g.setColor(clr);
         g.fillOval(sX+145,sY+450,90,180);
+        g.setColor(des);
         g.fillOval(sX+35,sY+450,90,180);
         
         //Rocket point
@@ -216,6 +224,14 @@ public class gameTwo extends Canvas {
         //Rocket Body
         g.setColor(green);
         g.fillOval(sX+20,sY+20,220,480);
+        if (clr.equals(orangeShade)){
+            int marX = 0;
+            int marY = 829;
+            for (int mar = 0; mar <= 15; mar++){
+                drawMartian(g, marX, marY);
+                int change = ks2Functions.randomNumber100();
+                marX += change;
+        }}
     }
     private void drawFuelGauge(Graphics g, int sc){
         g.setColor(wood);
@@ -272,6 +288,20 @@ public class gameTwo extends Canvas {
         }
         
     }
+    private void drawMartian(Graphics g, int marX, int marY){
+        g.setColor(martianGreen);
+        g.fillOval(marX+10,marY+10,25,25);
+        g.fillOval(marX+15,marY+15,15,50);
+        g.fillOval(marX-3,marY+55,50,10);
+        g.fillOval(marX+7,marY+35,30,10);
+    }
+    private void drawMoon(Graphics g, Color bg){
+        g.setColor(silver);
+        g.fillOval(100,10,100,100);
+        g.setColor(bg);
+        g.fillOval(140,10,75,100);
+        //g.fillOval(100,50,50,50);
+    }
     
     private void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
@@ -287,12 +317,31 @@ public class gameTwo extends Canvas {
         g.fillRect(650,350,100,550);
         g.fillRect(295,400,450,75);
     }
-    private void drawVenus(Graphics g,Color clr){
+    private void drawMars(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
+        
+        g.setColor(orangeShade);
+        g.fillOval(20,550,500,600);
+        g.fillOval(300,350,500,1100);
+        g.fillOval(800,850,100,100);
+        g.fillOval(900,750,100,200);
+        
+        g.setColor(darkOrange);
+        g.fillOval(100,650,75,75);
+        g.fillOval(220,850,75,75);
+        g.fillOval(275,725,75,75);
+        g.fillOval(365,500,75,75);
+        g.fillOval(550,600,75,75);
+        g.fillOval(600,450,75,75);
+        g.fillOval(625,820,75,75);
+        g.fillOval(810,875,50,50);
+        g.fillOval(900,850,25,25);
+        g.fillOval(925,755,25,25);
+        g.fillOval(950,800,25,25);
     }
-    private void drawMars(Graphics g, Color clr){
+    private void drawVenus(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
@@ -310,7 +359,8 @@ public class gameTwo extends Canvas {
     private void drawGoldenCity(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
-        drawMultiStar(g);
+        drawMoon(g,clr);
+        g.setColor(goldBuild);
     }
        
 

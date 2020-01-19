@@ -35,6 +35,7 @@ public class gameTwo extends Canvas {
     public static String diff, skill;
     public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
     public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
+    public Color pluto,venus,neptune,brown,nepBuild;
     public static int width, height, buttonPressed, posLoc, active, qq, score, bg;
     public static int xRocket, yRocket;
     public static JButton ans1,ans2,ans3,ans4;
@@ -78,7 +79,12 @@ public class gameTwo extends Canvas {
         martianGreen = new Color(0,112,6);
         silver = new Color(153,153,153);
         lightBlue = new Color(117,255,255);
-
+        pluto = new Color(49,0,89);
+        neptune = new Color(38,38,84);
+        venus = new Color(237,142,74);
+        brown = new Color(82,44,14);
+        nepBuild = new Color(83,29,145);
+        
         if (skill.equals("Addition")){
         questions = ks2Functions.generateQ(10,"+");
         }
@@ -113,7 +119,7 @@ public class gameTwo extends Canvas {
         }
         
         //bg = ks2Functions.randomNumberAlg();
-        bg = 10;
+        bg = 8;
     }
      
     public void paint(Graphics g){
@@ -132,19 +138,19 @@ public class gameTwo extends Canvas {
             drawFuelGauge(g,score);
         } else if (bg > 3 && bg <= 5){
             //Venus
-            Color bgColor = blue;
+            Color bgColor = venus;
             drawVenus(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 5 && bg <= 7){
             //Pluto
-            Color bgColor = blue;
+            Color bgColor = pluto;
             drawPluto(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
         } else if (bg > 7 && bg <= 9){
             //Neptune
-            Color bgColor = blue;
+            Color bgColor = neptune;
             drawNeptune(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
@@ -225,7 +231,16 @@ public class gameTwo extends Canvas {
         //Rocket Body
         g.setColor(green);
         g.fillOval(sX+20,sY+20,220,480);
+        
+        //Martians For Mars and Neptune
         if (clr.equals(orangeShade)){
+            int marX = 0;
+            int marY = 829;
+            for (int mar = 0; mar <= 15; mar++){
+                drawMartian(g, marX, marY);
+                int change = ks2Functions.randomNumber100();
+                marX += change;
+        }} else if (clr.equals(neptune)){
             int marX = 0;
             int marY = 829;
             for (int mar = 0; mar <= 15; mar++){
@@ -302,6 +317,16 @@ public class gameTwo extends Canvas {
         g.setColor(bg);
         g.fillOval(740,10,75,100);
     }
+    private void drawAsteroid(Graphics g, int astX, int astY){
+        //Asteroid
+        g.setColor(brown);
+        g.fillOval(astX+100,astY+400,75,75);
+        g.setColor(Color.BLACK);
+        g.fillOval(astX+110,astY+420,20,20);
+        g.fillOval(astX+150,astY+460,10,10);
+        g.fillOval(astX+165,astY+440,10,10);
+        g.fillOval(astX+135,astY+450,10,10);
+    }
     
     private void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
@@ -345,16 +370,53 @@ public class gameTwo extends Canvas {
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
+        drawMoon(g,clr);
+        drawAsteroid(g,0,0);
+        drawAsteroid(g,300,150);
+        drawAsteroid(g,150,350);
+        drawAsteroid(g,800,100);
+        drawAsteroid(g,200,200);
+        drawAsteroid(g,500,300);
+        drawAsteroid(g,700,400);
+        drawAsteroid(g,650,250);
+        drawAsteroid(g,-50,300);
     }
     private void drawPluto(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
+        g.setColor(Color.GRAY);
+        g.fillOval(0,750,100,400);
+        g.fillOval(300,750,100,400);
+        g.fillOval(100,550,200,500);
+        g.setColor(Color.BLACK);
+        g.fillOval(125,750,40,250);
+        g.fillOval(230,750,40,250);
+        g.fillOval(25,800,50,500);
+        g.fillOval(325,800,50,500);
+        g.setColor(Color.DARK_GRAY);
+        g.fillOval(0,850,400,100);
+        g.setColor(wood);
+        g.fillOval(750,700,100,400);
+        g.setColor(brown);
+        g.fillOval(700,850,100,100);
+        g.fillOval(825,750,100,300);
     }
     private void drawNeptune(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
+        drawMoon(g,clr);
+        g.setColor(nepBuild);
+        g.fillRect(100,700,250,300);
+        g.fillOval(100,650,250,250);
+        g.fillRect(700,700,250,300);
+        g.fillOval(700,650,250,250);
+        g.setColor(Color.BLACK);
+        g.fillRect(175,800,45,300);
+        g.fillOval(175,780,45,50);
+        g.fillRect(775,800,45,300);
+        g.fillOval(775,780,45,50);
     }
     private void drawGoldenCity(Graphics g, Color clr){
         g.setColor(clr);

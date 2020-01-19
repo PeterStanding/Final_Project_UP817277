@@ -35,7 +35,7 @@ public class gameTwo extends Canvas {
     public static String diff, skill;
     public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
     public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
-    public Color pluto,venus,neptune,brown,nepBuild;
+    public Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin;
     public static int width, height, buttonPressed, posLoc, active, qq, score, bg;
     public static int xRocket, yRocket;
     public static JButton ans1,ans2,ans3,ans4;
@@ -84,6 +84,8 @@ public class gameTwo extends Canvas {
         venus = new Color(237,142,74);
         brown = new Color(82,44,14);
         nepBuild = new Color(83,29,145);
+        rocketBody = new Color(130,18,18);
+        rocketWin= new Color(1,120,122);
         
         if (skill.equals("Addition")){
         questions = ks2Functions.generateQ(10,"+");
@@ -118,8 +120,7 @@ public class gameTwo extends Canvas {
             positions.add(pp);
         }
         
-        //bg = ks2Functions.randomNumberAlg();
-        bg = 8;
+        bg = ks2Functions.randomNumberAlg();
     }
      
     public void paint(Graphics g){
@@ -229,8 +230,21 @@ public class gameTwo extends Canvas {
         g.fillPolygon(xPoints,yPoints,3);
         
         //Rocket Body
-        g.setColor(green);
+        g.setColor(rocketBody);
         g.fillOval(sX+20,sY+20,220,480);
+        g.setColor(Color.GRAY);
+        g.fillOval(sX+80,sY+60,100,100);
+        g.setColor(rocketWin);
+        g.fillOval(sX+88,sY+68,85,85);
+        g.setColor(Color.DARK_GRAY);
+        g.fillOval(sX+127,sY+61,7,7);
+        g.fillOval(sX+127,sY+152,7,7);
+        g.fillOval(sX+172,sY+106,7,7);
+        g.fillOval(sX+81,sY+106,7,7);
+        g.fillOval(sX+94,sY+74,7,7);
+        g.fillOval(sX+94,sY+139,7,7);
+        g.fillOval(sX+159,sY+139,7,7);
+        g.fillOval(sX+159,sY+74,7,7);
         
         //Martians For Mars and Neptune
         if (clr.equals(orangeShade)){

@@ -36,12 +36,12 @@ public class gameTwo extends Canvas {
     public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
     public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
     public Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin;
-    public static int width, height, buttonPressed, posLoc, active, qq, score, bg;
-    public static int xRocket, yRocket;
-    public static JButton ans1,ans2,ans3,ans4;
-    public static JLabel question;
-    public static Boolean update;
-    public static JFrame frame;
+    public static int width, height, buttonPressed, posLoc,qq, score, bg;
+    public static int xRocket, yRocket,levelInc;
+    public static JButton ans1,ans2,ans3,ans4,closeTab;
+    public static JLabel question,scoreRocket,level;
+    public static Boolean update,active;
+    public static JFrame frame,newLevel;
     
     public static void main(String difficulty, String sk){
         frame = new gameFrame();
@@ -55,10 +55,11 @@ public class gameTwo extends Canvas {
         diff = difficulty;
         skill = sk;
         width = height = 1000;
-        posLoc = qq = bg = buttonPressed = active = score = 0;
+        posLoc = qq = bg = buttonPressed = score = levelInc = 0;
         xRocket = 380;
         yRocket = 312;
         update = false;
+        active = true;
         
         values = new ArrayList<Integer>();
         positions = new ArrayList<Integer>();
@@ -88,31 +89,31 @@ public class gameTwo extends Canvas {
         rocketWin= new Color(1,120,122);
         
         if (skill.equals("Addition")){
-        questions = ks2Functions.generateQ(10,"+");
+        questions = ks2Functions.generateQ(12,"+");
         }
         if (skill.equals("Subtraction")){
-            questions = ks2Functions.generateQ(10,"-");
+            questions = ks2Functions.generateQ(12,"-");
         }
         if (skill.equals("Multiplication")){
-            questions = ks2Functions.generateQ(10,"*");
+            questions = ks2Functions.generateQ(12,"*");
         }
         if (skill.equals("Division")){
-            questions = ks2Functions.generateQ(10,"/");
+            questions = ks2Functions.generateQ(12,"/");
         }
         if (skill.equals("Rounding")){
-            questions = ks2Functions.generateQ(10,"^");
+            questions = ks2Functions.generateQ(12,"^");
         }
         if (skill.equals("Algebra")){
-            questions = ks2Functions.generateQ(8,"Alg");
+            questions = ks2Functions.generateQ(12,"Alg");
         }
         if (skill.equals("Percentages")){
-            questions = ks2Functions.generateQ(8,"%");
+            questions = ks2Functions.generateQ(12,"%");
         }
         if (skill.equals("Ratio")){
-            questions = ks2Functions.generateQ(8,":");
+            questions = ks2Functions.generateQ(12,":");
         }
         if (skill.equals("Fraction")){
-            questions = ks2Functions.generateQ(8,"//");
+            questions = ks2Functions.generateQ(12,"//");
         }
 
         for (int i = 0; i < 8; i++){
@@ -168,50 +169,58 @@ public class gameTwo extends Canvas {
             ans1.setText(questions.get(qq+1));
 
             ans2.setText(questions.get(qq+1)+1);
-            ans3.setText(questions.get(qq));
+            ans3.setText("None Of Them");
             ans4.setText(questions.get(qq+3));
         }
         if (positions.get(posLoc) == 2){
             ans2.setText(questions.get(qq+1));
             
             ans1.setText(questions.get(qq+1)+1);
-            ans3.setText(questions.get(qq));
+            ans3.setText("None Of Them");
             ans4.setText(questions.get(qq+3));
         }
         if (positions.get(posLoc) == 3){
             ans3.setText(questions.get(qq+1));
             
             ans2.setText(questions.get(qq+1)+1);
-            ans1.setText(questions.get(qq));
+            ans1.setText("None Of Them");
             ans4.setText(questions.get(qq+3));
         }
         if (positions.get(posLoc) == 4){
             ans4.setText(questions.get(qq+1));
             
             ans2.setText(questions.get(qq+1)+1);
-            ans3.setText(questions.get(qq));
+            ans3.setText("None Of Them");
             ans1.setText(questions.get(qq+3));
         }
         
+        //If Correct Answer
         if (buttonPressed == positions.get(posLoc)){
             //System.out.println("Correct");
             posLoc +=1;
             qq += 2;
             score += 1;
+            scoreRocket.setText(Integer.toString(score)+" / 8");
             //System.out.print(score);
             if (posLoc == positions.size()||qq==questions.size()){
                 posLoc = 0;
                 qq = 0;
             }
             
+            //When Gauge is Full
             if (score == 8){
-                bg = ks2Functions.randomNumberAlg();
                 //frame.dispose();
+                levelInc += 1;
+                newLevel = new levelUp();
+                newLevel.pack();
+                newLevel.setVisible(true);
+                score = 0;
+                bg = ks2Functions.randomNumberAlg();
             }
             repaint();
         } else {}
     }
-     
+    
     private void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
         //Rocket Legs
         g.setColor(lightGray);
@@ -474,6 +483,7 @@ public class gameTwo extends Canvas {
             ans4 = new JButton("Answer 4");
             JButton updateButton = new JButton("update");
             question = new JLabel("Question",JLabel.CENTER);
+            scoreRocket = new JLabel("Score",JLabel.CENTER);
             
             ans1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
@@ -513,6 +523,10 @@ public class gameTwo extends Canvas {
             question.setLocation(50,125);
             question.setSize(375,42);
             
+            scoreRocket.setFont(new Font("Serif",Font.BOLD,30));
+            scoreRocket.setLocation(150,470);
+            scoreRocket.setSize(375,42);
+            
             ans1.setBounds(50,200,150,75);
             ans2.setBounds(275,200,150,75);
             ans3.setBounds(50,300,150,75);
@@ -525,6 +539,44 @@ public class gameTwo extends Canvas {
             panel.add(ans4);
             panel.add(updateButton);
             panel.add(question);
+            panel.add(scoreRocket);
+            
+            this.getContentPane().add(panel);
+        } 
+    } 
+    private static class levelUp extends JFrame{
+        
+        public levelUp()
+        {
+            setLayout(new FlowLayout());
+            setSize(1200,200);
+            setResizable(false);
+            setVisible(true);
+            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+            
+            closeTab = new JButton("Close Tab");
+            String levelNum = Integer.toString(levelInc);
+            level = new JLabel("Congratulations, You Passed Level "+levelNum,JLabel.CENTER);
+
+            closeTab.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    active = false;
+                    newLevel.dispose();
+                }
+            });
+            
+            JPanel panel = new JPanel();
+            panel.setPreferredSize(new Dimension(500,300));
+            panel.setLayout(null);
+            
+            level.setFont(new Font("Serif",Font.BOLD,24));
+            level.setLocation(50,30);
+            level.setSize(375,42);
+            
+            closeTab.setBounds(180,150,150,75);
+
+            panel.add(closeTab);
+            panel.add(level);
             
             this.getContentPane().add(panel);
         } 

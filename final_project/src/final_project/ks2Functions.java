@@ -67,6 +67,15 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
+     public static int randomNumberRatio(){
+        int max = 10;
+        int min = 1;
+        int range = max-min+1;
+        
+        int randNum = (int)(Math.random()*range) + min;
+        
+        return randNum;
+    }
     public static int randomNumberAlg(){
         int max = 10;
         int min = 1;
@@ -103,12 +112,12 @@ public class ks2Functions extends keyFunctions{
             if(a%i == 0 && b%i == 0){
                 hcf = i;
         }}   
-        System.out.print(hcf);
+        //System.out.print(hcf);
         return hcf;
     }
     public static int LCM(int a, int b){
         int lowest = a * b / GCD(a,b);
-        System.out.print(lowest);
+        //System.out.print(lowest);
         return lowest;
     }
     public static int GCD(int a, int b){
@@ -216,9 +225,11 @@ public class ks2Functions extends keyFunctions{
         }
         else if (op.equals(":")){
             //Ratio - Simplifying
+            part1 = randomNumberRatio();
+            part2 = randomNumberRatio();
             int div = HCF(part1, part2);
-            int finalp1 = part1 % div;
-            int finalp2 = part2 % div;
+            int finalp1 = part1 / div;
+            int finalp2 = part2 / div;
             
             question = part1+":"+part2;
             ansStr = finalp1+":"+finalp2;

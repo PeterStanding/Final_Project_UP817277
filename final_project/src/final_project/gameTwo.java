@@ -35,12 +35,12 @@ public class gameTwo extends Canvas {
     public static String diff, skill;
     public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
     public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
-    public Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin;
+    public Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin,bgColor;
     public static int width, height, buttonPressed, posLoc,qq, score, bg;
-    public static int xRocket, yRocket,levelInc;
-    public static JButton ans1,ans2,ans3,ans4,closeTab;
-    public static JLabel question,scoreRocket,level;
-    public static Boolean update,active;
+    public static int xRocket, yRocket,levelInc,active;
+    public static JButton ans1,ans2,ans3,ans4,updateButton,closeTab,nextLevel;
+    public static JLabel question,scoreRocket,levelText;
+    public static Boolean update;
     public static JFrame frame,newLevel;
     
     public static void main(String difficulty, String sk){
@@ -55,11 +55,10 @@ public class gameTwo extends Canvas {
         diff = difficulty;
         skill = sk;
         width = height = 1000;
-        posLoc = qq = bg = buttonPressed = score = levelInc = 0;
+        posLoc = qq = bg = buttonPressed = active = score = levelInc = 0;
         xRocket = 380;
         yRocket = 312;
         update = false;
-        active = true;
         
         values = new ArrayList<Integer>();
         positions = new ArrayList<Integer>();
@@ -125,101 +124,131 @@ public class gameTwo extends Canvas {
     }
      
     public void paint(Graphics g){
-        //Selects the background based on and random number between 0 and 10
-        if (bg <= 1){
-            //Earth
-            Color bgColor = nightBlue;
+        if (score == 8){
+            levelInc += 1;
+            
+            //Defines Which JComponents are Visible
+            question.setVisible(false);
+            ans1.setVisible(false);
+            ans2.setVisible(false);
+            ans3.setVisible(false);
+            ans4.setVisible(false);
+            updateButton.setVisible(false);
+            scoreRocket.setVisible(false);
+            
+            closeTab.setVisible(true);
+            nextLevel.setVisible(true);
+            levelText.setVisible(true);
+               
             drawEarth(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
-        } else if (bg > 1 && bg <= 3){
-            //Mars
-            Color bgColor = mars;
-            drawMars(g,bgColor);
-            drawRocket(g,xRocket,yRocket,orangeShade,orangeShade);
-            drawFuelGauge(g,score);
-        } else if (bg > 3 && bg <= 5){
-            //Venus
-            Color bgColor = venus;
-            drawVenus(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
-            drawFuelGauge(g,score);
-        } else if (bg > 5 && bg <= 7){
-            //Pluto
-            Color bgColor = pluto;
-            drawPluto(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
-            drawFuelGauge(g,score);
-        } else if (bg > 7 && bg <= 9){
-            //Neptune
-            Color bgColor = neptune;
-            drawNeptune(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
-            drawFuelGauge(g,score);
-        } else if (bg == 10){
-            //Golden City
-            Color bgColor = gold;
-            drawGoldenCity(g,bgColor);
-            drawRocket(g,xRocket,yRocket,bgColor,bgColor);
-            drawFuelGauge(g,score);
-        }
-                
-        question.setText(questions.get(qq));
-        if (positions.get(posLoc) == 1){
-            ans1.setText(questions.get(qq+1));
-
-            ans2.setText(questions.get(qq+1)+1);
-            ans3.setText("None Of Them");
-            ans4.setText(questions.get(qq+3));
-        }
-        if (positions.get(posLoc) == 2){
-            ans2.setText(questions.get(qq+1));
             
-            ans1.setText(questions.get(qq+1)+1);
-            ans3.setText("None Of Them");
-            ans4.setText(questions.get(qq+3));
-        }
-        if (positions.get(posLoc) == 3){
-            ans3.setText(questions.get(qq+1));
-            
-            ans2.setText(questions.get(qq+1)+1);
-            ans1.setText("None Of Them");
-            ans4.setText(questions.get(qq+3));
-        }
-        if (positions.get(posLoc) == 4){
-            ans4.setText(questions.get(qq+1));
-            
-            ans2.setText(questions.get(qq+1)+1);
-            ans3.setText("None Of Them");
-            ans1.setText(questions.get(qq+3));
-        }
-        
-        //If Correct Answer
-        if (buttonPressed == positions.get(posLoc)){
-            //System.out.println("Correct");
-            posLoc +=1;
-            qq += 2;
-            score += 1;
-            scoreRocket.setText(Integer.toString(score)+" / 8");
-            //System.out.print(score);
-            if (posLoc == positions.size()||qq==questions.size()){
-                posLoc = 0;
-                qq = 0;
-            }
-            
-            //When Gauge is Full
-            if (score == 8){
-                //frame.dispose();
-                levelInc += 1;
-                newLevel = new levelUp();
-                newLevel.pack();
-                newLevel.setVisible(true);
+            //If Next Level Button is pressed enter this Loop
+            if (active == 1){
                 score = 0;
+                active = 0;
                 bg = ks2Functions.randomNumberAlg();
+                repaint();
             }
-            repaint();
-        } else {}
-    }
+        } else {
+            //Defines Which JComponents are Visible
+            question.setVisible(true);
+            ans1.setVisible(true);
+            ans2.setVisible(true);
+            ans3.setVisible(true);
+            ans4.setVisible(true);
+            updateButton.setVisible(true);
+            scoreRocket.setVisible(true);
+            
+            closeTab.setVisible(false);
+            nextLevel.setVisible(false);
+            levelText.setVisible(false);
+            
+            //Selects the background based on and random number between 0 and 10
+            if (bg <= 1){
+                //Earth
+                bgColor = nightBlue;
+                drawEarth(g,bgColor);
+                drawRocket(g,xRocket,yRocket,bgColor,bgColor);
+                drawFuelGauge(g,score);
+            } else if (bg > 1 && bg <= 3){
+                //Mars
+                bgColor = mars;
+                drawMars(g,bgColor);
+                drawRocket(g,xRocket,yRocket,orangeShade,orangeShade);
+                drawFuelGauge(g,score);
+            } else if (bg > 3 && bg <= 5){
+                //Venus
+                bgColor = venus;
+                drawVenus(g,bgColor);
+                drawRocket(g,xRocket,yRocket,bgColor,bgColor);
+                drawFuelGauge(g,score);
+            } else if (bg > 5 && bg <= 7){
+                //Pluto
+                bgColor = pluto;
+                drawPluto(g,bgColor);
+                drawRocket(g,xRocket,yRocket,bgColor,bgColor);
+                drawFuelGauge(g,score);
+            } else if (bg > 7 && bg <= 9){
+                //Neptune
+                bgColor = neptune;
+                drawNeptune(g,bgColor);
+                drawRocket(g,xRocket,yRocket,bgColor,bgColor);
+                drawFuelGauge(g,score);
+            } else if (bg == 10){
+                //Golden City
+                bgColor = gold;
+                drawGoldenCity(g,bgColor);
+                drawRocket(g,xRocket,yRocket,bgColor,bgColor);
+                drawFuelGauge(g,score);
+            }
+
+            question.setText(questions.get(qq));
+            if (positions.get(posLoc) == 1){
+                ans1.setText(questions.get(qq+1));
+
+                ans2.setText(questions.get(qq+1)+1);
+                ans3.setText("None Of Them");
+                ans4.setText(questions.get(qq+3));
+            }
+            if (positions.get(posLoc) == 2){
+                ans2.setText(questions.get(qq+1));
+
+                ans1.setText(questions.get(qq+1)+1);
+                ans3.setText("None Of Them");
+                ans4.setText(questions.get(qq+3));
+            }
+            if (positions.get(posLoc) == 3){
+                ans3.setText(questions.get(qq+1));
+
+                ans2.setText(questions.get(qq+1)+1);
+                ans1.setText("None Of Them");
+                ans4.setText(questions.get(qq+3));
+            }
+            if (positions.get(posLoc) == 4){
+                ans4.setText(questions.get(qq+1));
+
+                ans2.setText(questions.get(qq+1)+1);
+                ans3.setText("None Of Them");
+                ans1.setText(questions.get(qq+3));
+            }
+
+            //If Correct Answer
+            if (buttonPressed == positions.get(posLoc)){
+                //System.out.println("Correct");
+                posLoc +=1;
+                qq += 2;
+                score += 1;
+                scoreRocket.setText(Integer.toString(score)+" / 8");
+                //System.out.print(score);
+                if (posLoc == positions.size()||qq==questions.size()){
+                    posLoc = 0;
+                    qq = 0;
+                }
+                repaint();
+            } else {
+    }}}
     
     private void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
         //Rocket Legs
@@ -481,7 +510,12 @@ public class gameTwo extends Canvas {
             ans2 = new JButton("Answer 2");
             ans3 = new JButton("Answer 3");
             ans4 = new JButton("Answer 4");
-            JButton updateButton = new JButton("update");
+            updateButton = new JButton("update");
+            closeTab = new JButton("Close Tab");
+            nextLevel = new JButton("Next Level"); 
+            
+            String levelNum = Integer.toString(levelInc);
+            levelText = new JLabel("Congratulations, You Passed Level "+levelNum,JLabel.CENTER);
             question = new JLabel("Question",JLabel.CENTER);
             scoreRocket = new JLabel("Score",JLabel.CENTER);
             
@@ -514,11 +548,25 @@ public class gameTwo extends Canvas {
                     update = true;
                 }
             });
+            nextLevel.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    active = 1;
+                }
+            });
+            closeTab.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    frame.dispose();
+                }
+            });
             
             JPanel panel = new JPanel();
             panel.setPreferredSize(new Dimension(450,1000));
             panel.setLayout(null);
             
+            levelText.setFont(new Font("Serif",Font.BOLD,24));
+            levelText.setLocation(50,30);
+            levelText.setSize(375,42);
+                        
             question.setFont(new Font("Serif",Font.BOLD,30));
             question.setLocation(50,125);
             question.setSize(375,42);
@@ -532,6 +580,8 @@ public class gameTwo extends Canvas {
             ans3.setBounds(50,300,150,75);
             ans4.setBounds(275,300,150,75);
             updateButton.setBounds(50,450,150,75);
+            nextLevel.setBounds(162,550,150,75);
+            closeTab.setBounds(162,750,150,75);
             
             panel.add(ans1);
             panel.add(ans2);
@@ -540,43 +590,9 @@ public class gameTwo extends Canvas {
             panel.add(updateButton);
             panel.add(question);
             panel.add(scoreRocket);
-            
-            this.getContentPane().add(panel);
-        } 
-    } 
-    private static class levelUp extends JFrame{
-        
-        public levelUp()
-        {
-            setLayout(new FlowLayout());
-            setSize(1200,200);
-            setResizable(false);
-            setVisible(true);
-            setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-            
-            closeTab = new JButton("Close Tab");
-            String levelNum = Integer.toString(levelInc);
-            level = new JLabel("Congratulations, You Passed Level "+levelNum,JLabel.CENTER);
-
-            closeTab.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent e){
-                    active = false;
-                    newLevel.dispose();
-                }
-            });
-            
-            JPanel panel = new JPanel();
-            panel.setPreferredSize(new Dimension(500,300));
-            panel.setLayout(null);
-            
-            level.setFont(new Font("Serif",Font.BOLD,24));
-            level.setLocation(50,30);
-            level.setSize(375,42);
-            
-            closeTab.setBounds(180,150,150,75);
-
+            panel.add(levelText);
+            panel.add(nextLevel);
             panel.add(closeTab);
-            panel.add(level);
             
             this.getContentPane().add(panel);
         } 

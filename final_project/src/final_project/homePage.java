@@ -546,10 +546,11 @@ public class homePage extends javax.swing.JFrame {
         ks2Panel.hide();
         
         nameProfile.setText(currName);
-        rocketScore.setText(currSchool);
         
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
         ArrayList <String> profPic = keyFunctions.readFile("db/profile.txt"); 
+        ArrayList <String> rocketList = keyFunctions.readFile("db/rocketScores.txt");
+        ArrayList <String> sumList = keyFunctions.readFile("db/sumSnapScores.txt");
         
         int k = nameList.indexOf(currName);
         String currPic = profPic.get(k);
@@ -565,6 +566,10 @@ public class homePage extends javax.swing.JFrame {
            icon = new ImageIcon("avatars/pencil.png");
         }
         profAvatar.setIcon(icon);
+        String currSnap = rocketList.get(k);
+        sumScore.setText(currSnap);
+        String currRock = rocketList.get(k);
+        rocketScore.setText(currRock);
                
     }//GEN-LAST:event_profileLabelMouseClicked
 
@@ -576,7 +581,7 @@ public class homePage extends javax.swing.JFrame {
         
         String av = (String)avaChoice.getSelectedItem();
         if (av.equals("Car")){
-            System.out.print("test");
+            //System.out.print("test");
             keyFunctions.writeFile("db/profile.txt","car",k);
         }
         if (av.equals("Flowers")){
@@ -663,7 +668,7 @@ public class homePage extends javax.swing.JFrame {
         String skillSelected = (String)skillChooser.getSelectedItem();
 
         //Generates the Canavs on a JFrame
-        gameTwo.main(diff,skillSelected);
+        gameTwo.main(diff,skillSelected,currName);
     }//GEN-LAST:event_KS2GameActionPerformed
 
     private void easyKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyKS2ActionPerformed

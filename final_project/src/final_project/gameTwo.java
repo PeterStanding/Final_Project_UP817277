@@ -32,7 +32,7 @@ public class gameTwo extends Canvas {
     private ArrayList<Integer> values;
     private static ArrayList<Integer> positions;
     private static ArrayList<String> questions;
-    public static String diff, skill;
+    public static String diff, skill, currName;
     public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
     public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
     public Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin,bgColor;
@@ -43,17 +43,18 @@ public class gameTwo extends Canvas {
     public static Boolean update;
     public static JFrame frame,newLevel;
     
-    public static void main(String difficulty, String sk){
+    public static void main(String difficulty, String sk, String stuName){
         frame = new gameFrame();
-        Canvas canvas = new gameTwo(difficulty,sk);
+        Canvas canvas = new gameTwo(difficulty,sk,stuName);
         canvas.setSize(1000,1000);
         frame.add(canvas);
         frame.pack();
         frame.setVisible(true);
     }
-    public gameTwo (String difficulty, String sk){
+    public gameTwo (String difficulty, String sk, String stuName){
         diff = difficulty;
         skill = sk;
+        currName = stuName;
         width = height = 1000;
         posLoc = qq = bg = buttonPressed = active = score = levelInc = 0;
         xRocket = 380;
@@ -555,6 +556,14 @@ public class gameTwo extends Canvas {
             });
             closeTab.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
+                    ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+                    ArrayList <String> rocketList = keyFunctions.readFile("db/rocketScores.txt");
+                    
+                    int k = nameList.indexOf(currName);
+                    String scoreWrite = Integer.toString(score);
+                    
+                    keyFunctions.writeFile("db/rocketScores.txt",scoreWrite,k);
+                    
                     frame.dispose();
                 }
             });

@@ -28,21 +28,22 @@ public class gameOne extends Canvas implements MouseListener {
     private ArrayList<Integer> cardOne;
     private ArrayList<Integer> correctCards;
     private ArrayList<String> randomQ;
-    public String operation,diff;
+    public String operation,diff,currName;
     public int qNum,width,redrawX,redrawY;
     public Graphics g;
     public int update,card,again,reset,correct,answer,score;
     public Boolean check;
     public Color darkGreen,gold,brown;
     //Main Class that creates the frame and draws on the canvas for the KS1 Game
-    public static void main(String op, int m,String k){
-        Canvas canvas = new gameOne(op,m,k);
+    public static void main(String op, int m, String k, String name){
+        Canvas canvas = new gameOne(op,m,k,name);
     }
     
-    public gameOne (String testString, int number, String difficulty){
+    public gameOne (String testString, int number, String difficulty, String name){
         operation = testString;
         qNum = number;
         diff = difficulty;
+        currName = name;
         width = 0;
         redrawX = 0;
         redrawY = 0;
@@ -573,6 +574,27 @@ public class gameOne extends Canvas implements MouseListener {
                 check = true;
                 repaint();
             }
+            //Method for Saving Coins
+            if (score == 12){
+                ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+                ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+                ArrayList <String> sumList = keyFunctions.readFile("db/sumSnapScores.txt");
+                
+                int k = nameList.indexOf(currName);
+                int oldC = Integer.parseInt(coinList.get(k));
+                int newC = oldC + 12;
+                String newDiff = "";
+                
+                String coinWrite = Integer.toString(newC);
+                if (sumList.get(k).equals("Medium")){
+                    newDiff = "Medium";
+                }
+                if (sumList.get(k).equals("Hard")){
+                    newDiff = "Hard";
+                }
+                keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+                keyFunctions.writeFile("db/sumSnapScores.txt",newDiff,k);
+            }
         }
         //Method to Draw the Medium Card Layout
         if (diff.equals("medium")){
@@ -703,7 +725,31 @@ public class gameOne extends Canvas implements MouseListener {
                 correct = 0;
                 check = true;
                 repaint();
-            }           
+            } 
+            //Method for Saving Coins
+            if (score == 16){
+                ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+                ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+                ArrayList <String> sumList = keyFunctions.readFile("db/sumSnapScores.txt");
+                
+                int k = nameList.indexOf(currName);
+                int oldC = Integer.parseInt(coinList.get(k));
+                int newC = oldC + 16;
+                String newDiff = "Easy";
+                
+                String coinWrite = Integer.toString(newC);
+                if (sumList.get(k).equals("Easy")){
+                    newDiff = "Medium";
+                }
+                if (sumList.get(k).equals("Medium")){
+                    newDiff = "Medium";
+                }
+                if (sumList.get(k).equals("Hard")){
+                    newDiff = "Hard";
+                }
+                keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+                keyFunctions.writeFile("db/sumSnapScores.txt",newDiff,k);
+            }
         }
         //Method to Draw the Hard Card Layout
         if (diff.equals("hard")){
@@ -842,7 +888,22 @@ public class gameOne extends Canvas implements MouseListener {
                 correct = 0;
                 check = true;
                 repaint();
-            } 
+            }
+            //Method for Saving Coins
+            if (score == 20){
+                ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+                ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+                ArrayList <String> sumList = keyFunctions.readFile("db/sumSnapScores.txt");
+                
+                int k = nameList.indexOf(currName);
+                int oldC = Integer.parseInt(coinList.get(k));
+                int newC = oldC + 20;
+                String newDiff = "Hard";
+                
+                String coinWrite = Integer.toString(newC);
+                keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+                keyFunctions.writeFile("db/sumSnapScores.txt",newDiff,k);
+            }
         }
     }
     

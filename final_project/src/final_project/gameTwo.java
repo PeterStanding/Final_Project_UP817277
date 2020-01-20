@@ -558,11 +558,29 @@ public class gameTwo extends Canvas {
                 public void actionPerformed(ActionEvent e){
                     ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
                     ArrayList <String> rocketList = keyFunctions.readFile("db/rocketScores.txt");
+                    ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
                     
                     int k = nameList.indexOf(currName);
                     String scoreWrite = Integer.toString(score);
+                    int c = Integer.parseInt(coinList.get(k));
+                    int newC = 0;
                     
+                    if(diff.equals("easy")){
+                        //10 Coins per Level
+                        newC = c+(10*levelInc);
+                    }
+                    if(diff.equals("medium")){
+                        //20 Coins per Level
+                        newC = c+(20*levelInc);
+                    }
+                    if(diff.equals("hard")){
+                        //30 Coins per Level
+                        newC = c+(30*levelInc); 
+                    }
+                    
+                    String coinWrite = Integer.toString(newC);
                     keyFunctions.writeFile("db/rocketScores.txt",scoreWrite,k);
+                    keyFunctions.writeFile("db/coins.txt",coinWrite,k);
                     
                     frame.dispose();
                 }

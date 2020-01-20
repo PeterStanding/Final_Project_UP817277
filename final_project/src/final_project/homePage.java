@@ -76,6 +76,8 @@ public class homePage extends javax.swing.JFrame {
         sumScore = new javax.swing.JLabel();
         avaChoice = new javax.swing.JComboBox<>();
         changeButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        totalCoins = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -417,6 +419,11 @@ public class homePage extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel4.setText("Total Coins Collected:");
+
+        totalCoins.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+
         javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
         profilePanel.setLayout(profilePanelLayout);
         profilePanelLayout.setHorizontalGroup(
@@ -424,45 +431,58 @@ public class homePage extends javax.swing.JFrame {
             .addGroup(profilePanelLayout.createSequentialGroup()
                 .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(420, 420, 420)
-                        .addComponent(nameLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(nameProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(profilePanelLayout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(profAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, profilePanelLayout.createSequentialGroup()
-                                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(profileTitle)
-                                    .addComponent(highRocket, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(18, 18, 18)
-                                .addComponent(rocketScore, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, profilePanelLayout.createSequentialGroup()
-                                .addComponent(highSum)
-                                .addGap(18, 18, 18)
-                                .addComponent(sumScore, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, profilePanelLayout.createSequentialGroup()
-                                .addComponent(schoolLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(schoolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(profilePanelLayout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(profileTitle))
+                            .addGroup(profilePanelLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(profilePanelLayout.createSequentialGroup()
+                                        .addComponent(nameLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(nameProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(profilePanelLayout.createSequentialGroup()
+                                        .addComponent(highRocket)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rocketScore, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(profilePanelLayout.createSequentialGroup()
+                                        .addComponent(highSum)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sumScore, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(profilePanelLayout.createSequentialGroup()
+                                        .addComponent(schoolLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(schoolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(profilePanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(totalCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(profilePanelLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(avaChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(profilePanelLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(changeButton)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         profilePanelLayout.setVerticalGroup(
             profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(profilePanelLayout.createSequentialGroup()
                 .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(profilePanelLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(profAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146)
+                        .addComponent(avaChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(changeButton))
+                    .addGroup(profilePanelLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(profileTitle)
-                        .addGap(103, 103, 103)
+                        .addGap(71, 71, 71)
                         .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLabel)
                             .addComponent(nameProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -473,19 +493,16 @@ public class homePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(highSum)
-                            .addComponent(sumScore)))
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(profAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(highRocket)
-                    .addComponent(rocketScore))
-                .addGap(37, 37, 37)
-                .addComponent(avaChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(changeButton)
-                .addContainerGap(148, Short.MAX_VALUE))
+                            .addComponent(sumScore))
+                        .addGap(18, 18, 18)
+                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(highRocket)
+                            .addComponent(rocketScore))
+                        .addGap(18, 18, 18)
+                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(totalCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         jLayeredPane2.add(profilePanel);
@@ -551,6 +568,7 @@ public class homePage extends javax.swing.JFrame {
         ArrayList <String> profPic = keyFunctions.readFile("db/profile.txt"); 
         ArrayList <String> rocketList = keyFunctions.readFile("db/rocketScores.txt");
         ArrayList <String> sumList = keyFunctions.readFile("db/sumSnapScores.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
         
         int k = nameList.indexOf(currName);
         String currPic = profPic.get(k);
@@ -569,7 +587,9 @@ public class homePage extends javax.swing.JFrame {
         String currSnap = rocketList.get(k);
         sumScore.setText(currSnap);
         String currRock = rocketList.get(k);
-        rocketScore.setText(currRock);
+        rocketScore.setText("Level "+currRock);
+        String currCoins = coinList.get(k);
+        totalCoins.setText(currCoins);
                
     }//GEN-LAST:event_profileLabelMouseClicked
 
@@ -643,7 +663,7 @@ public class homePage extends javax.swing.JFrame {
         }
 
         //Generates the Canavs on a JFrame
-        gameOne.main(operation,numQ,diff);
+        gameOne.main(operation,numQ,diff,currName);
     }//GEN-LAST:event_ks1GameButtonActionPerformed
 
     private void ks1RevisionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1RevisionButtonActionPerformed
@@ -737,6 +757,7 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel ks1Label;
@@ -760,5 +781,6 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel schoolProfile;
     private javax.swing.JComboBox<String> skillChooser;
     private javax.swing.JLabel sumScore;
+    private javax.swing.JLabel totalCoins;
     // End of variables declaration//GEN-END:variables
 }

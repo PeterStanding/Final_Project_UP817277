@@ -202,9 +202,8 @@ public class login extends javax.swing.JFrame {
            this.hide(); 
         }
     }//GEN-LAST:event_subButtonActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        gameTwo.main("easy","Ratio","Peter");
+        ks1Revision.main();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

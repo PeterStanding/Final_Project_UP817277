@@ -216,11 +216,27 @@ public class ks2Functions extends keyFunctions{
             int finalp1 = part1 % div;
             int finalp2 = part2 % div;
             
-            int fract = finalp1/finalp2;
-            int perc = fract * 100;
+            if (finalp1 == 0){
+                finalp1 = randomNumberRatio();
+            }
+            if (finalp2 == 0){
+                finalp2 = randomNumberRatio();
+            }
             
-            question = finalp1+"/"+finalp2;
-            ansStr = Integer.toString(perc);
+            double fract = finalp1/finalp2;
+            
+            if (finalp1>finalp2){
+                fract = finalp1/finalp2;
+                question = finalp1+"/"+finalp2;
+            }
+            else {
+                fract = finalp2/finalp1;
+                question = finalp2+"/"+finalp1;
+            }
+            
+            double perc = fract * 100;
+           
+            ansStr = Double.toString(perc);
             
         }
         else if (op.equals(":")){

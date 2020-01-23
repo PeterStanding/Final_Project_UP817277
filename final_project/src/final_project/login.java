@@ -203,7 +203,7 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_subButtonActionPerformed
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ks1Revision.main();
+        timeCounter.main();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

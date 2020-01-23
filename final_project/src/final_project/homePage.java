@@ -622,7 +622,6 @@ public class homePage extends javax.swing.JFrame {
         homePanel.hide();
         profilePanel.hide();
     }//GEN-LAST:event_ks2LabelMouseClicked
-
     private void ks1LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ks1LabelMouseClicked
         //Opens the KS1 Panel
         ks1Panel.show();
@@ -630,7 +629,6 @@ public class homePage extends javax.swing.JFrame {
         homePanel.hide();
         profilePanel.hide();
     }//GEN-LAST:event_ks1LabelMouseClicked
-
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
         //Opens the Home Panel
         homePanel.show();
@@ -638,19 +636,31 @@ public class homePage extends javax.swing.JFrame {
         ks2Panel.hide();
         profilePanel.hide();
         
+        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        int k = nameList.indexOf(currName);
+        String list = unlock.get(k);
+        
         icon = new ImageIcon("avatars/pixelHeart.png"); 
         shopOne.setIcon(icon);
         
         icon = new ImageIcon("avatars/jewel.png"); 
         shopTwo.setIcon(icon);
+        
+        if(list.contains("pixelHeart")){
+            icon = new ImageIcon("avatars/grid.png"); 
+            shopOne.setIcon(icon);  
+        }
+        if(list.contains("jewel")){
+            icon = new ImageIcon("avatars/tri.png"); 
+            shopTwo.setIcon(icon);  
+        }
     }//GEN-LAST:event_homeLabelMouseClicked
-
     private void logLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logLabelMouseClicked
         //Logs out the users Account ready for the next user
         this.dispose();
         login.main();
     }//GEN-LAST:event_logLabelMouseClicked
-
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         //Opens the Users Profile
         profilePanel.show();
@@ -688,7 +698,6 @@ public class homePage extends javax.swing.JFrame {
         totalCoins.setText(currCoins);
                
     }//GEN-LAST:event_profileLabelMouseClicked
-
     private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
         ArrayList <String> profPic = keyFunctions.readFile("db/profile.txt"); 
@@ -731,22 +740,18 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/profile.txt","pencil",k);
         }
     }//GEN-LAST:event_changeButtonActionPerformed
-
     private void hardDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardDiffActionPerformed
         mediumDiff.setSelected(false);
         easyDiff.setSelected(false);
     }//GEN-LAST:event_hardDiffActionPerformed
-
     private void mediumDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumDiffActionPerformed
         easyDiff.setSelected(false);
         hardDiff.setSelected(false);
     }//GEN-LAST:event_mediumDiffActionPerformed
-
     private void easyDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyDiffActionPerformed
         mediumDiff.setSelected(false);
         hardDiff.setSelected(false);
     }//GEN-LAST:event_easyDiffActionPerformed
-
     private void ks1GameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1GameButtonActionPerformed
         if (easyDiff.isSelected()){
             diff = "easy";
@@ -779,15 +784,12 @@ public class homePage extends javax.swing.JFrame {
         //Generates the Canavs on a JFrame
         gameOne.main(operation,numQ,diff,currName);
     }//GEN-LAST:event_ks1GameButtonActionPerformed
-
     private void ks1RevisionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1RevisionButtonActionPerformed
         ks1Revision.main();
     }//GEN-LAST:event_ks1RevisionButtonActionPerformed
-
     private void rev2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rev2ButtonActionPerformed
         ks2Revision.main();
     }//GEN-LAST:event_rev2ButtonActionPerformed
-
     private void KS2GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KS2GameActionPerformed
         if (easyKS2.isSelected()){
             diff = "easy";
@@ -804,22 +806,18 @@ public class homePage extends javax.swing.JFrame {
         //Generates the Canavs on a JFrame
         gameTwo.main(diff,skillSelected,currName);
     }//GEN-LAST:event_KS2GameActionPerformed
-
     private void easyKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyKS2ActionPerformed
         mediumKS2.setSelected(false);
         hardKS2.setSelected(false);
     }//GEN-LAST:event_easyKS2ActionPerformed
-
     private void mediumKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumKS2ActionPerformed
         easyKS2.setSelected(false);
         hardKS2.setSelected(false);
     }//GEN-LAST:event_mediumKS2ActionPerformed
-
     private void hardKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardKS2ActionPerformed
         mediumKS2.setSelected(false);
         easyKS2.setSelected(false);
     }//GEN-LAST:event_hardKS2ActionPerformed
-
     private void purchase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase1ActionPerformed
         //Method to Purchase the First Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
@@ -831,13 +829,16 @@ public class homePage extends javax.swing.JFrame {
         int currCoin = Integer.parseInt(coinList.get(k));
         String unlockedPic = "pixelHeart";
         String newPicList = list + ", " + unlockedPic;
+        if (list.contains("pixelHeart")){
+            unlockedPic = "grid";
+            newPicList = list + ", " + unlockedPic;
+        }
         if (currCoin >= 100){
             String coinWrite = Integer.toString(currCoin - 100);
             keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_purchase1ActionPerformed
-
     private void purchase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase2ActionPerformed
         //Method to Purchase the Second Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
@@ -849,6 +850,10 @@ public class homePage extends javax.swing.JFrame {
         int currCoin = Integer.parseInt(coinList.get(k));
         String unlockedPic = "jewel";
         String newPicList = list + ", " + unlockedPic;
+        if (list.contains("jewel")){
+            unlockedPic = "tri";
+            newPicList = list + ", " + unlockedPic;
+        }
         if (currCoin >= 100){
             String coinWrite = Integer.toString(currCoin - 100);
             keyFunctions.writeFile("db/unlocked.txt",newPicList,k);

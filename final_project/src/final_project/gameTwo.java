@@ -523,25 +523,25 @@ public class gameTwo extends Canvas {
             ans1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     buttonPressed = 1;
-                    System.out.println("Button 1");
+                    //System.out.println("Button 1");
                 }
             });
             ans2.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     buttonPressed = 2;
-                    System.out.println("Button 2");
+                    //System.out.println("Button 2");
                 }
             });
             ans3.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     buttonPressed = 3;
-                    System.out.println("Button 3");
+                    //System.out.println("Button 3");
                 }
             });
             ans4.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     buttonPressed = 4;
-                    System.out.println("Button 4");
+                    //System.out.println("Button 4");
                 }
             });
             updateButton.addActionListener(new ActionListener(){

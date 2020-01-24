@@ -22,6 +22,10 @@ import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -39,7 +43,7 @@ public class gameTwo extends Canvas {
     public static int width, height, buttonPressed, posLoc,qq, score, bg;
     public static int xRocket, yRocket,levelInc,active;
     public static JButton ans1,ans2,ans3,ans4,updateButton,closeTab,nextLevel;
-    public static JLabel question,scoreRocket,levelText;
+    public static JLabel question,scoreRocket,levelText,timerTag;
     public static Boolean update;
     public static JFrame frame,newLevel;
     
@@ -121,11 +125,15 @@ public class gameTwo extends Canvas {
             positions.add(pp);
         }
         
+        timeCounter timer = new timeCounter();
+        timer.start();
+        
         bg = ks2Functions.randomNumberAlg();
     }
      
-    public void paint(Graphics g){
+    public void paint(Graphics g,timeCounter timer){
         if (score == 8){
+            timer.stop();
             levelInc += 1;
             
             //Defines Which JComponents are Visible
@@ -136,6 +144,7 @@ public class gameTwo extends Canvas {
             ans4.setVisible(false);
             updateButton.setVisible(false);
             scoreRocket.setVisible(false);
+            timerTag.setVisible(false);
             
             closeTab.setVisible(true);
             nextLevel.setVisible(true);
@@ -150,6 +159,8 @@ public class gameTwo extends Canvas {
                 score = 0;
                 active = 0;
                 bg = ks2Functions.randomNumberAlg();
+                timer = new timeCounter();
+                timer.start();
                 repaint();
             }
         } else {
@@ -161,6 +172,7 @@ public class gameTwo extends Canvas {
             ans4.setVisible(true);
             updateButton.setVisible(true);
             scoreRocket.setVisible(true);
+            timerTag.setVisible(true);
             
             closeTab.setVisible(false);
             nextLevel.setVisible(false);
@@ -495,7 +507,39 @@ public class gameTwo extends Canvas {
        
     }
        
+    public class timeCounter extends Thread{
+        public void run(){
+            for (int i = 75; i >=0;i--){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(timeCounter.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //System.out.println(i);
 
+                String time = String.valueOf(i);
+                
+                timerTag.setText(time);
+                if (time.equals("0")){
+                    System.out.println("Game Over");
+                    question.setVisible(false);
+                    ans1.setVisible(false);
+                    ans2.setVisible(false);
+                    ans3.setVisible(false);
+                    ans4.setVisible(false);
+                    updateButton.setVisible(false);
+                    scoreRocket.setVisible(false);
+                    timerTag.setVisible(false);
+
+                    closeTab.setVisible(true);
+                    nextLevel.setVisible(false);
+                    levelText.setVisible(true);
+                    
+                    levelText.setText("Game Over - Time Ran Out");
+                }
+            }
+        }
+    }
     
     private static class gameFrame extends JFrame{
         
@@ -519,6 +563,7 @@ public class gameTwo extends Canvas {
             levelText = new JLabel("Congratulations, You Passed Level "+levelNum,JLabel.CENTER);
             question = new JLabel("Question",JLabel.CENTER);
             scoreRocket = new JLabel("Score",JLabel.CENTER);
+            timerTag = new JLabel("Timer",JLabel.CENTER);
             
             ans1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
@@ -602,6 +647,10 @@ public class gameTwo extends Canvas {
             scoreRocket.setLocation(150,470);
             scoreRocket.setSize(375,42);
             
+            timerTag.setFont(new Font("Serif",Font.BOLD,24));
+            timerTag.setLocation(50,75);
+            timerTag.setSize(375,42);
+            
             ans1.setBounds(50,200,150,75);
             ans2.setBounds(275,200,150,75);
             ans3.setBounds(50,300,150,75);
@@ -620,6 +669,7 @@ public class gameTwo extends Canvas {
             panel.add(levelText);
             panel.add(nextLevel);
             panel.add(closeTab);
+            panel.add(timerTag);
             
             this.getContentPane().add(panel);
         } 

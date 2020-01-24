@@ -15,13 +15,18 @@ import java.awt.Graphics;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import java.lang.Math.*;
+import javax.swing.*;
 
 /**
  *
- * @author peter
+ * @author Peter Standing - UP817277
  */
 public class gameOne extends Canvas implements MouseListener {
     
@@ -34,6 +39,8 @@ public class gameOne extends Canvas implements MouseListener {
     public int update,card,again,reset,correct,answer,score;
     public Boolean check;
     public Color darkGreen,gold,brown;
+    public static JLabel timer;
+    
     //Main Class that creates the frame and draws on the canvas for the KS1 Game
     public static void main(String op, int m, String k, String name){
         Canvas canvas = new gameOne(op,m,k,name);
@@ -77,7 +84,10 @@ public class gameOne extends Canvas implements MouseListener {
         }
         
         JFrame frame = new myMouse(width);
-  
+        
+        timeCounter timer = new timeCounter();
+        timer.start();
+                
         this.setSize(width,1300);
         //Uses This Code to register a mouse Click event on the Canvas
         this.addMouseListener(new MouseAdapter(){
@@ -1008,6 +1018,27 @@ public class gameOne extends Canvas implements MouseListener {
     public void mouseExited(MouseEvent e) {   
     }
     
+    
+    public class timeCounter extends Thread{
+        public void run(){
+            for (int i = 90; i >=0;i--){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(timeCounter.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //System.out.println(i);
+
+                String time = String.valueOf(i);
+                
+                timer.setText(time);
+                if (time.equals("0")){
+                    timer.setText("Game Over");
+                }
+            }
+        }
+    }
+    
     //Creates the JFrame Basis for the Game Screen
     private static class myMouse extends JFrame{
         public myMouse(int width)
@@ -1025,6 +1056,13 @@ public class gameOne extends Canvas implements MouseListener {
             setResizable(false);
             setVisible(true);
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+            
+            timer = new JLabel("Timer",JLabel.CENTER);
+            timer.setFont(new Font("Serif",Font.BOLD,24));
+            timer.setLocation(50,30);
+            timer.setSize(650,50);
+            
+            this.add(timer);
         }    
     }  
 }

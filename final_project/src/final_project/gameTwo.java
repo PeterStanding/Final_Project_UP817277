@@ -509,7 +509,14 @@ public class gameTwo extends Canvas {
        
     public class timeCounter extends Thread{
         public void run(){
-            for (int i = 75; i >=0;i--){
+            int i = 90;
+            if (diff.equals("medium")){
+                i = 75;
+            }
+            if (diff.equals("hard")){
+                i = 60;
+            }
+            for (int j = i; j >=0;j--){
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
@@ -517,7 +524,7 @@ public class gameTwo extends Canvas {
                 }
                 //System.out.println(i);
 
-                String time = String.valueOf(i);
+                String time = String.valueOf(j);
                 
                 timerTag.setText(time);
                 if (time.equals("0")){

@@ -23,3 +23,16 @@ The Login function works by reading the text files as a list of Strings and sear
 Code Environment
 ----------------
 The Code is being completed within the Netbeans Jave IDE. Therefore in order to run the code the user will need to have access to this IDE and run the project. Java is my preferred language to code in, and it allows me to achieve the goals that I am setting out to complete. 
+
+-----------------
+Game Difficulties
+-----------------
+KS1
+Easy    - 12 Questions in 90 Seconds 
+Medium  - 16 Questions in 90 Seconds
+Hard    - 20 Questions in 90 Seconds
+
+KS2
+Easy    - 8 Questions in 90 Seconds
+Medium  - 8 Questions in 75 Seconds
+Hard    - 8 Questions in 60 Seconds

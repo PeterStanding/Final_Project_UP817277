@@ -13,7 +13,7 @@ import javax.script.ScriptException;
 
 /**
  *
- * @author peter
+ * @author Peter Standing - UP817277
  */
 public class checkQuestion {
     public static Boolean main(String question, int answer){

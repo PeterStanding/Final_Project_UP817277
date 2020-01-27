@@ -5,10 +5,7 @@
  */
 package final_project;
 
-import java.awt.event.MouseEvent;
 import java.awt.Dimension;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -149,11 +146,12 @@ public class gameTwo extends Canvas {
             closeTab.setVisible(true);
             nextLevel.setVisible(true);
             levelText.setVisible(true);
-               
+              
+            /*
             drawEarth(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor,bgColor);
             drawFuelGauge(g,score);
-            
+            */
             //If Next Level Button is pressed enter this Loop
             if (active == 1){
                 score = 0;
@@ -263,6 +261,7 @@ public class gameTwo extends Canvas {
             } else {
     }}}
     
+    //Methods to draw the sections that make up the Image
     private void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
         //Rocket Legs
         g.setColor(lightGray);
@@ -393,6 +392,7 @@ public class gameTwo extends Canvas {
         g.fillOval(astX+135,astY+450,10,10);
     }
     
+    //Methods to draw the Backgrounds for the Rocket
     private void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -506,7 +506,41 @@ public class gameTwo extends Canvas {
         g.fillRect(850,600,50,50);
        
     }
-       
+    
+    public class animation extends JPanel implements ActionListener{
+        javax.swing.Timer tm = new javax.swing.Timer(5,this);
+        //x = Position 
+        //velX = Speed 
+        int x = 0, velX = 2;
+        
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+
+            g.setColor(Color.RED);
+            g.fillRect(x,30,50,30);
+
+            tm.start();
+        }
+        public void actionPerformed(ActionEvent e){
+            if (x < 0 || x > 550){
+                velX = -velX;
+            }
+
+            x = x + velX;
+            repaint();
+        }
+        public void main(){
+            animation t = new animation();
+            JFrame jf = new JFrame();
+            jf.setTitle("Animation Test");
+            jf.setSize(600,400);
+            jf.setVisible(true);
+            jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            jf.add(t);
+        }
+    }
+    
+    //Class for the Countdown Timer - Thread Concurrency
     public class timeCounter extends Thread{
         public void run(){
             int i = 90;
@@ -548,6 +582,7 @@ public class gameTwo extends Canvas {
         }
     }
     
+    //JFrame Class
     private static class gameFrame extends JFrame{
         
         public gameFrame()

@@ -34,15 +34,15 @@ public class gameTwo extends Canvas {
     private static ArrayList<Integer> positions;
     private static ArrayList<String> questions;
     public static String diff, skill, currName;
-    public Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
-    public Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
-    public Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin,bgColor;
+    public static Color red,green,blue,gold,wood,skyBlue,lightGray,nightBlue,mars;
+    public static Color darkOrange,orangeShade,martianGreen,goldBuild,silver,lightBlue;
+    public static Color pluto,venus,neptune,brown,nepBuild,rocketBody,rocketWin,bgColor;
     public static int width, height, buttonPressed, posLoc,qq, score, bg;
-    public static int xRocket, yRocket,levelInc,active;
+    public static int xRocket, yRocket,levelInc,active,once;
     public static JButton ans1,ans2,ans3,ans4,updateButton,closeTab,nextLevel;
     public static JLabel question,scoreRocket,levelText,timerTag;
     public static Boolean update;
-    public static JFrame frame,newLevel;
+    public static JFrame frame;
     
     public static void main(String difficulty, String sk, String stuName){
         frame = new gameFrame();
@@ -57,7 +57,8 @@ public class gameTwo extends Canvas {
         skill = sk;
         currName = stuName;
         width = height = 1000;
-        posLoc = qq = bg = buttonPressed = active = score = levelInc = 0;
+        posLoc = qq = bg = buttonPressed = active = score = 0;
+        levelInc = once = 1;
         xRocket = 380;
         yRocket = 312;
         update = false;
@@ -128,9 +129,9 @@ public class gameTwo extends Canvas {
         bg = ks2Functions.randomNumberAlg();
     }
      
-    public void paint(Graphics g,timeCounter timer){
+    public void paint(Graphics g){
         if (score == 8){
-            timer.stop();
+            //timer.stop();
             levelInc += 1;
             
             //Defines Which JComponents are Visible
@@ -146,7 +147,10 @@ public class gameTwo extends Canvas {
             closeTab.setVisible(true);
             nextLevel.setVisible(true);
             levelText.setVisible(true);
-              
+            if (once == 1){
+                animation.main();
+            }
+            once = 0;
             /*
             drawEarth(g,bgColor);
             drawRocket(g,xRocket,yRocket,bgColor,bgColor);
@@ -156,9 +160,12 @@ public class gameTwo extends Canvas {
             if (active == 1){
                 score = 0;
                 active = 0;
+                once = 1;
                 bg = ks2Functions.randomNumberAlg();
-                timer = new timeCounter();
+                
+                timeCounter timer = new timeCounter();
                 timer.start();
+                
                 repaint();
             }
         } else {
@@ -262,7 +269,7 @@ public class gameTwo extends Canvas {
     }}}
     
     //Methods to draw the sections that make up the Image
-    private void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
+    private static void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
         //Rocket Legs
         g.setColor(lightGray);
         g.fillOval(sX+180,sY+350,80,230);
@@ -313,7 +320,7 @@ public class gameTwo extends Canvas {
                 marX += change;
         }}
     }
-    private void drawFuelGauge(Graphics g, int sc){
+    private static void drawFuelGauge(Graphics g, int sc){
         g.setColor(wood);
         g.fillRect(0, 890, width, 200);
         g.setColor(Color.ORANGE);
@@ -341,7 +348,7 @@ public class gameTwo extends Canvas {
                                     g.fillRect(739,910,60,65);
         }}}}}}}}        
     }
-    private void drawStar(Graphics g, int starX, int starY){
+    private static void drawStar(Graphics g, int starX, int starY){
         g.setColor(Color.WHITE);
         int xPoints[] = {starX+60,starX+70,starX+80};
         int yPoints[] = {starY+80,starY+70,starY+80};
@@ -350,7 +357,7 @@ public class gameTwo extends Canvas {
         g.fillPolygon(xPoints,yPoints,3);
         g.fillPolygon(xPointsInv,yPointsInv,3);
     }
-    private void drawMultiStar(Graphics g){  
+    private static void drawMultiStar(Graphics g){  
         int starX = 0;
         int starY = 0;
         for (int u = 0; u <= 15; u++){
@@ -368,20 +375,20 @@ public class gameTwo extends Canvas {
         }
         
     }
-    private void drawMartian(Graphics g, int marX, int marY){
+    private static void drawMartian(Graphics g, int marX, int marY){
         g.setColor(martianGreen);
         g.fillOval(marX+10,marY+10,25,25);
         g.fillOval(marX+15,marY+15,15,50);
         g.fillOval(marX-3,marY+55,50,10);
         g.fillOval(marX+7,marY+35,30,10);
     }
-    private void drawMoon(Graphics g, Color bg){
+    private static void drawMoon(Graphics g, Color bg){
         g.setColor(silver);
         g.fillOval(700,10,100,100);
         g.setColor(bg);
         g.fillOval(740,10,75,100);
     }
-    private void drawAsteroid(Graphics g, int astX, int astY){
+    private static void drawAsteroid(Graphics g, int astX, int astY){
         //Asteroid
         g.setColor(brown);
         g.fillOval(astX+100,astY+400,75,75);
@@ -393,7 +400,7 @@ public class gameTwo extends Canvas {
     }
     
     //Methods to draw the Backgrounds for the Rocket
-    private void drawEarth(Graphics g,Color clr){
+    private static void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
@@ -407,7 +414,7 @@ public class gameTwo extends Canvas {
         g.fillRect(650,350,100,550);
         g.fillRect(295,400,450,75);
     }
-    private void drawMars(Graphics g, Color clr){
+    private static void drawMars(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
@@ -431,7 +438,7 @@ public class gameTwo extends Canvas {
         g.fillOval(925,755,25,25);
         g.fillOval(950,800,25,25);
     }
-    private void drawVenus(Graphics g,Color clr){
+    private static void drawVenus(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
@@ -446,7 +453,7 @@ public class gameTwo extends Canvas {
         drawAsteroid(g,650,250);
         drawAsteroid(g,-50,300);
     }
-    private void drawPluto(Graphics g, Color clr){
+    private static void drawPluto(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
@@ -467,7 +474,7 @@ public class gameTwo extends Canvas {
         g.fillOval(700,850,100,100);
         g.fillOval(825,750,100,300);
     }
-    private void drawNeptune(Graphics g, Color clr){
+    private static void drawNeptune(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMultiStar(g);
@@ -483,7 +490,7 @@ public class gameTwo extends Canvas {
         g.fillRect(775,800,45,300);
         g.fillOval(775,780,45,50);
     }
-    private void drawGoldenCity(Graphics g, Color clr){
+    private static void drawGoldenCity(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
         drawMoon(g,clr);
@@ -507,37 +514,89 @@ public class gameTwo extends Canvas {
        
     }
     
-    public class animation extends JPanel implements ActionListener{
+    public static class animation extends JPanel implements ActionListener{
         javax.swing.Timer tm = new javax.swing.Timer(5,this);
         //x = Position 
         //velX = Speed 
         int x = 0, velX = 2;
-        
+        int sX = 380;
+        int sY = 312;         
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-
+            
+            if (bg <= 1){
+                //Earth
+                bgColor = nightBlue;
+                drawEarth(g,bgColor);
+            } else if (bg > 1 && bg <= 3){
+                //Mars
+                bgColor = mars;
+                drawMars(g,bgColor);
+            } else if (bg > 3 && bg <= 5){
+                //Venus
+                bgColor = venus;
+                drawVenus(g,bgColor);
+            } else if (bg > 5 && bg <= 7){
+                //Pluto
+                bgColor = pluto;
+                drawPluto(g,bgColor);
+            } else if (bg > 7 && bg <= 9){
+                //Neptune
+                bgColor = neptune;
+                drawNeptune(g,bgColor);
+            } else if (bg == 10){
+                //Golden City
+                bgColor = gold;
+                drawGoldenCity(g,bgColor);
+            }
+            
             g.setColor(Color.RED);
-            g.fillRect(x,30,50,30);
-
+            g.fillOval(sX+180,(sY+350)+x,80,230);
+            g.fillOval(sX+5,(sY+350)+x,80,230);
+            
+            g.setColor(Color.BLUE);
+            g.fillOval(sX+145,(sY+450)+x,90,180);
+            g.setColor(Color.BLUE);
+            g.fillOval(sX+35,(sY+450)+x,90,180);
+            
+            g.setColor(Color.RED);
+            int xPoints[] = {sX+60,sX+130,sX+200};
+            int yPoints[] = {(sY+80)+x,(sY-70)+x,(sY+80)+x};
+            g.fillPolygon(xPoints,yPoints,3);
+            
+            g.setColor(rocketBody);
+            g.fillOval(sX+20,(sY+20)+x,220,480);
+            g.setColor(Color.GRAY);
+            g.fillOval(sX+80,(sY+60)+x,100,100);
+            g.setColor(rocketWin);
+            g.fillOval(sX+88,(sY+68)+x,85,85);
+            g.setColor(Color.DARK_GRAY);
+            g.fillOval(sX+127,(sY+61)+x,7,7);
+            g.fillOval(sX+127,(sY+152)+x,7,7);
+            g.fillOval(sX+172,(sY+106)+x,7,7);
+            g.fillOval(sX+81,(sY+106)+x,7,7);
+            g.fillOval(sX+94,(sY+74)+x,7,7);
+            g.fillOval(sX+94,(sY+139)+x,7,7);
+            g.fillOval(sX+159,(sY+139)+x,7,7);
+            g.fillOval(sX+159,(sY+74)+x,7,7);
+            
+            drawFuelGauge(g,score);
+            
             tm.start();
         }
         public void actionPerformed(ActionEvent e){
-            if (x < 0 || x > 550){
-                velX = -velX;
-            }
-
-            x = x + velX;
+            x = x - velX;
             repaint();
         }
-        public void main(){
+        public static void main(){
             animation t = new animation();
-            JFrame jf = new JFrame();
-            jf.setTitle("Animation Test");
-            jf.setSize(600,400);
-            jf.setVisible(true);
-            jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            jf.add(t);
-        }
+            JFrame jp = new JFrame();
+            jp.setTitle("Animation Test");
+            jp.setSize(1000,1000);
+            jp.setVisible(true);
+            jp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            jp.add(t);
+        }        
     }
     
     //Class for the Countdown Timer - Thread Concurrency

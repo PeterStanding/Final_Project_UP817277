@@ -41,7 +41,7 @@ public class gameTwo extends Canvas {
     public static int xRocket, yRocket,levelInc,active,once;
     public static JButton ans1,ans2,ans3,ans4,updateButton,closeTab,nextLevel;
     public static JLabel question,scoreRocket,levelText,timerTag;
-    public static Boolean update;
+    public static Boolean update,stars;
     public static JFrame frame;
     
     public static void main(String difficulty, String sk, String stuName){
@@ -62,6 +62,7 @@ public class gameTwo extends Canvas {
         xRocket = 380;
         yRocket = 312;
         update = false;
+        stars = true;
         
         values = new ArrayList<Integer>();
         positions = new ArrayList<Integer>();
@@ -162,6 +163,7 @@ public class gameTwo extends Canvas {
                 active = 0;
                 once = 1;
                 bg = ks2Functions.randomNumberAlg();
+                stars = true;
                 
                 timeCounter timer = new timeCounter();
                 timer.start();
@@ -403,7 +405,9 @@ public class gameTwo extends Canvas {
     private static void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
-        drawMultiStar(g);
+        if (stars){
+            drawMultiStar(g);
+        }
         g.setColor(Color.GRAY);
         g.fillRect(0,350,30,700);
         g.fillRect(30,500,125,400);
@@ -417,7 +421,9 @@ public class gameTwo extends Canvas {
     private static void drawMars(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
-        drawMultiStar(g);
+        if (stars){
+            drawMultiStar(g);
+        }
         
         g.setColor(orangeShade);
         g.fillOval(20,550,500,600);
@@ -441,7 +447,9 @@ public class gameTwo extends Canvas {
     private static void drawVenus(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
-        drawMultiStar(g);
+        if (stars){
+            drawMultiStar(g);
+        }
         drawMoon(g,clr);
         drawAsteroid(g,0,0);
         drawAsteroid(g,300,150);
@@ -456,7 +464,9 @@ public class gameTwo extends Canvas {
     private static void drawPluto(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
-        drawMultiStar(g);
+        if (stars){
+            drawMultiStar(g);
+        }
         g.setColor(Color.GRAY);
         g.fillOval(0,750,100,400);
         g.fillOval(300,750,100,400);
@@ -477,7 +487,9 @@ public class gameTwo extends Canvas {
     private static void drawNeptune(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
-        drawMultiStar(g);
+        if (stars){
+            drawMultiStar(g);
+        }
         drawMoon(g,clr);
         g.setColor(nepBuild);
         g.fillRect(100,700,250,300);
@@ -514,16 +526,18 @@ public class gameTwo extends Canvas {
        
     }
     
+    //Class for the rocket animation once completed the level
     public static class animation extends JPanel implements ActionListener{
         javax.swing.Timer tm = new javax.swing.Timer(5,this);
         //x = Position 
         //velX = Speed 
         int x = 0, velX = 2;
         int sX = 380;
-        int sY = 312;         
+        int sY = 312;  
+        static JFrame jp = new JFrame();
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            
+            stars = false;
             if (bg <= 1){
                 //Earth
                 bgColor = nightBlue;
@@ -554,9 +568,9 @@ public class gameTwo extends Canvas {
             g.fillOval(sX+180,(sY+350)+x,80,230);
             g.fillOval(sX+5,(sY+350)+x,80,230);
             
-            g.setColor(Color.BLUE);
+            g.setColor(bgColor);
             g.fillOval(sX+145,(sY+450)+x,90,180);
-            g.setColor(Color.BLUE);
+            g.setColor(bgColor);
             g.fillOval(sX+35,(sY+450)+x,90,180);
             
             g.setColor(Color.RED);
@@ -586,11 +600,13 @@ public class gameTwo extends Canvas {
         }
         public void actionPerformed(ActionEvent e){
             x = x - velX;
+            if (x < -1000){
+                jp.hide();
+            }
             repaint();
         }
         public static void main(){
             animation t = new animation();
-            JFrame jp = new JFrame();
             jp.setTitle("Animation Test");
             jp.setSize(1000,1000);
             jp.setVisible(true);

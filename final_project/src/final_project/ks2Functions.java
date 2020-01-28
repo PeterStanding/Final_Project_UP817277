@@ -104,6 +104,15 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
+    public static int randomNumber50(){
+        int max = 50;
+        int min = 0;
+        int range = max-min+1;
+        
+        int randNum = (int)(Math.random()*range) + min;
+        
+        return randNum;
+    }
         
     public static int HCF(int a, int b){
         int x, i, hcf = 0;
@@ -138,7 +147,7 @@ public class ks2Functions extends keyFunctions{
         bothList = new ArrayList<String>();
         if (op.equals("+")||op.equals("-")||op.equals("*")||op.equals("/")){
             for (int i = 1; i <= num; i++){
-                String[] x = randomQuestion(op);
+                String[] x = randomQuestionKS2(op);
 
                 bothList.add(x[0]);
                 bothList.add(x[1]);
@@ -157,6 +166,71 @@ public class ks2Functions extends keyFunctions{
         //System.out.print(bothList);
         return bothList;
                 
+    }
+    public static String[] randomQuestionKS2(String op){
+        int part1 = randomNumber();
+        int part2 = randomNumber();
+        
+        ArrayList<Integer> multiQs = new ArrayList<>(Arrays.asList(2,5,10));
+        ArrayList<Integer> divQs = new ArrayList<>(Arrays.asList(5,10));
+        
+        
+        if (op.equals("*")){       
+            int pos = multiQs.get(randomMulti());
+            
+            part1 = pos;
+        } else if (op.equals("/")){
+            ArrayList <Integer> divide10 = new ArrayList<>(Arrays.asList(10,20,30,40,50,60,70,80,90,100));
+            
+            int pos = (randomNumber()) - 1;
+            int pos2 = (randomDivide());
+            
+            part1 = divide10.get(pos);
+            part2 = divQs.get(pos2);  
+        }
+        
+        String str1 = Integer.toString(part1);
+        String str2 = Integer.toString(part2);
+        
+        String question = str1 + " " + op + " " + str2;
+        int ans = 0;
+        
+        if (op.equals("+")){
+            part1 = randomNumber50();
+            part2 = randomNumber50();
+            ans = part1 + part2;
+            str1 = Integer.toString(part1);
+            str2 = Integer.toString(part2);
+            question = str1 + " " + op + " " + str2;
+        }
+        else if (op.equals("-")){
+            part1 = randomNumber100();
+            part2 = randomNumber50();
+            if (part1 < part2){
+                ans = part2 - part1;
+                str1 = Integer.toString(part1);
+                str2 = Integer.toString(part2);
+                question = str2 + " " + op + " " + str1;
+            }
+            ans = part1 - part2;
+            str1 = Integer.toString(part1);
+            str2 = Integer.toString(part2);
+            question = str1 + " " + op + " " + str2;
+        }
+        else if (op.equals("*")){
+            ans = part1 * part2;
+        }
+        else if (op.equals("/")){
+            ans = part1 / part2;
+        }
+        
+        String ansStr = Integer.toString(ans);
+        
+        String x[] = new String[2];
+        x[0] = question;
+        x[1] = ansStr;
+        
+        return x;
     }
     public static String[] randomQuestions(String op){
         String question = "";

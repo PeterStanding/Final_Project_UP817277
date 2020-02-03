@@ -54,6 +54,12 @@ public class homePage extends javax.swing.JFrame {
         shopOne = new javax.swing.JLabel();
         shopPr2 = new javax.swing.JLabel();
         purchase2 = new javax.swing.JButton();
+        shopFour = new javax.swing.JLabel();
+        shopThree = new javax.swing.JLabel();
+        shopPr3 = new javax.swing.JLabel();
+        purchase3 = new javax.swing.JButton();
+        purchase4 = new javax.swing.JButton();
+        shopPr4 = new javax.swing.JLabel();
         ks1Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         javax.swing.JButton ks1GameButton = new javax.swing.JButton();
@@ -92,7 +98,7 @@ public class homePage extends javax.swing.JFrame {
         setTitle("Math App Home");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
         homeLabel.setBackground(new java.awt.Color(153, 255, 255));
         homeLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
@@ -214,51 +220,100 @@ public class homePage extends javax.swing.JFrame {
             }
         });
 
+        shopFour.setBackground(new java.awt.Color(153, 255, 153));
+        shopFour.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        shopThree.setBackground(new java.awt.Color(153, 255, 153));
+        shopThree.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        shopPr3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        shopPr3.setText("100 Coins");
+
+        purchase3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        purchase3.setText("Purchase");
+        purchase3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchase3ActionPerformed(evt);
+            }
+        });
+
+        purchase4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        purchase4.setText("Purchase");
+        purchase4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchase4ActionPerformed(evt);
+            }
+        });
+
+        shopPr4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        shopPr4.setText("100 Coins");
+
         javax.swing.GroupLayout shopPanelLayout = new javax.swing.GroupLayout(shopPanel);
         shopPanel.setLayout(shopPanelLayout);
         shopPanelLayout.setHorizontalGroup(
             shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(shopPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(shopTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, shopPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(shopPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(shopFour, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(shopTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(shopPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(shopThree, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(shopOne, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(shopPanelLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(shopPr3)
+                        .addGap(46, 46, 46)
+                        .addComponent(purchase3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(shopPr1)
+                        .addGap(46, 46, 46)
+                        .addComponent(purchase1)
+                        .addGap(16, 16, 16))
+                    .addGroup(shopPanelLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(shopPr4)
+                        .addGap(46, 46, 46)
+                        .addComponent(purchase4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(shopPr2)
                         .addGap(46, 46, 46)
                         .addComponent(purchase2)
-                        .addGap(41, 41, 41)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, shopPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(shopPr1)
-                .addGap(46, 46, 46)
-                .addComponent(purchase1)
-                .addGap(53, 53, 53))
-            .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(shopPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(shopOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                        .addGap(9, 9, 9)))
+                .addGap(76, 76, 76))
         );
         shopPanelLayout.setVerticalGroup(
             shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(shopPanelLayout.createSequentialGroup()
-                .addContainerGap(258, Short.MAX_VALUE)
-                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shopPr1)
-                    .addComponent(purchase1))
-                .addGap(18, 18, 18)
-                .addComponent(shopTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(shopThree, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shopOne, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shopPr2)
-                    .addComponent(purchase2))
-                .addGap(22, 22, 22))
-            .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(shopPanelLayout.createSequentialGroup()
-                    .addComponent(shopOne, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 296, Short.MAX_VALUE)))
+                    .addComponent(shopPr1)
+                    .addComponent(purchase1)
+                    .addComponent(shopPr3)
+                    .addComponent(purchase3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(shopPanelLayout.createSequentialGroup()
+                        .addComponent(shopFour, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(shopPr4)
+                            .addComponent(purchase4)))
+                    .addGroup(shopPanelLayout.createSequentialGroup()
+                        .addComponent(shopTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(shopPr2)
+                            .addComponent(purchase2))))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
@@ -268,12 +323,12 @@ public class homePage extends javax.swing.JFrame {
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(407, 407, 407)
+                        .addGap(483, 483, 483)
                         .addComponent(jLabel1))
                     .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(shopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(447, Short.MAX_VALUE))
+                        .addGap(93, 93, 93)
+                        .addComponent(shopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +336,7 @@ public class homePage extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(shopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         jLayeredPane2.add(homePanel);
@@ -453,7 +508,7 @@ public class homePage extends javax.swing.JFrame {
             .addGroup(ks2PanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
                 .addComponent(easyKS2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -592,7 +647,7 @@ public class homePage extends javax.swing.JFrame {
                         .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(totalCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         jLayeredPane2.add(profilePanel);
@@ -647,14 +702,11 @@ public class homePage extends javax.swing.JFrame {
         icon = new ImageIcon("avatars/jewel.png"); 
         shopTwo.setIcon(icon);
         
-        if(list.contains("pixelHeart")){
-            icon = new ImageIcon("avatars/grid.png"); 
-            shopOne.setIcon(icon);  
-        }
-        if(list.contains("jewel")){
-            icon = new ImageIcon("avatars/tri.png"); 
-            shopTwo.setIcon(icon);  
-        }
+        icon = new ImageIcon("avatars/grid.png"); 
+        shopThree.setIcon(icon);  
+        
+        icon = new ImageIcon("avatars/tri.png"); 
+        shopFour.setIcon(icon);  
     }//GEN-LAST:event_homeLabelMouseClicked
     private void logLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logLabelMouseClicked
         //Logs out the users Account ready for the next user
@@ -829,10 +881,6 @@ public class homePage extends javax.swing.JFrame {
         int currCoin = Integer.parseInt(coinList.get(k));
         String unlockedPic = "pixelHeart";
         String newPicList = list + ", " + unlockedPic;
-        if (list.contains("pixelHeart")){
-            unlockedPic = "grid";
-            newPicList = list + ", " + unlockedPic;
-        }
         if (currCoin >= 100){
             String coinWrite = Integer.toString(currCoin - 100);
             keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
@@ -850,16 +898,46 @@ public class homePage extends javax.swing.JFrame {
         int currCoin = Integer.parseInt(coinList.get(k));
         String unlockedPic = "jewel";
         String newPicList = list + ", " + unlockedPic;
-        if (list.contains("jewel")){
-            unlockedPic = "tri";
-            newPicList = list + ", " + unlockedPic;
-        }
         if (currCoin >= 100){
             String coinWrite = Integer.toString(currCoin - 100);
             keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_purchase2ActionPerformed
+    private void purchase3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase3ActionPerformed
+                //Method to Purchase the Third Picture in the Shop
+        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt"); 
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt"); 
+        
+        int k = nameList.indexOf(currName);
+        String list = unlock.get(k);
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedPic = "tri";
+        String newPicList = list + ", " + unlockedPic;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_purchase3ActionPerformed
+    private void purchase4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase4ActionPerformed
+            //Method to Purchase the Fourth Picture in the Shop
+        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt"); 
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt"); 
+        
+        int k = nameList.indexOf(currName);
+        String list = unlock.get(k);
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedPic = "grid";
+        String newPicList = list + ", " + unlockedPic;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_purchase4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -932,14 +1010,20 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel profileTitle;
     private javax.swing.JButton purchase1;
     private javax.swing.JButton purchase2;
+    private javax.swing.JButton purchase3;
+    private javax.swing.JButton purchase4;
     private javax.swing.JButton rev2Button;
     private javax.swing.JLabel rocketScore;
     private javax.swing.JLabel schoolLabel;
     private javax.swing.JLabel schoolProfile;
+    private javax.swing.JLabel shopFour;
     private javax.swing.JLabel shopOne;
     private javax.swing.JPanel shopPanel;
     private javax.swing.JLabel shopPr1;
     private javax.swing.JLabel shopPr2;
+    private javax.swing.JLabel shopPr3;
+    private javax.swing.JLabel shopPr4;
+    private javax.swing.JLabel shopThree;
     private javax.swing.JLabel shopTwo;
     private javax.swing.JComboBox<String> skillChooser;
     private javax.swing.JLabel sumScore;

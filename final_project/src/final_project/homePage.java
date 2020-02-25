@@ -60,14 +60,16 @@ public class homePage extends javax.swing.JFrame {
         purchase3 = new javax.swing.JButton();
         purchase4 = new javax.swing.JButton();
         shopPr4 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
         ks1Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        javax.swing.JButton ks1GameButton = new javax.swing.JButton();
+        ks1GameButton = new javax.swing.JButton();
         easyDiff = new javax.swing.JToggleButton();
         mediumDiff = new javax.swing.JToggleButton();
         hardDiff = new javax.swing.JToggleButton();
         opChooser = new javax.swing.JComboBox<>();
         ks1RevisionButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         ks2Panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         rev2Button = new javax.swing.JButton();
@@ -76,6 +78,7 @@ public class homePage extends javax.swing.JFrame {
         mediumKS2 = new javax.swing.JToggleButton();
         hardKS2 = new javax.swing.JToggleButton();
         skillChooser = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         profilePanel = new javax.swing.JPanel();
         profileTitle = new javax.swing.JLabel();
         rocketScore = new javax.swing.JLabel();
@@ -91,6 +94,7 @@ public class homePage extends javax.swing.JFrame {
         changeButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         totalCoins = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -98,7 +102,7 @@ public class homePage extends javax.swing.JFrame {
         setTitle("Math App Home");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         homeLabel.setBackground(new java.awt.Color(153, 255, 255));
         homeLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
@@ -186,9 +190,12 @@ public class homePage extends javax.swing.JFrame {
         jLayeredPane2.setLayout(new javax.swing.OverlayLayout(jLayeredPane2));
 
         homePanel.setBackground(new java.awt.Color(255, 51, 51));
+        homePanel.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Welcome To The App");
+        homePanel.add(jLabel1);
+        jLabel1.setBounds(483, 0, 341, 75);
 
         shopPanel.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -316,35 +323,22 @@ public class homePage extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
-        homePanel.setLayout(homePanelLayout);
-        homePanelLayout.setHorizontalGroup(
-            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(483, 483, 483)
-                        .addComponent(jLabel1))
-                    .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(shopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(371, Short.MAX_VALUE))
-        );
-        homePanelLayout.setVerticalGroup(
-            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(shopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 50, Short.MAX_VALUE))
-        );
+        homePanel.add(shopPanel);
+        shopPanel.setBounds(40, 93, 579, 658);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/final_project/backgrounds/homePg.png"))); // NOI18N
+        homePanel.add(background);
+        background.setBounds(-5, 0, 1940, 1080);
 
         jLayeredPane2.add(homePanel);
 
         ks1Panel.setBackground(new java.awt.Color(204, 255, 204));
+        ks1Panel.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setText("KS1 Panel");
+        ks1Panel.add(jLabel2);
+        jLabel2.setBounds(465, 60, 158, 44);
 
         ks1GameButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ks1GameButton.setText("Game");
@@ -353,6 +347,8 @@ public class homePage extends javax.swing.JFrame {
                 ks1GameButtonActionPerformed(evt);
             }
         });
+        ks1Panel.add(ks1GameButton);
+        ks1GameButton.setBounds(240, 620, 249, 145);
 
         easyDiff.setText("Easy");
         easyDiff.addActionListener(new java.awt.event.ActionListener() {
@@ -360,6 +356,8 @@ public class homePage extends javax.swing.JFrame {
                 easyDiffActionPerformed(evt);
             }
         });
+        ks1Panel.add(easyDiff);
+        easyDiff.setBounds(380, 490, 69, 23);
 
         mediumDiff.setText("Medium");
         mediumDiff.addActionListener(new java.awt.event.ActionListener() {
@@ -367,6 +365,8 @@ public class homePage extends javax.swing.JFrame {
                 mediumDiffActionPerformed(evt);
             }
         });
+        ks1Panel.add(mediumDiff);
+        mediumDiff.setBounds(380, 540, 69, 23);
 
         hardDiff.setText("Hard");
         hardDiff.addActionListener(new java.awt.event.ActionListener() {
@@ -374,8 +374,12 @@ public class homePage extends javax.swing.JFrame {
                 hardDiffActionPerformed(evt);
             }
         });
+        ks1Panel.add(hardDiff);
+        hardDiff.setBounds(380, 580, 69, 23);
 
         opChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Addition", "Subtraction", "Multiply", "Divide" }));
+        ks1Panel.add(opChooser);
+        opChooser.setBounds(290, 540, 80, 20);
 
         ks1RevisionButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ks1RevisionButton.setText("Revision");
@@ -384,58 +388,22 @@ public class homePage extends javax.swing.JFrame {
                 ks1RevisionButtonActionPerformed(evt);
             }
         });
+        ks1Panel.add(ks1RevisionButton);
+        ks1RevisionButton.setBounds(260, 260, 231, 94);
 
-        javax.swing.GroupLayout ks1PanelLayout = new javax.swing.GroupLayout(ks1Panel);
-        ks1Panel.setLayout(ks1PanelLayout);
-        ks1PanelLayout.setHorizontalGroup(
-            ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ks1PanelLayout.createSequentialGroup()
-                .addGap(465, 465, 465)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks1PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ks1RevisionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks1PanelLayout.createSequentialGroup()
-                        .addComponent(ks1GameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(170, 170, 170))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks1PanelLayout.createSequentialGroup()
-                        .addComponent(opChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(mediumDiff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hardDiff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(easyDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(261, 261, 261))))
-        );
-        ks1PanelLayout.setVerticalGroup(
-            ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ks1PanelLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel2)
-                .addGap(77, 77, 77)
-                .addComponent(easyDiff)
-                .addGap(18, 18, 18)
-                .addGroup(ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mediumDiff)
-                    .addComponent(opChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(hardDiff)
-                .addGap(18, 18, 18)
-                .addGroup(ks1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ks1GameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ks1RevisionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/final_project/backgrounds/ks1Pg.png"))); // NOI18N
+        ks1Panel.add(jLabel5);
+        jLabel5.setBounds(0, 0, 1984, 1080);
 
         jLayeredPane2.add(ks1Panel);
 
         ks2Panel.setBackground(new java.awt.Color(102, 204, 255));
+        ks2Panel.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setText("KS2 Panel");
+        ks2Panel.add(jLabel3);
+        jLabel3.setBounds(598, 25, 158, 44);
 
         rev2Button.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         rev2Button.setText("Revision");
@@ -444,6 +412,8 @@ public class homePage extends javax.swing.JFrame {
                 rev2ButtonActionPerformed(evt);
             }
         });
+        ks2Panel.add(rev2Button);
+        rev2Button.setBounds(1250, 230, 189, 110);
 
         KS2Game.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         KS2Game.setText("Game");
@@ -452,6 +422,8 @@ public class homePage extends javax.swing.JFrame {
                 KS2GameActionPerformed(evt);
             }
         });
+        ks2Panel.add(KS2Game);
+        KS2Game.setBounds(1240, 660, 196, 90);
 
         easyKS2.setText("Easy");
         easyKS2.addActionListener(new java.awt.event.ActionListener() {
@@ -459,6 +431,8 @@ public class homePage extends javax.swing.JFrame {
                 easyKS2ActionPerformed(evt);
             }
         });
+        ks2Panel.add(easyKS2);
+        easyKS2.setBounds(1430, 560, 55, 23);
 
         mediumKS2.setText("Medium");
         mediumKS2.addActionListener(new java.awt.event.ActionListener() {
@@ -466,6 +440,8 @@ public class homePage extends javax.swing.JFrame {
                 mediumKS2ActionPerformed(evt);
             }
         });
+        ks2Panel.add(mediumKS2);
+        mediumKS2.setBounds(1420, 590, 69, 23);
 
         hardKS2.setText("Hard");
         hardKS2.addActionListener(new java.awt.event.ActionListener() {
@@ -473,89 +449,73 @@ public class homePage extends javax.swing.JFrame {
                 hardKS2ActionPerformed(evt);
             }
         });
+        ks2Panel.add(hardKS2);
+        hardKS2.setBounds(1420, 620, 55, 23);
 
         skillChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Addition", "Subtraction", "Multiplication", "Division", "Rounding", "Algebra", "Percentages", "Ratio", "Fraction" }));
+        ks2Panel.add(skillChooser);
+        skillChooser.setBounds(1220, 590, 141, 20);
 
-        javax.swing.GroupLayout ks2PanelLayout = new javax.swing.GroupLayout(ks2Panel);
-        ks2Panel.setLayout(ks2PanelLayout);
-        ks2PanelLayout.setHorizontalGroup(
-            ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks2PanelLayout.createSequentialGroup()
-                .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ks2PanelLayout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(rev2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(KS2Game, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ks2PanelLayout.createSequentialGroup()
-                        .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ks2PanelLayout.createSequentialGroup()
-                                .addGap(598, 598, 598)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ks2PanelLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(skillChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)))
-                        .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(hardKS2)
-                            .addComponent(mediumKS2)
-                            .addComponent(easyKS2))))
-                .addGap(277, 277, 277))
-        );
-        ks2PanelLayout.setVerticalGroup(
-            ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ks2PanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(easyKS2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mediumKS2)
-                    .addComponent(skillChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hardKS2)
-                .addGap(38, 38, 38)
-                .addGroup(ks2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rev2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(KS2Game, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(249, 249, 249))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/final_project/backgrounds/ks2Pg.png"))); // NOI18N
+        ks2Panel.add(jLabel6);
+        jLabel6.setBounds(0, 0, 1984, 1080);
 
         jLayeredPane2.add(ks2Panel);
 
         profilePanel.setBackground(new java.awt.Color(255, 255, 153));
+        profilePanel.setLayout(null);
 
         profileTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         profileTitle.setText("User Profile");
+        profilePanel.add(profileTitle);
+        profileTitle.setBounds(447, 50, 282, 58);
 
         rocketScore.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         rocketScore.setText("rocket score");
+        profilePanel.add(rocketScore);
+        rocketScore.setBounds(1060, 600, 263, 43);
 
         nameProfile.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         nameProfile.setText("name");
+        profilePanel.add(nameProfile);
+        nameProfile.setBounds(1110, 230, 263, 55);
 
         highRocket.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         highRocket.setText("High Score Rocket:");
+        profilePanel.add(highRocket);
+        highRocket.setBounds(980, 550, 309, 43);
 
         schoolLabel.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         schoolLabel.setText("School:");
+        profilePanel.add(schoolLabel);
+        schoolLabel.setBounds(990, 300, 118, 43);
+        profilePanel.add(profAvatar);
+        profAvatar.setBounds(160, 190, 260, 260);
 
         nameLabel.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         nameLabel.setText("Name:");
+        profilePanel.add(nameLabel);
+        nameLabel.setBounds(990, 230, 107, 43);
 
         highSum.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         highSum.setText("High Score Sum Snap:");
+        profilePanel.add(highSum);
+        highSum.setBounds(980, 410, 363, 43);
 
         schoolProfile.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         schoolProfile.setText("school");
+        profilePanel.add(schoolProfile);
+        schoolProfile.setBounds(1120, 290, 263, 67);
 
         sumScore.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         sumScore.setText("sum score");
+        profilePanel.add(sumScore);
+        sumScore.setBounds(1060, 460, 263, 43);
 
         avaChoice.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         avaChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Flowers", "Sun", "Star", "Pencil" }));
+        profilePanel.add(avaChoice);
+        avaChoice.setBounds(200, 470, 200, 35);
 
         changeButton.setText("Change");
         changeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -563,92 +523,21 @@ public class homePage extends javax.swing.JFrame {
                 changeButtonActionPerformed(evt);
             }
         });
+        profilePanel.add(changeButton);
+        changeButton.setBounds(280, 520, 69, 23);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel4.setText("Total Coins Collected:");
+        profilePanel.add(jLabel4);
+        jLabel4.setBounds(980, 690, 346, 43);
 
         totalCoins.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        profilePanel.add(totalCoins);
+        totalCoins.setBounds(1080, 740, 148, 43);
 
-        javax.swing.GroupLayout profilePanelLayout = new javax.swing.GroupLayout(profilePanel);
-        profilePanel.setLayout(profilePanelLayout);
-        profilePanelLayout.setHorizontalGroup(
-            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(profilePanelLayout.createSequentialGroup()
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(profAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(profilePanelLayout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(profileTitle))
-                            .addGroup(profilePanelLayout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(profilePanelLayout.createSequentialGroup()
-                                        .addComponent(nameLabel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(nameProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(profilePanelLayout.createSequentialGroup()
-                                        .addComponent(highRocket)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rocketScore, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(profilePanelLayout.createSequentialGroup()
-                                        .addComponent(highSum)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(sumScore, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(profilePanelLayout.createSequentialGroup()
-                                        .addComponent(schoolLabel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(schoolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(profilePanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(totalCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(avaChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(changeButton)))
-                .addContainerGap(132, Short.MAX_VALUE))
-        );
-        profilePanelLayout.setVerticalGroup(
-            profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(profilePanelLayout.createSequentialGroup()
-                .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(profAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 146, 146)
-                        .addComponent(avaChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(changeButton))
-                    .addGroup(profilePanelLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(profileTitle)
-                        .addGap(71, 71, 71)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameLabel)
-                            .addComponent(nameProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(schoolLabel)
-                            .addComponent(schoolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(highSum)
-                            .addComponent(sumScore))
-                        .addGap(18, 18, 18)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(highRocket)
-                            .addComponent(rocketScore))
-                        .addGap(18, 18, 18)
-                        .addGroup(profilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(totalCoins, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(244, Short.MAX_VALUE))
-        );
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/final_project/backgrounds/profilePg.png"))); // NOI18N
+        profilePanel.add(jLabel7);
+        jLabel7.setBounds(0, 0, 1984, 1080);
 
         jLayeredPane2.add(profilePanel);
 
@@ -750,14 +639,15 @@ public class homePage extends javax.swing.JFrame {
         totalCoins.setText(currCoins);
                
     }//GEN-LAST:event_profileLabelMouseClicked
+
     private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
-        ArrayList <String> profPic = keyFunctions.readFile("db/profile.txt"); 
+        ArrayList <String> profPic = keyFunctions.readFile("db/profile.txt");
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
-        
+
         int k = nameList.indexOf(currName);
         String list = unlock.get(k);
-        
+
         if (list.contains("pixelHeart")&&list.contains("jewel")){
             avaChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Flowers", "Sun", "Star", "Pencil", "PixelHeart", "Jewel" }));
         } else if (list.contains("pixelHeart")){
@@ -765,9 +655,7 @@ public class homePage extends javax.swing.JFrame {
         } else if (list.contains("jewel")){
             avaChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Flowers", "Sun", "Star", "Pencil", "Jewel" }));
         } else {}
-        
-        
-        
+
         String av = (String)avaChoice.getSelectedItem();
         if (av.equals("Car")){
             //System.out.print("test");
@@ -792,18 +680,26 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/profile.txt","pencil",k);
         }
     }//GEN-LAST:event_changeButtonActionPerformed
+
+    private void ks1RevisionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1RevisionButtonActionPerformed
+        ks1Revision.main();
+    }//GEN-LAST:event_ks1RevisionButtonActionPerformed
+
     private void hardDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardDiffActionPerformed
         mediumDiff.setSelected(false);
         easyDiff.setSelected(false);
     }//GEN-LAST:event_hardDiffActionPerformed
+
     private void mediumDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumDiffActionPerformed
         easyDiff.setSelected(false);
         hardDiff.setSelected(false);
     }//GEN-LAST:event_mediumDiffActionPerformed
+
     private void easyDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyDiffActionPerformed
         mediumDiff.setSelected(false);
         hardDiff.setSelected(false);
     }//GEN-LAST:event_easyDiffActionPerformed
+
     private void ks1GameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1GameButtonActionPerformed
         if (easyDiff.isSelected()){
             diff = "easy";
@@ -836,97 +732,13 @@ public class homePage extends javax.swing.JFrame {
         //Generates the Canavs on a JFrame
         gameOne.main(operation,numQ,diff,currName);
     }//GEN-LAST:event_ks1GameButtonActionPerformed
-    private void ks1RevisionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1RevisionButtonActionPerformed
-        ks1Revision.main();
-    }//GEN-LAST:event_ks1RevisionButtonActionPerformed
-    private void rev2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rev2ButtonActionPerformed
-        ks2Revision.main();
-    }//GEN-LAST:event_rev2ButtonActionPerformed
-    private void KS2GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KS2GameActionPerformed
-        if (easyKS2.isSelected()){
-            diff = "easy";
-        }
-        if (mediumKS2.isSelected()){
-            diff = "medium";
-        }
-        if (hardKS2.isSelected()){
-            diff = "hard";
-        }
-        
-        String skillSelected = (String)skillChooser.getSelectedItem();
 
-        //Generates the Canavs on a JFrame
-        gameTwo.main(diff,skillSelected,currName);
-    }//GEN-LAST:event_KS2GameActionPerformed
-    private void easyKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyKS2ActionPerformed
-        mediumKS2.setSelected(false);
-        hardKS2.setSelected(false);
-    }//GEN-LAST:event_easyKS2ActionPerformed
-    private void mediumKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumKS2ActionPerformed
-        easyKS2.setSelected(false);
-        hardKS2.setSelected(false);
-    }//GEN-LAST:event_mediumKS2ActionPerformed
-    private void hardKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardKS2ActionPerformed
-        mediumKS2.setSelected(false);
-        easyKS2.setSelected(false);
-    }//GEN-LAST:event_hardKS2ActionPerformed
-    private void purchase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase1ActionPerformed
-        //Method to Purchase the First Picture in the Shop
-        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
-        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt"); 
-        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt"); 
-        
-        int k = nameList.indexOf(currName);
-        String list = unlock.get(k);
-        int currCoin = Integer.parseInt(coinList.get(k));
-        String unlockedPic = "pixelHeart";
-        String newPicList = list + ", " + unlockedPic;
-        if (currCoin >= 100){
-            String coinWrite = Integer.toString(currCoin - 100);
-            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
-            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
-        }
-    }//GEN-LAST:event_purchase1ActionPerformed
-    private void purchase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase2ActionPerformed
-        //Method to Purchase the Second Picture in the Shop
-        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
-        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt"); 
-        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt"); 
-        
-        int k = nameList.indexOf(currName);
-        String list = unlock.get(k);
-        int currCoin = Integer.parseInt(coinList.get(k));
-        String unlockedPic = "jewel";
-        String newPicList = list + ", " + unlockedPic;
-        if (currCoin >= 100){
-            String coinWrite = Integer.toString(currCoin - 100);
-            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
-            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
-        }
-    }//GEN-LAST:event_purchase2ActionPerformed
-    private void purchase3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase3ActionPerformed
-                //Method to Purchase the Third Picture in the Shop
-        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
-        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt"); 
-        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt"); 
-        
-        int k = nameList.indexOf(currName);
-        String list = unlock.get(k);
-        int currCoin = Integer.parseInt(coinList.get(k));
-        String unlockedPic = "tri";
-        String newPicList = list + ", " + unlockedPic;
-        if (currCoin >= 100){
-            String coinWrite = Integer.toString(currCoin - 100);
-            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
-            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
-        }
-    }//GEN-LAST:event_purchase3ActionPerformed
     private void purchase4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase4ActionPerformed
-            //Method to Purchase the Fourth Picture in the Shop
+        //Method to Purchase the Fourth Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
-        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt"); 
-        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt"); 
-        
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+
         int k = nameList.indexOf(currName);
         String list = unlock.get(k);
         int currCoin = Integer.parseInt(coinList.get(k));
@@ -938,6 +750,96 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_purchase4ActionPerformed
+
+    private void purchase3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase3ActionPerformed
+        //Method to Purchase the Third Picture in the Shop
+        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+
+        int k = nameList.indexOf(currName);
+        String list = unlock.get(k);
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedPic = "tri";
+        String newPicList = list + ", " + unlockedPic;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_purchase3ActionPerformed
+
+    private void purchase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase2ActionPerformed
+        //Method to Purchase the Second Picture in the Shop
+        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+
+        int k = nameList.indexOf(currName);
+        String list = unlock.get(k);
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedPic = "jewel";
+        String newPicList = list + ", " + unlockedPic;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_purchase2ActionPerformed
+
+    private void purchase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase1ActionPerformed
+        //Method to Purchase the First Picture in the Shop
+        ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+
+        int k = nameList.indexOf(currName);
+        String list = unlock.get(k);
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedPic = "pixelHeart";
+        String newPicList = list + ", " + unlockedPic;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/unlocked.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_purchase1ActionPerformed
+
+    private void hardKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardKS2ActionPerformed
+        mediumKS2.setSelected(false);
+        easyKS2.setSelected(false);
+    }//GEN-LAST:event_hardKS2ActionPerformed
+
+    private void mediumKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumKS2ActionPerformed
+        easyKS2.setSelected(false);
+        hardKS2.setSelected(false);
+    }//GEN-LAST:event_mediumKS2ActionPerformed
+
+    private void easyKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyKS2ActionPerformed
+        mediumKS2.setSelected(false);
+        hardKS2.setSelected(false);
+    }//GEN-LAST:event_easyKS2ActionPerformed
+
+    private void KS2GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KS2GameActionPerformed
+        if (easyKS2.isSelected()){
+            diff = "easy";
+        }
+        if (mediumKS2.isSelected()){
+            diff = "medium";
+        }
+        if (hardKS2.isSelected()){
+            diff = "hard";
+        }
+
+        String skillSelected = (String)skillChooser.getSelectedItem();
+
+        //Generates the Canavs on a JFrame
+        gameTwo.main(diff,skillSelected,currName);
+    }//GEN-LAST:event_KS2GameActionPerformed
+
+    private void rev2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rev2ButtonActionPerformed
+        ks2Revision.main();
+    }//GEN-LAST:event_rev2ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -977,6 +879,7 @@ public class homePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton KS2Game;
     private javax.swing.JComboBox<String> avaChoice;
+    private javax.swing.JLabel background;
     private javax.swing.JButton changeButton;
     private javax.swing.JToggleButton easyDiff;
     private javax.swing.JToggleButton easyKS2;
@@ -991,8 +894,12 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton ks1GameButton;
     private javax.swing.JLabel ks1Label;
     private javax.swing.JPanel ks1Panel;
     private javax.swing.JButton ks1RevisionButton;

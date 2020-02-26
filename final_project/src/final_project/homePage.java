@@ -60,10 +60,20 @@ public class homePage extends javax.swing.JFrame {
         purchase3 = new javax.swing.JButton();
         purchase4 = new javax.swing.JButton();
         shopPr4 = new javax.swing.JLabel();
+        puzzle = new javax.swing.JPanel();
+        cover1 = new javax.swing.JButton();
+        cover2 = new javax.swing.JButton();
+        cover3 = new javax.swing.JButton();
+        cover6 = new javax.swing.JButton();
+        cover5 = new javax.swing.JButton();
+        cover4 = new javax.swing.JButton();
+        cover7 = new javax.swing.JButton();
+        cover8 = new javax.swing.JButton();
+        cover9 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
         ks1Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        ks1GameButton = new javax.swing.JButton();
+        javax.swing.JButton ks1GameButton = new javax.swing.JButton();
         easyDiff = new javax.swing.JToggleButton();
         mediumDiff = new javax.swing.JToggleButton();
         hardDiff = new javax.swing.JToggleButton();
@@ -181,7 +191,7 @@ public class homePage extends javax.swing.JFrame {
                 .addComponent(ks2Label)
                 .addGap(18, 18, 18)
                 .addComponent(profileLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 628, Short.MAX_VALUE)
                 .addComponent(logLabel)
                 .addContainerGap())
         );
@@ -325,6 +335,133 @@ public class homePage extends javax.swing.JFrame {
 
         homePanel.add(shopPanel);
         shopPanel.setBounds(40, 93, 579, 658);
+
+        puzzle.setPreferredSize(new java.awt.Dimension(660, 630));
+
+        cover1.setText("Cover 1");
+        cover1.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover1ActionPerformed(evt);
+            }
+        });
+
+        cover2.setText("Cover 2");
+        cover2.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover2ActionPerformed(evt);
+            }
+        });
+
+        cover3.setText("Cover 3");
+        cover3.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover3ActionPerformed(evt);
+            }
+        });
+
+        cover6.setText("Cover 6");
+        cover6.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover6ActionPerformed(evt);
+            }
+        });
+
+        cover5.setText("Cover 5");
+        cover5.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover5ActionPerformed(evt);
+            }
+        });
+
+        cover4.setText("Cover 4");
+        cover4.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover4ActionPerformed(evt);
+            }
+        });
+
+        cover7.setText("Cover 7");
+        cover7.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover7ActionPerformed(evt);
+            }
+        });
+
+        cover8.setText("Cover 8");
+        cover8.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover8ActionPerformed(evt);
+            }
+        });
+
+        cover9.setText("Cover 9");
+        cover9.setPreferredSize(new java.awt.Dimension(220, 210));
+        cover9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cover9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout puzzleLayout = new javax.swing.GroupLayout(puzzle);
+        puzzle.setLayout(puzzleLayout);
+        puzzleLayout.setHorizontalGroup(
+            puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puzzleLayout.createSequentialGroup()
+                .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(puzzleLayout.createSequentialGroup()
+                        .addComponent(cover1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cover2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(puzzleLayout.createSequentialGroup()
+                        .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cover4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cover7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cover5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cover8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, puzzleLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cover9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(puzzleLayout.createSequentialGroup()
+                        .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cover3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cover6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        puzzleLayout.setVerticalGroup(
+            puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(puzzleLayout.createSequentialGroup()
+                .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cover1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cover2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cover3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cover4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cover5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cover6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(puzzleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cover7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cover8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cover9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        homePanel.add(puzzle);
+        puzzle.setBounds(690, 100, 670, 640);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/final_project/backgrounds/homePg.png"))); // NOI18N
         homePanel.add(background);
@@ -548,7 +685,7 @@ public class homePage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane2))
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1463, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,8 +719,10 @@ public class homePage extends javax.swing.JFrame {
         
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
         int k = nameList.indexOf(currName);
         String list = unlock.get(k);
+        String puzzList = puzzle.get(k);
         
         icon = new ImageIcon("avatars/pixelHeart.png"); 
         shopOne.setIcon(icon);
@@ -595,7 +734,35 @@ public class homePage extends javax.swing.JFrame {
         shopThree.setIcon(icon);  
         
         icon = new ImageIcon("avatars/tri.png"); 
-        shopFour.setIcon(icon);  
+        shopFour.setIcon(icon); 
+        
+        if(puzzList.contains("1")){
+            cover1.hide();
+        }
+        if(puzzList.contains("2")){
+            cover2.hide();
+        }
+        if(puzzList.contains("3")){
+            cover3.hide();
+        }
+        if(puzzList.contains("4")){
+            cover4.hide();
+        }
+        if(puzzList.contains("5")){
+            cover5.hide();
+        }
+        if(puzzList.contains("6")){
+            cover6.hide();
+        }
+        if(puzzList.contains("7")){
+            cover7.hide();
+        }
+        if(puzzList.contains("8")){
+            cover8.hide();
+        }
+        if(puzzList.contains("9")){
+            cover9.hide();
+        }
     }//GEN-LAST:event_homeLabelMouseClicked
     private void logLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logLabelMouseClicked
         //Logs out the users Account ready for the next user
@@ -689,12 +856,10 @@ public class homePage extends javax.swing.JFrame {
         mediumDiff.setSelected(false);
         easyDiff.setSelected(false);
     }//GEN-LAST:event_hardDiffActionPerformed
-
     private void mediumDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumDiffActionPerformed
         easyDiff.setSelected(false);
         hardDiff.setSelected(false);
     }//GEN-LAST:event_mediumDiffActionPerformed
-
     private void easyDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyDiffActionPerformed
         mediumDiff.setSelected(false);
         hardDiff.setSelected(false);
@@ -750,7 +915,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_purchase4ActionPerformed
-
     private void purchase3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase3ActionPerformed
         //Method to Purchase the Third Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
@@ -768,7 +932,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_purchase3ActionPerformed
-
     private void purchase2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase2ActionPerformed
         //Method to Purchase the Second Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
@@ -786,7 +949,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_purchase2ActionPerformed
-
     private void purchase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase1ActionPerformed
         //Method to Purchase the First Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
@@ -809,12 +971,10 @@ public class homePage extends javax.swing.JFrame {
         mediumKS2.setSelected(false);
         easyKS2.setSelected(false);
     }//GEN-LAST:event_hardKS2ActionPerformed
-
     private void mediumKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumKS2ActionPerformed
         easyKS2.setSelected(false);
         hardKS2.setSelected(false);
     }//GEN-LAST:event_mediumKS2ActionPerformed
-
     private void easyKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_easyKS2ActionPerformed
         mediumKS2.setSelected(false);
         hardKS2.setSelected(false);
@@ -836,10 +996,172 @@ public class homePage extends javax.swing.JFrame {
         //Generates the Canavs on a JFrame
         gameTwo.main(diff,skillSelected,currName);
     }//GEN-LAST:event_KS2GameActionPerformed
-
     private void rev2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rev2ButtonActionPerformed
         ks2Revision.main();
     }//GEN-LAST:event_rev2ButtonActionPerformed
+
+    private void cover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover1ActionPerformed
+        //Method to Uncover the First Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "1";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover1ActionPerformed
+    private void cover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover2ActionPerformed
+        //Method to Uncover the Second Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "2";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover2ActionPerformed
+    private void cover3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover3ActionPerformed
+        //Method to Uncover the Third Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "3";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover3ActionPerformed
+    private void cover4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover4ActionPerformed
+        //Method to Uncover the Fourth Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "4";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover4ActionPerformed
+    private void cover5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover5ActionPerformed
+        //Method to Uncover the Fifth Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "5";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover5ActionPerformed
+    private void cover6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover6ActionPerformed
+        //Method to Uncover the Sixth Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "6";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover6ActionPerformed
+    private void cover7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover7ActionPerformed
+        //Method to Uncover the Seventh Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "7";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover7ActionPerformed
+    private void cover8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover8ActionPerformed
+        //Method to Uncover the Eight Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "8";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover8ActionPerformed
+    private void cover9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover9ActionPerformed
+        //Method to Uncover the Ninth Page:
+        ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
+        ArrayList <String> puzzle = keyFunctions.readFile("db/puzzle.txt");
+        ArrayList <String> coinList = keyFunctions.readFile("db/coins.txt");
+         
+        int k = nameList.indexOf(currName);
+        String list = puzzle.get(k);
+        
+        int currCoin = Integer.parseInt(coinList.get(k));
+        String unlockedCover = "9";
+        String newPicList = list + ", " + unlockedCover;
+        if (currCoin >= 100){
+            String coinWrite = Integer.toString(currCoin - 100);
+            keyFunctions.writeFile("db/puzzle.txt",newPicList,k);
+            keyFunctions.writeFile("db/coins.txt",coinWrite,k);
+        }
+    }//GEN-LAST:event_cover9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -881,6 +1203,15 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> avaChoice;
     private javax.swing.JLabel background;
     private javax.swing.JButton changeButton;
+    private javax.swing.JButton cover1;
+    private javax.swing.JButton cover2;
+    private javax.swing.JButton cover3;
+    private javax.swing.JButton cover4;
+    private javax.swing.JButton cover5;
+    private javax.swing.JButton cover6;
+    private javax.swing.JButton cover7;
+    private javax.swing.JButton cover8;
+    private javax.swing.JButton cover9;
     private javax.swing.JToggleButton easyDiff;
     private javax.swing.JToggleButton easyKS2;
     private javax.swing.JToggleButton hardDiff;
@@ -899,7 +1230,6 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton ks1GameButton;
     private javax.swing.JLabel ks1Label;
     private javax.swing.JPanel ks1Panel;
     private javax.swing.JButton ks1RevisionButton;
@@ -919,6 +1249,7 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JButton purchase2;
     private javax.swing.JButton purchase3;
     private javax.swing.JButton purchase4;
+    private javax.swing.JPanel puzzle;
     private javax.swing.JButton rev2Button;
     private javax.swing.JLabel rocketScore;
     private javax.swing.JLabel schoolLabel;

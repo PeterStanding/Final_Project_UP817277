@@ -44,6 +44,7 @@ public class homePage extends javax.swing.JFrame {
         ks2Label = new javax.swing.JLabel();
         logLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         homePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -165,6 +166,8 @@ public class homePage extends javax.swing.JFrame {
             }
         });
 
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/final_project/backgrounds/turtle.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -180,6 +183,10 @@ public class homePage extends javax.swing.JFrame {
                     .addComponent(ks1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(logLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(logo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +199,9 @@ public class homePage extends javax.swing.JFrame {
                 .addComponent(ks2Label)
                 .addGap(18, 18, 18)
                 .addComponent(profileLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 628, Short.MAX_VALUE)
+                .addGap(222, 222, 222)
+                .addComponent(logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
                 .addComponent(logLabel)
                 .addContainerGap())
         );
@@ -1275,6 +1284,7 @@ public class homePage extends javax.swing.JFrame {
     private javax.swing.JLabel ks2Label;
     private javax.swing.JPanel ks2Panel;
     private javax.swing.JLabel logLabel;
+    private javax.swing.JLabel logo;
     private javax.swing.JToggleButton mediumDiff;
     private javax.swing.JToggleButton mediumKS2;
     private javax.swing.JLabel nameLabel;

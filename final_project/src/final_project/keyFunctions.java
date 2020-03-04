@@ -16,7 +16,11 @@ import static java.lang.System.*;
 
 public abstract class keyFunctions {
     static ArrayList<String> current;
-    //Generates a random quesiton for use
+    /**
+     * Method to generate a list of random questions based on the operation that the user has entered. 
+     * 
+     * @param op Operation that the user would like to generate questions for 
+     */
     public static String[] randomQuestion(String op){
         int part1 = randomNumber();
         int part2 = randomNumber();
@@ -66,7 +70,10 @@ public abstract class keyFunctions {
         
         return x;
     }
-    //Generates a Random Number between 1 and 2
+    
+    /**
+     * This method runs a random number between 1 and 2
+     */
     public static int randomDivide(){
         int max = 2;
         int min = 1;
@@ -76,7 +83,10 @@ public abstract class keyFunctions {
         
         return (randNum-1); 
     }
-    //Generates a Random Number between 1 and 3
+    
+    /**
+     * This method generates a random number between 1 and 3
+     */
     public static int randomMulti(){
         int max = 3;
         int min = 1;
@@ -86,7 +96,10 @@ public abstract class keyFunctions {
         
         return (randNum-1); 
     }
-    //Generates a Random Number between 1 and 10
+    
+    /**
+     * This method generates a random number between 1 and 10
+     */
     public static int randomNumber(){
         int max = 10;
         int min = 1;
@@ -97,7 +110,13 @@ public abstract class keyFunctions {
         return randNum;        
     }
     
-    //Method to write and read files
+    /**
+     * This method reads the file at the provided file destination
+     * 
+     * @param fileName Is the file name of the required file to read
+     * 
+     * @return current Returns an Array List string which contains the contents of the file.
+     */
     public static ArrayList<String> readFile(String fileName){
         current = new ArrayList<String>();
         try {
@@ -114,6 +133,14 @@ public abstract class keyFunctions {
         }
         return current;
     }
+    
+    /**
+     * This method writes to the file at the provided file destination
+     * 
+     * @param fileName Is the file name of the required file to write
+     * @param txt This is the string information that the user would like to write to the file.
+     * @param index Is the line that the new text should be written too
+     */
     public static void writeFile(String fileName, String txt, int index){
         current = new ArrayList<String>();
         try {

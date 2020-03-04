@@ -175,7 +175,13 @@ public class login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * A method that checks the entered information against the information within the database
+     * if it is a match then the user is granted access to the system. Otherwise, the user is 
+     * prompted as to which section of the entered information is incorrect
+     * 
+     * @param evt Takes into account when the button on the login form has been pressed, triggering the code to execute 
+     */
     private void subButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subButtonActionPerformed
         nameIncorrect.hide();
         passwordIncorrect.hide();
@@ -226,9 +232,14 @@ public class login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         gameTwo.main("easy", "Addition", stuName);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     /**
+     * A method that opens the registration Jframe for new users to add their information to the system.
+     * 
+     * @param evt Takes into account when the button on the login form has been pressed, triggering the code to execute 
+     */
     private void regButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regButtonActionPerformed
         register.main();
+        this.dispose();
     }//GEN-LAST:event_regButtonActionPerformed
 
     /**

@@ -1621,7 +1621,7 @@ public class ks2Revision extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 798, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1562, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -1632,7 +1632,12 @@ public class ks2Revision extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Method to navigate to the rounding portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void roundingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundingLabelMouseClicked
         roundPanel.show();
         algPanel.hide();
@@ -1641,6 +1646,12 @@ public class ks2Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_roundingLabelMouseClicked
 
+    /**
+     * Method to navigate to the algebra portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void algebraLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_algebraLabelMouseClicked
         roundPanel.hide();
         algPanel.show();
@@ -1649,6 +1660,12 @@ public class ks2Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_algebraLabelMouseClicked
 
+    /**
+     * Method to navigate to the percentage portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void percentageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_percentageLabelMouseClicked
         roundPanel.hide();
         algPanel.hide();
@@ -1657,6 +1674,12 @@ public class ks2Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_percentageLabelMouseClicked
 
+    /**
+     * Method to navigate to the ratio portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void ratioLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ratioLabelMouseClicked
         roundPanel.hide();
         algPanel.hide();
@@ -1665,10 +1688,22 @@ public class ks2Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_ratioLabelMouseClicked
 
+    /**
+     * Method to navigate back to the homepage of the application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void backLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelMouseClicked
         this.dispose();
     }//GEN-LAST:event_backLabelMouseClicked
 
+    /**
+     * Method to navigate to the fraction portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void fractionLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fractionLabelMouseClicked
         roundPanel.hide();
         algPanel.hide();
@@ -1681,6 +1716,13 @@ public class ks2Revision extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_answer1ActionPerformed
 
+    /**
+     * Method to start a quiz in the application
+     * Uses a list of rounded questions and assigns these to a question jLabel
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void quizStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizStartActionPerformed
         roundQuestions = new ArrayList<Double>();
         roundAnswers = new ArrayList<Double>();
@@ -1708,6 +1750,12 @@ public class ks2Revision extends javax.swing.JFrame {
         question12.setText(rounding.get(11));
     }//GEN-LAST:event_quizStartActionPerformed
 
+    /**
+     * Method to check the score of the quiz within the application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void checkScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkScoreActionPerformed
         int score = 0;
         String ans = "";
@@ -1777,6 +1825,12 @@ public class ks2Revision extends javax.swing.JFrame {
         roundScore.setText("Score: "+scoreString+"/12");
     }//GEN-LAST:event_checkScoreActionPerformed
 
+    /**
+     * Method to check the score of the ratio quiz in the application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void checkRatioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRatioActionPerformed
         int currScore = 0;
         String ans = "";
@@ -1811,6 +1865,12 @@ public class ks2Revision extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_changePercActionPerformed
 
+    /**
+     * Method to check the quiz on the ratio section of the application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int currScore = 0;
         String ans = "";
@@ -1858,6 +1918,12 @@ public class ks2Revision extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fmAns6ActionPerformed
 
+    /**
+     * Method to calculate a score on the fraction quiz section of the application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int currScore = 0;
         String ans = "";
@@ -1891,6 +1957,12 @@ public class ks2Revision extends javax.swing.JFrame {
         fmScore.setText("Score: "+scoreString+"/6");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Method to calculate a score of the quiz in the application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void equationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equationButtonActionPerformed
         int currScore = 0;
         String ans = "";

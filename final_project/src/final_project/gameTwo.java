@@ -44,6 +44,13 @@ public class gameTwo extends Canvas {
     public static Boolean update,stars;
     public static JFrame frame;
     
+    /**
+     * Main function of the game
+     * 
+     * @param difficulty Difficulty that the user has chosen to implement
+     * @param sk Skill that the user has chosen to implement
+     * @param stuName Name of the current student
+     */
     public static void main(String difficulty, String sk, String stuName){
         frame = new gameFrame();
         Canvas canvas = new gameTwo(difficulty,sk,stuName);
@@ -52,6 +59,13 @@ public class gameTwo extends Canvas {
         frame.pack();
         frame.setVisible(true);
     }
+    /**
+     * Implements the variables used in the class, and assigns a value to them
+     * 
+     * @param difficulty Difficulty that the user has chosen to implement
+     * @param sk Skill that the user has chosen to implement
+     * @param stuName Name of the current student
+     */
     public gameTwo (String difficulty, String sk, String stuName){
         diff = difficulty;
         skill = sk;
@@ -130,6 +144,11 @@ public class gameTwo extends Canvas {
         bg = ks2Functions.randomNumberAlg();
     }
      
+    /**
+     * A method to illustrate the game
+     * 
+     * @param g Graphic package to illustrate the game
+     */
     public void paint(Graphics g){
         if (score == 8){
             //timer.stop();
@@ -270,7 +289,15 @@ public class gameTwo extends Canvas {
             } else {
     }}}
     
-    //Methods to draw the sections that make up the Image
+    /**
+     * Method to draw the Rocket
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param sX baseline X coordinate for the rocket
+     * @param sY baseline Y coordinate for the rocket
+     * @param clr Defines the colour used within the drawing
+     * @param des Defines another colour used within the drawing
+     */
     private static void drawRocket(Graphics g,int sX, int sY, Color clr, Color des){
         //Rocket Legs
         g.setColor(lightGray);
@@ -322,6 +349,12 @@ public class gameTwo extends Canvas {
                 marX += change;
         }}
     }
+    /**
+     * Method to draw the Fuel gauge, which gets updated based on the current score
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param sc score values in the game
+     */
     private static void drawFuelGauge(Graphics g, int sc){
         g.setColor(wood);
         g.fillRect(0, 890, width, 200);
@@ -350,6 +383,13 @@ public class gameTwo extends Canvas {
                                     g.fillRect(739,910,60,65);
         }}}}}}}}        
     }
+    /**
+     * Method to draw the stars within the background
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param starX baseline X coordinate for the star
+     * @param starY baseline Y coordinate for the star
+     */
     private static void drawStar(Graphics g, int starX, int starY){
         g.setColor(Color.WHITE);
         int xPoints[] = {starX+60,starX+70,starX+80};
@@ -359,6 +399,11 @@ public class gameTwo extends Canvas {
         g.fillPolygon(xPoints,yPoints,3);
         g.fillPolygon(xPointsInv,yPointsInv,3);
     }
+    /**
+     * Method to draw multiple stars for the background
+     * 
+     * @param g Graphic package to illustrate the game
+     */
     private static void drawMultiStar(Graphics g){  
         int starX = 0;
         int starY = 0;
@@ -377,6 +422,13 @@ public class gameTwo extends Canvas {
         }
         
     }
+    /**
+     * Method to draw the aliens on the launch pad
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param marX baseline X coordinate for the martian
+     * @param marY baseline Y coordinate for the martian
+     */
     private static void drawMartian(Graphics g, int marX, int marY){
         g.setColor(martianGreen);
         g.fillOval(marX+10,marY+10,25,25);
@@ -384,12 +436,25 @@ public class gameTwo extends Canvas {
         g.fillOval(marX-3,marY+55,50,10);
         g.fillOval(marX+7,marY+35,30,10);
     }
+    /**
+     * Method to draw the Moon in the background 
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param bg Defines the colour used within the drawing
+     */
     private static void drawMoon(Graphics g, Color bg){
         g.setColor(silver);
         g.fillOval(700,10,100,100);
         g.setColor(bg);
         g.fillOval(740,10,75,100);
     }
+    /**
+     * Method to draw the asteroids on a handful of the levels
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param astX baseline X coordinate for the asteroids
+     * @param astY baseline Y coordinate for the asteroids
+     */
     private static void drawAsteroid(Graphics g, int astX, int astY){
         //Asteroid
         g.setColor(brown);
@@ -401,7 +466,12 @@ public class gameTwo extends Canvas {
         g.fillOval(astX+135,astY+450,10,10);
     }
     
-    //Methods to draw the Backgrounds for the Rocket
+    /**
+     * Method to draw the Earth level for the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param clr Defines the colour used within the drawing
+     */
     private static void drawEarth(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -418,6 +488,12 @@ public class gameTwo extends Canvas {
         g.fillRect(650,350,100,550);
         g.fillRect(295,400,450,75);
     }
+    /**
+     * Method to draw the Mars level for the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param clr Defines the colour used within the drawing
+     */
     private static void drawMars(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -444,6 +520,12 @@ public class gameTwo extends Canvas {
         g.fillOval(925,755,25,25);
         g.fillOval(950,800,25,25);
     }
+    /**
+     * Method to draw the Venus level for the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param clr Defines the colour used within the drawing
+     */
     private static void drawVenus(Graphics g,Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -461,6 +543,12 @@ public class gameTwo extends Canvas {
         drawAsteroid(g,650,250);
         drawAsteroid(g,-50,300);
     }
+    /**
+     * Method to draw the Pluto level for the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param clr Defines the colour used within the drawing
+     */
     private static void drawPluto(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -484,6 +572,12 @@ public class gameTwo extends Canvas {
         g.fillOval(700,850,100,100);
         g.fillOval(825,750,100,300);
     }
+    /**
+     * Method to draw the Neptune level for the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param clr Defines the colour used within the drawing
+     */
     private static void drawNeptune(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -502,6 +596,12 @@ public class gameTwo extends Canvas {
         g.fillRect(775,800,45,300);
         g.fillOval(775,780,45,50);
     }
+    /**
+     * Method to draw the GoldenCity level for the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param clr Defines the colour used within the drawing
+     */
     private static void drawGoldenCity(Graphics g, Color clr){
         g.setColor(clr);
         g.fillRect(0, 0, width, height);
@@ -526,7 +626,9 @@ public class gameTwo extends Canvas {
        
     }
     
-    //Class for the rocket animation once completed the level
+    /**
+     * Class that creates the animation once the game has reached the relevant scores
+     */
     public static class animation extends JPanel implements ActionListener{
         javax.swing.Timer tm = new javax.swing.Timer(5,this);
         //x = Position 
@@ -615,7 +717,9 @@ public class gameTwo extends Canvas {
         }        
     }
     
-    //Class for the Countdown Timer - Thread Concurrency
+    /**
+     * Class that implements threads as a timer that stops the game once the time is finished
+     */
     public class timeCounter extends Thread{
         public void run(){
             int i = 90;
@@ -657,7 +761,9 @@ public class gameTwo extends Canvas {
         }
     }
     
-    //JFrame Class
+    /**
+     * Creates the gameFrame that the game runs in, with a canvas and some buttons to interact with
+     */
     private static class gameFrame extends JFrame{
         
         public gameFrame()

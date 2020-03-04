@@ -41,11 +41,27 @@ public class gameOne extends Canvas implements MouseListener {
     public Color darkGreen,gold,brown;
     public static JLabel timer;
     
-    //Main Class that creates the frame and draws on the canvas for the KS1 Game
+     /**
+     * A method to call for the canvas to be constructed so that game can successfully run
+     * 
+     * @param op Operation that the user would like to work on
+     * @param m Number of questions that the system should generate
+     * @param k Difficulty that the user has selected from the homePage
+     * @param name Name of the student
+     */
     public static void main(String op, int m, String k, String name){
         Canvas canvas = new gameOne(op,m,k,name);
     }
     
+    /**
+     * A method that creates all the variables and assigns a value to them
+     * Also begins a thread which is used as a timer for the game to be completed before.
+     * 
+     * @param testString Operation that the user would like to work on
+     * @param number Number of questions that the system should generate
+     * @param difficulty Difficulty that the user has selected from the homePage
+     * @param name Name of the student
+     */
     public gameOne (String testString, int number, String difficulty, String name){
         operation = testString;
         qNum = number;
@@ -112,7 +128,12 @@ public class gameOne extends Canvas implements MouseListener {
         //frame.pack();  
     }
       
-    // Functions to Output the Card Values
+    /**
+     * A method to draw the cards for the game on Easy Difficulty
+     * 
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     */
     private void chooseCardEasy(int x, int y){
         //First Row Of Cards
         if (y>=15 && y<=235){
@@ -203,6 +224,12 @@ public class gameOne extends Canvas implements MouseListener {
             }
         }
     }
+    /**
+     * A method to draw the cards for the game on Medium Difficulty
+     * 
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     */
     private void chooseCardMedium(int x, int y){
         //First Row Of Cards
         if (y>=15 && y<=235){
@@ -317,6 +344,12 @@ public class gameOne extends Canvas implements MouseListener {
             }
         }
     }
+    /**
+     * A method to draw the cards for the game on Hard Difficulty
+     * 
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     */
     private void chooseCardHard(int x, int y){
         //First Row Of Cards
         if (y>=15 && y<=235){
@@ -456,7 +489,11 @@ public class gameOne extends Canvas implements MouseListener {
         }
     }
     
-    //Methods to Draw the Individual Sections of the Canvas
+    /**
+     * A method to illustrate the game
+     * 
+     * @param g Graphic package to illustrate the game
+     */
     public void paint(Graphics g){
         int x = 15;
         int y = 15;
@@ -917,6 +954,15 @@ public class gameOne extends Canvas implements MouseListener {
         }
     }
     
+    /**
+     * A method to draw the cards and the text
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     * @param pos Position within the list that will be written to the card
+     * @param qs A list of random questions
+     */
     private void drawCard(Graphics g,int x,int y,int pos,ArrayList<String> qs){
         g.setColor(Color.white);
         g.fillRect(x, y, 175, 220);
@@ -924,6 +970,13 @@ public class gameOne extends Canvas implements MouseListener {
         g.setColor(Color.black);
         g.drawString(text,x+50,y+100);
     }
+    /**
+     * A method to draw the patterns on the back of the cards
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     */
     private void drawPatt(Graphics g,int x, int y){
         g.setColor(Color.WHITE);
         g.fillRect(x,y,175,220);
@@ -945,6 +998,13 @@ public class gameOne extends Canvas implements MouseListener {
         }
         
     }
+    /**
+     * A method to draw the borders around the cards
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     */
     private void drawBoarder(Graphics g, int x, int y){
         g.setColor(Color.BLACK);
         g.drawLine(x,y,x+175,y);
@@ -952,6 +1012,13 @@ public class gameOne extends Canvas implements MouseListener {
         g.drawLine(x+175,y,x+175,y+220);
         g.drawLine(x,y+220,x+175,y+220);
     }
+    /**
+     * A method to draw the background of the game
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param diff Difficulty of the game the user has selected
+     * @param score Current score the user has
+     */ 
     private void drawBackground (Graphics g,String diff,int score){
         g.setColor(Color.CYAN);
         g.fillRect(0, 0, width, 1300);
@@ -972,6 +1039,13 @@ public class gameOne extends Canvas implements MouseListener {
         
         drawScore(g,diff,score);
     } 
+    /**
+     * A method to draw the score on the background of the game so the user can keep track
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param diff Difficulty of the game the user has selected
+     * @param score Current score the user has
+     */
     private void drawScore(Graphics g,String diff,int score){
         g.setColor(Color.BLACK);
         //Functions to redraw the scores for the Student
@@ -994,6 +1068,13 @@ public class gameOne extends Canvas implements MouseListener {
             g.drawString(score+"/10 Pairs", 650, 325);
         }
     }
+    /**
+     * A method to draw the clouds in the background
+     * 
+     * @param g Graphic package to illustrate the game
+     * @param x X coordinates for the drawing location
+     * @param y Y coordinates for the drawing location
+     */
     private void drawCloud(Graphics g,int x, int y){
         g.setColor(Color.WHITE);
         g.fillOval(x,y-20,100,50);
@@ -1001,7 +1082,11 @@ public class gameOne extends Canvas implements MouseListener {
         g.fillOval(x+100,y,60,50);
     }
     
-//Methods for the MouseListeners
+    /**
+     * Methods to override the other mouseEvent rules
+     * 
+     * @param e Triggers when the mouse is clicked on the screen
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
     }
@@ -1018,7 +1103,9 @@ public class gameOne extends Canvas implements MouseListener {
     public void mouseExited(MouseEvent e) {   
     }
     
-    
+    /**
+     * A method to create the game timer and implements threads to keep track 
+     */
     public class timeCounter extends Thread{
         public void run(){
             for (int i = 90; i >=0;i--){
@@ -1039,8 +1126,14 @@ public class gameOne extends Canvas implements MouseListener {
         }
     }
     
-    //Creates the JFrame Basis for the Game Screen
+    /**
+     * A method to create a JFrame which makes use of the mouse Events allowing the user to interact with the game
+     */
     private static class myMouse extends JFrame{
+        /**
+        * A method to create the game timer and implements threads to keep track 
+        * @param width width of the JFrame
+        */
         public myMouse(int width)
         {
             addMouseListener(new MouseAdapter(){

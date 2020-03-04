@@ -744,6 +744,12 @@ public class homePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     /**
+     * These methods are used to navigate the different overall sections of the application. They are triggered by the user clicking the relevant JLabels
+     * on the left hand side of the application.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void ks2LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ks2LabelMouseClicked
         //Opens the KS2 Panel
         ks2Panel.show();
@@ -855,6 +861,12 @@ public class homePage extends javax.swing.JFrame {
                
     }//GEN-LAST:event_profileLabelMouseClicked
 
+     /**
+     * A method that allows the user to alter their own profile picture for their account. The current picture is stored in a database table and once the change button has been
+     * pressed, it updates the record with this new image file name.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
         ArrayList <String> profPic = keyFunctions.readFile("db/profile.txt");
@@ -896,10 +908,21 @@ public class homePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_changeButtonActionPerformed
 
+     /**
+     * A method that opens the Key Stage 1 revision element of the application.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void ks1RevisionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1RevisionButtonActionPerformed
         ks1Revision.main();
     }//GEN-LAST:event_ks1RevisionButtonActionPerformed
 
+    /**
+     * These methods allow the user to select the difficulty of the game that they wish to implement.
+     * The three different methods allow only one difficulty to be set at once, as each method turns the other buttons to be false.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void hardDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardDiffActionPerformed
         mediumDiff.setSelected(false);
         easyDiff.setSelected(false);
@@ -913,6 +936,12 @@ public class homePage extends javax.swing.JFrame {
         hardDiff.setSelected(false);
     }//GEN-LAST:event_easyDiffActionPerformed
 
+    /**
+     * The method that opens the first game. It takes into account which difficulty the user has selected, as well as the operation that they plan on
+     * using within the game.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void ks1GameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ks1GameButtonActionPerformed
         if (easyDiff.isSelected()){
             diff = "easy";
@@ -946,6 +975,12 @@ public class homePage extends javax.swing.JFrame {
         gameOne.main(operation,numQ,diff,currName);
     }//GEN-LAST:event_ks1GameButtonActionPerformed
 
+    /**
+     * These methods are used by the user to purchase different profile pictures from the front page. It takes into account the users current Coins and changes the
+     * number of coins they have respective of their number before. 
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void purchase4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase4ActionPerformed
         //Method to Purchase the Fourth Picture in the Shop
         ArrayList <String> unlock = keyFunctions.readFile("db/unlocked.txt");
@@ -1015,6 +1050,12 @@ public class homePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_purchase1ActionPerformed
 
+    /**
+     * These methods allow the user to select the difficulty of the game that they wish to implement.
+     * The three different methods allow only one difficulty to be set at once, as each method turns the other buttons to be false.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void hardKS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hardKS2ActionPerformed
         mediumKS2.setSelected(false);
         easyKS2.setSelected(false);
@@ -1028,6 +1069,12 @@ public class homePage extends javax.swing.JFrame {
         hardKS2.setSelected(false);
     }//GEN-LAST:event_easyKS2ActionPerformed
 
+    /**
+     * The method that opens the second game. It takes into account which difficulty the user has selected, as well as the operation that they plan on
+     * using within the game.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void KS2GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KS2GameActionPerformed
         if (easyKS2.isSelected()){
             diff = "easy";
@@ -1045,9 +1092,21 @@ public class homePage extends javax.swing.JFrame {
         gameTwo.main(diff,skillSelected,currName);
     }//GEN-LAST:event_KS2GameActionPerformed
     private void rev2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rev2ButtonActionPerformed
+        /**
+        * A method that opens the Key Stage 2 revision element of the application.
+        * 
+        * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+        */
         ks2Revision.main();
     }//GEN-LAST:event_rev2ButtonActionPerformed
 
+    /**
+     * These methods are to reveal the image hidden behind the puzzle on the front page of the application
+     * Once the home page button is pressed it reads the database to see which buttons have already been pressed, and hides them.
+     * Once a new button is pressed, it rights it to the database and hides it.
+     * 
+     * @param evt Takes into account when the button on the homePage form has been pressed, triggering the code to execute 
+     */
     private void cover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover1ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1065,7 +1124,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover1ActionPerformed
-
     private void cover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover2ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1083,7 +1141,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover2ActionPerformed
-
     private void cover3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover3ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1101,7 +1158,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover3ActionPerformed
-
     private void cover4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover4ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1119,7 +1175,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover4ActionPerformed
-
     private void cover5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover5ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1137,7 +1192,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover5ActionPerformed
-
     private void cover7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover7ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1155,7 +1209,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover7ActionPerformed
-
     private void cover9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover9ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1173,7 +1226,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover9ActionPerformed
-
     private void cover8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover8ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");
@@ -1191,7 +1243,6 @@ public class homePage extends javax.swing.JFrame {
             keyFunctions.writeFile("db/coins.txt",coinWrite,k);
         }
     }//GEN-LAST:event_cover8ActionPerformed
-
     private void cover6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cover6ActionPerformed
         //Method to Remove a Cover from the Puzzle Picture
         ArrayList <String> revealed = keyFunctions.readFile("db/puzzle.txt");

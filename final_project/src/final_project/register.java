@@ -147,6 +147,11 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTxtActionPerformed
 
+    /**
+     * A method that registers a new user to the system, writing their information to the txt file Database, allowing them to login to the system
+     * 
+     * @param evt Takes into account when the button on the register form has been pressed, triggering the code to execute 
+     */
     private void regButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regButtonActionPerformed
         ArrayList <String> passList = keyFunctions.readFile("db/passwords.txt");
         ArrayList <String> nameList = keyFunctions.readFile("db/names.txt");
@@ -178,16 +183,27 @@ public class register extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_regButtonActionPerformed
-
+    
+    /**
+     * A method that clears the inputs for all the registration form sections.
+     * 
+     * @param evt Takes into account when the button on the register form has been pressed, triggering the code to execute 
+     */
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         nameTxt.setText("");
         passwordTxt.setText("");
         reEnterTxt.setText("");
         schoolTxt.setText("");
     }//GEN-LAST:event_clearButtonActionPerformed
-
+    
+    /**
+     * A method that closes the form and reopens the login page
+     * 
+     * @param evt Takes into account when the button on the register form has been pressed, triggering the code to execute 
+     */
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         this.dispose();
+        login.main();
     }//GEN-LAST:event_closeButtonActionPerformed
 
     /**

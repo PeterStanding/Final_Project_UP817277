@@ -18,6 +18,14 @@ public class ks1Functions extends keyFunctions {
     static ArrayList<String> randomQs;
     static ArrayList<String> qs;
     
+    /**
+     * Class that generates random questions and the answers in a list format
+     * 
+     * @param num Number of questions that the user requires
+     * @param op Operation that the user wishes to use
+     * 
+     * @return List of both questions and answers for the game to use
+     */
     public static ArrayList<String> generateQ(int num, String op){
         //3 Difficuties - Easy, Medium, Hard
         //4x3 Grid for Easy(12), 4x4 for Medium(16), 4x5 for Hard(20)
@@ -37,6 +45,14 @@ public class ks1Functions extends keyFunctions {
                 
     }  
 
+    /**
+     * Randomises the layout of the questions and answers for the game to use
+     * 
+     * @param num Number of questions that the user requires
+     * @param op Operation that the user wishes to use
+     * 
+     * @return List of both questions and answers for the game to use
+     */
     public static ArrayList<String> randomLayout(int num,String op){
         int qNum = num;
         
@@ -58,6 +74,13 @@ public class ks1Functions extends keyFunctions {
         return randomQs;
     }
     
+    /**
+     * Method to generate a random number between 0 and the upperbound
+     * 
+     * @param up Upperbound of the random number generator
+     * 
+     * @return A random number between 0 and the upper bound
+     */
     public static int randomNumber(int up){
         int max = up-1;
         int min = 0;

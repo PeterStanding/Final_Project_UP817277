@@ -15,6 +15,11 @@ public class ks2Functions extends keyFunctions{
     private static ArrayList<Integer> roundAnswers;
     private static ArrayList<String> bothList;
     
+    /**
+     * Method that generates a rounding list to be used 
+
+     * @return List of rounded numbers for use in the revision function
+     */
     public static ArrayList<Double> rounding(){
         roundQuestion = new ArrayList<Double>();
         for (int k=0;k<12;k++){
@@ -24,6 +29,11 @@ public class ks2Functions extends keyFunctions{
         return roundQuestion;
     }
     
+    /**
+     * Method that rounds a random number
+
+     * @return rounded number based on a random number
+     */
     public static int randomRound(){
         int max = 1000;
         int min = 0;
@@ -32,6 +42,11 @@ public class ks2Functions extends keyFunctions{
         int randNum = (int)(Math.random()*range) + min;
         return randNum;
     }
+    /**
+     * Method that generates a random decimal
+
+     * @return random decimal
+     */
     public static Double randomDecimal(){
         int max = 1000;
         int min = 0;
@@ -43,7 +58,12 @@ public class ks2Functions extends keyFunctions{
         
         return randDec;
         
-    }    
+    }  
+    /**
+     * Method that generates a random fraction
+
+     * @return generated fraction
+     */
     public static String randomFraction(){
         int denom = randomNumber();
         int numer = randomNumber();
@@ -58,6 +78,11 @@ public class ks2Functions extends keyFunctions{
         
         return fraction;
     }
+    /**
+     * Method that generates a random number to be used between 0-10
+
+     * @return random number
+     */
     public static int randomNumber(){
         int max = 10;
         int min = 0;
@@ -67,7 +92,12 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
-     public static int randomNumberRatio(){
+    /**
+     * Method that generates a random number between 0-10 
+
+     * @return random number 
+     */
+    public static int randomNumberRatio(){
         int max = 10;
         int min = 1;
         int range = max-min+1;
@@ -76,6 +106,11 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
+    /**
+     * Method that generates a random number to be used between 1-10
+
+     * @return random number
+     */
     public static int randomNumberAlg(){
         int max = 10;
         int min = 1;
@@ -85,6 +120,12 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
+    /**
+     * Method that generates a random number to be used between 1-4
+     * to be used to generate the locations of the answers in the second game
+     * 
+     * @return random number
+     */
     public static int randomPosition(){
         int max = 4;
         int min = 1;
@@ -95,6 +136,11 @@ public class ks2Functions extends keyFunctions{
         
         return pos;
     }
+    /**
+     * Method that generates a random number to be used between 0-100
+     * 
+     * @return random number
+     */
     public static int randomNumber100(){
         int max = 100;
         int min = 0;
@@ -104,6 +150,11 @@ public class ks2Functions extends keyFunctions{
         
         return randNum;
     }
+     /**
+     * Method that generates a random number to be used between 0-50
+     * 
+     * @return random number
+     */
     public static int randomNumber50(){
         int max = 50;
         int min = 0;
@@ -114,6 +165,14 @@ public class ks2Functions extends keyFunctions{
         return randNum;
     }
         
+     /**
+     * Method that calculates the highest common factor between two integers
+     * 
+     * @param a Integer that is used to find a HCF
+     * @param b Integer that is used to find a HCF
+     * 
+     * @return HCF between two integers
+     */
     public static int HCF(int a, int b){
         int x, i, hcf = 0;
         
@@ -124,11 +183,27 @@ public class ks2Functions extends keyFunctions{
         //System.out.print(hcf);
         return hcf;
     }
+    /**
+     * Method that calculates the lowest common multiple between two integers
+     * 
+     * @param a Integer that is used to find a LCM
+     * @param b Integer that is used to find a LCM
+     * 
+     * @return LCM between two integers
+     */
     public static int LCM(int a, int b){
         int lowest = a * b / GCD(a,b);
         //System.out.print(lowest);
         return lowest;
     }
+    /**
+     * Method that calculates the greatest common divisor between two integers
+     * 
+     * @param a Integer that is used to find a GCD
+     * @param b Integer that is used to find a GCD
+     * 
+     * @return GCD between two integers
+     */
     public static int GCD(int a, int b){
         if (b == 0){
             return a;
@@ -136,6 +211,14 @@ public class ks2Functions extends keyFunctions{
         return GCD(b,a%b);
     }
     
+    /**
+     * Method to generate random questions for the game to use
+     * 
+     * @param num number of questions used in the game
+     * @param op Operation being used in the game
+     * 
+     * @return list of questions and answers for the game to use
+     */
     public static ArrayList<String> generateQ(int num, String op){
         //Calls the RandomQuestion from the KeyFunctions Class
         //Rounding      -> "^"
@@ -167,6 +250,13 @@ public class ks2Functions extends keyFunctions{
         return bothList;
                 
     }
+    /**
+     * Method that calculates a random question for the ks2 question areas
+     * 
+     * @param op Operation being used
+     * 
+     * @return List of both question and answers
+     */
     public static String[] randomQuestionKS2(String op){
         int part1 = randomNumber();
         int part2 = randomNumber();
@@ -232,6 +322,13 @@ public class ks2Functions extends keyFunctions{
         
         return x;
     }
+    /**
+     * Method that calculates a random question for the ks1 question areas
+     * 
+     * @param op Operation being used
+     * 
+     * @return List of both question and answers
+     */
     public static String[] randomQuestions(String op){
         String question = "";
         String ansStr = "";

@@ -1019,7 +1019,12 @@ public class ks1Revision extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Method to navigate to the addition portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
         addPanel.show();
         subPanel.hide();
@@ -1028,6 +1033,12 @@ public class ks1Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_addLabelMouseClicked
 
+    /**
+     * Method to navigate to the subtraction portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void subLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subLabelMouseClicked
         addPanel.hide();
         subPanel.show();
@@ -1036,6 +1047,12 @@ public class ks1Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_subLabelMouseClicked
 
+    /**
+     * Method to navigate to the Multiplication portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void multiLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiLabelMouseClicked
         addPanel.hide();
         subPanel.hide();
@@ -1044,6 +1061,12 @@ public class ks1Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_multiLabelMouseClicked
 
+    /**
+     * Method to navigate to the Division portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void divLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divLabelMouseClicked
         addPanel.hide();
         subPanel.hide();
@@ -1052,10 +1075,22 @@ public class ks1Revision extends javax.swing.JFrame {
         fractionPanel.hide();
     }//GEN-LAST:event_divLabelMouseClicked
 
+    /**
+     * Method to navigate back to the homePage
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void backLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLabelMouseClicked
         this.dispose();
     }//GEN-LAST:event_backLabelMouseClicked
 
+    /**
+     * Method to navigate to the fraction portion of the revision application
+     * 
+     * @param evt Mouse Event click
+     * 
+     */
     private void fractionLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fractionLabelMouseClicked
         addPanel.hide();
         subPanel.hide();

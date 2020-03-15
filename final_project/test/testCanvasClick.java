@@ -7,6 +7,8 @@
 /**
  *
  * @author peter
+ * https://www.youtube.com/watch?v=NWqDmSowp3k&t=27s
+ * Credit: thestartutor (2011)
  */
 
 import java.awt.event.MouseEvent;

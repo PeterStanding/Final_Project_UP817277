@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 /**
  *
  * @author peter
+ * https://www.youtube.com/watch?v=JYYH11OhhGs
+ * Credit: Neutrino (2015)
  */
 public class timeCounter {
     static Thread thread = new Thread();

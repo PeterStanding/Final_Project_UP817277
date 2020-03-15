@@ -7,6 +7,8 @@
 /**
  *
  * @author peter
+ * https://www.youtube.com/watch?v=CajXXmhIndI
+ * Credit: Telusko (2015)
  */
 
 import javax.swing.JFrame;

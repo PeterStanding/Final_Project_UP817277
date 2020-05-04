@@ -551,7 +551,7 @@ public class homePage extends javax.swing.JFrame {
             }
         });
         ks1Panel.add(mediumDiff);
-        mediumDiff.setBounds(380, 540, 69, 23);
+        mediumDiff.setBounds(380, 540, 110, 23);
 
         hardDiff.setText("Hard");
         hardDiff.addActionListener(new java.awt.event.ActionListener() {
@@ -560,7 +560,7 @@ public class homePage extends javax.swing.JFrame {
             }
         });
         ks1Panel.add(hardDiff);
-        hardDiff.setBounds(380, 580, 69, 23);
+        hardDiff.setBounds(380, 580, 110, 23);
 
         opChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Addition", "Subtraction", "Multiply", "Divide" }));
         ks1Panel.add(opChooser);
@@ -617,7 +617,7 @@ public class homePage extends javax.swing.JFrame {
             }
         });
         ks2Panel.add(easyKS2);
-        easyKS2.setBounds(1430, 560, 55, 23);
+        easyKS2.setBounds(1395, 560, 90, 23);
 
         mediumKS2.setText("Medium");
         mediumKS2.addActionListener(new java.awt.event.ActionListener() {
@@ -626,7 +626,7 @@ public class homePage extends javax.swing.JFrame {
             }
         });
         ks2Panel.add(mediumKS2);
-        mediumKS2.setBounds(1420, 590, 69, 23);
+        mediumKS2.setBounds(1389, 590, 100, 23);
 
         hardKS2.setText("Hard");
         hardKS2.addActionListener(new java.awt.event.ActionListener() {

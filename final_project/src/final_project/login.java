@@ -53,7 +53,6 @@ public class login extends javax.swing.JFrame {
         passwordIncorrect = new javax.swing.JLabel();
         schoolIncorrect = new javax.swing.JLabel();
         subButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         regButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,13 +95,6 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Testing");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         regButton.setText("Register");
         regButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,9 +126,6 @@ public class login extends javax.swing.JFrame {
                             .addComponent(passwordIncorrect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(schoolIncorrect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(subButton)
                         .addGap(67, 67, 67)
@@ -165,12 +154,10 @@ public class login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(subButton)
                     .addComponent(regButton))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         pack();
@@ -229,9 +216,6 @@ public class login extends javax.swing.JFrame {
            this.hide(); 
         }
     }//GEN-LAST:event_subButtonActionPerformed
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        gameTwo.main("easy", "Addition", stuName);
-    }//GEN-LAST:event_jButton1ActionPerformed
      /**
      * A method that opens the registration Jframe for new users to add their information to the system.
      * 
@@ -280,7 +264,6 @@ public class login extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
